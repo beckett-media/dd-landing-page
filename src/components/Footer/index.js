@@ -52,12 +52,12 @@ const linkSection2 = [
   {
     key: "linkSection2_4",
     label: "Terms",
-    path: "/",
+    path: "/terms-and-conditions",
   },
   {
     key: "linkSection2_5",
     label: "Privacy",
-    path: "/",
+    path: "/privacy-policy",
   },
 ]
 

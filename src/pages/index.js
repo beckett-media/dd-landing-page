@@ -1,5 +1,4 @@
 import * as React from "react"
-import { useStaticQuery, graphql } from "gatsby"
 import ReactModal from "react-modal"
 
 import Layout from "../components/Layout"
@@ -29,23 +28,11 @@ const customStyles = {
 
 const Home = () => {
   const [modal, setModal] = React.useState("")
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
+  
   return (
-    <Layout>
+    <Layout setModal={(val) => setModal(val)}>
       <Seo title="Home" />
-      <Header
-        setModal={(val) => setModal(val)}
-        siteTitle={data.site.siteMetadata?.title || `Title`}
-      />
+     
       <HeroBanner />
       <GradientLine />
       <InstantAssessment />
