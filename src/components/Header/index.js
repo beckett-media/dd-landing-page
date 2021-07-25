@@ -17,9 +17,9 @@ const headerLinks = [
 const Header = () => {
   const [activeLint, setActiveLink] = React.useState("marketplace")
   return (
-    <header>
+    <header className="fixed-top">
       <nav className="navbar navbar-expand-lg navbar-dark">
-        <div className="container-md py-3">
+        <div className="container-md py-2">
           <a className="navbar-brand" href="#">
             <DueDillyLogo />
           </a>

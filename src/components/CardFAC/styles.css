@@ -1,0 +1,31 @@
+
+p{
+  color: #121634;
+}
+
+h2 {
+  font-weight: 900;
+  color: #43475F;
+}
+
+.card-fac-container {
+  background: #F4F5F6;
+}
+
+.fac-text-container{
+  max-width: 500px;
+}
+
+.ribbon-title{
+  position: absolute;
+    top: -20px;
+    right: -10px;
+    width:80%
+}
+
+.star-dotted{
+  position: absolute;
+  bottom: -5rem;
+  right:  0px;
+  width:5rem
+}

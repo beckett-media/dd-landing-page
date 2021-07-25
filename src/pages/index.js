@@ -5,6 +5,9 @@ import { StaticImage } from "gatsby-plugin-image"
 import Layout from "../components/Layout"
 import Seo from "../components/seo"
 import UpperFooter from "../components/UpperFooter"
+import CardFAC from "../components/CardFAC"
+import GradientLine from "../components/GradientLine"
+import RealTimeEval from "../components/RealTimeEval"
 
 const IndexPage = () => (
   <Layout>
@@ -24,6 +27,9 @@ const IndexPage = () => (
       <Link to="/page-2/">Go to page 2</Link> <br />
       <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
     </p>
+    <RealTimeEval/>
+    <GradientLine/>
+    <CardFAC/>
     <UpperFooter />
   </Layout>
 )
