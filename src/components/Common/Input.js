@@ -59,7 +59,7 @@ const Input = ({ otp, error, inputAllowed, label, options, ...rest }) => {
           {label && <label>{label}</label>}
           <input readOnly={optionsIsArray && !inputAllowed ? true : false} onFocus={onFocus} onBlur={onBlur} {...rest} />
           {optionsIsArray && (
-            <span class="dropdown-icon">
+            <span className="dropdown-icon">
               <FontAwesomeIcon icon={isVisibleOptions ? faChevronUp : faChevronDown} />
             </span>
           )}

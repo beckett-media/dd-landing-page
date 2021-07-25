@@ -9,7 +9,6 @@ import Footer from "../Footer"
 
 import "./styles.css"
 
-
 ReactModal.setAppElement("#___gatsby")
 
 const customStyles = {
@@ -21,10 +20,10 @@ const customStyles = {
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
   },
-  overlay: {zIndex: 999999}
+  overlay: { zIndex: 999999 },
 }
 
-const Layout = ({ children, }) => {
+const Layout = ({ children }) => {
   const [modal, setModal] = React.useState("")
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -39,13 +38,13 @@ const Layout = ({ children, }) => {
   return (
     <>
       <Header
-        setModal={val=>setModal(val)}
+        setModal={val => setModal(val)}
         siteTitle={data.site.siteMetadata?.title || `Title`}
       />
-      <main>{children}</main>
+      <main className="layout-body">{children}</main>
       <Footer />
       <ReactModal
-        isOpen={modal}
+        isOpen={Boolean(modal)}
         onRequestClose={() => {
           setModal("")
         }}

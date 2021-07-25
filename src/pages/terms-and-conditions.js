@@ -5,7 +5,7 @@ import Layout from "../components/Layout"
 
 const TermsAndConditions = () => (
   <Layout>
-    <main className="wrap">
+    <main className="wrap py-3">
       <section className="container">
         <div className="container__heading">
           <h2>Terms & Conditions</h2>

@@ -1,0 +1,59 @@
+.market-place-title {
+  color: #43475f;
+}
+
+.star-dotted-top {
+  position: absolute;
+  top: 0px;
+  left: 2rem;
+  width: 5rem;
+}
+
+.market-place-gray-container {
+  background-color: #f4f5f6;
+}
+
+.market-place-list-title {
+  font-weight: 900;
+  color: #43475f;
+}
+
+.market-place-list-title-underline {
+  width: 60px;
+  height: 5px;
+  background-color: #43475f;
+}
+
+.card {
+  border: 5px solid #43475f2f;
+  border-radius: 0px;
+}
+
+.card-image-wrapper {
+  height: 100px;
+  overflow: hidden;
+  max-width: 130px;
+  border-radius: 13px;
+}
+
+.avatar-image {
+  height: 40px;
+  width: 40px;
+  margin-right: 5px;
+  overflow: hidden;
+  border-radius: 100%;
+}
+
+.font-weight-bold{
+  font-weight: 600;
+}
+
+.small{
+  font-size: 0.75em;
+  margin-bottom: 0px;
+  line-height: normal;
+}
+
+.border-right{
+  border-right: 1px solid #3B3E57;
+}

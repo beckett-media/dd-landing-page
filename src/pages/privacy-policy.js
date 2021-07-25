@@ -5,7 +5,7 @@ import Layout from "../components/Layout"
 
 const PrivacyPolicy = () => (
   <Layout>
-    <main className="wrap">
+    <main className="wrap py-3">
       <section className="container">
         <h2>Privacy Policy</h2>
         <p>

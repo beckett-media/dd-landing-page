@@ -8,6 +8,7 @@ import CardFAC from "../components/CardFAC"
 import GradientLine from "../components/GradientLine"
 import RealTimeEval from "../components/RealTimeEval"
 import InstantAssessment from "../components/InstantAssessment"
+import MarketPlace from "../components/MarketPlace"
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
       <Seo title="Home" />
       <HeroBanner />
       <GradientLine />
+      <MarketPlace />
       <InstantAssessment />
       <RealTimeEval />
       <GradientLine />

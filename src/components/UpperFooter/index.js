@@ -13,7 +13,7 @@ const UpperFooter = () => (
           our mailing list!
         </div>
         <div className="col-12 col-md-6 col-lg-4 py-1">
-          <button type="button" class="upper-footer-button px-5 mx-0 mx-md-2">
+          <button type="button" className="upper-footer-button px-5 mx-0 mx-md-2">
             Enter Email Address
           </button>
         </div>
