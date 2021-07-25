@@ -1,0 +1,17 @@
+.upper-footer {
+  background: transparent linear-gradient(117deg, #37c4ce 0%, #57f0d8 100%) 0%
+    0% no-repeat padding-box;
+}
+.upper-footer-button {
+  white-space: nowrap;
+  font-size: 18px;
+  background-color: transparent;
+  border: 2px solid white;
+  text-transform: uppercase;
+  color: white;
+}
+
+.upper-footer-button:hover {
+  background: white;
+  color: #57f0d8;
+}

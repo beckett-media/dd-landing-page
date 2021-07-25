@@ -1,0 +1,20 @@
+header .nav-link {
+  color: whitesmoke;
+  letter-spacing: 0.36px;
+  text-transform: capitalize;
+  font-size: 14px;
+}
+
+header .nav-link:hover,
+header .nav-link.active {
+  background: transparent linear-gradient(117deg, #37c4ce 0%, #57f0d8 100%) 0%
+    0% no-repeat padding-box;
+  letter-spacing: 0.36px;
+  color: white;
+  text-transform: capitalize;
+  font-size: 14px;
+}
+
+header {
+  background-color: #2e314c;
+}
