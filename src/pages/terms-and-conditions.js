@@ -1,10 +1,10 @@
 import * as React from "react"
 import { Link } from "gatsby"
 
-import Footer from "../components/Footer"
+import Layout from "../components/Layout"
 
 const TermsAndConditions = () => (
-  <>
+  <Layout>
     <main className="wrap">
       <section className="container">
         <div className="container__heading">
@@ -65,8 +65,7 @@ const TermsAndConditions = () => (
         </div>
       </section>
     </main>
-    <Footer />
-  </>
+  </Layout>
 )
 
 export default TermsAndConditions

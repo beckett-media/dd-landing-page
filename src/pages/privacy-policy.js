@@ -1,10 +1,10 @@
 import * as React from "react"
 import { Link } from "gatsby"
 
-import Footer from "../components/Footer"
+import Layout from "../components/Layout"
 
 const PrivacyPolicy = () => (
-  <>
+  <Layout>
     <main className="wrap">
       <section className="container">
         <h2>Privacy Policy</h2>
@@ -183,8 +183,7 @@ const PrivacyPolicy = () => (
           </Link>
       </section>
     </main>
-    <Footer />
-  </>
+  </Layout>
 )
 
 export default PrivacyPolicy
