@@ -1,0 +1,55 @@
+.hero-container {
+  background: #121634;
+  padding-left: 20px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-banner-arrow {
+  position: absolute;
+  right: 0px;
+  width: 220px;
+  top: 0px;
+}
+
+.hero-bcg {
+  position: absolute;
+  top: 2rem;
+  right: -12.5rem;
+  max-height: 115%;
+}
+
+.hero-bcg-top {
+  position: absolute;
+  max-height: 100%;
+  width: 100%;
+  top: -80%;
+  left: -55%;
+  transform: rotate(-225deg);
+}
+
+.hero-banner-img-container {
+  padding-top: 5rem;
+  padding: 2rem;
+  background-color: #121634;
+}
+
+.hero-gradient-line {
+  margin-top: 5rem;
+  width: 220px;
+  height: 40px;
+}
+
+.due-dilly-clockwise {
+  color: transparent;
+  transform: scaleY(1.4) rotate(90deg);
+  -webkit-text-stroke: 1px white;
+  display: block;
+  font-size: 60px;
+}
+
+.due-dilly-clockwise-wrapper {
+  position: absolute;
+  bottom: 10rem;
+  left: -6rem;
+  opacity: 0.2;
+}

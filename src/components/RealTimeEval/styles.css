@@ -1,6 +1,4 @@
-p {
-  color: #121634;
-}
+ 
 
 h1 {
   font-weight: 900;
@@ -9,6 +7,7 @@ h1 {
 
 .real-time-container {
   background: #121634;
+  padding-left: 20px;
 }
 
 .real-eval-container {
@@ -25,9 +24,19 @@ h1 {
   height: 180px;
 }
 
+.lower-arrow{
+  width: 120px;
+}
+
 .star-dotted {
   position: absolute;
   bottom: -5rem;
   right: 0px;
   width: 5rem;
+}
+.ribbon-bg{
+  position: absolute;
+  height: 100%;
+  top: 0px;
+  left: 65%;
 }
