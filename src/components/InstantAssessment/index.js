@@ -8,7 +8,7 @@ import AppStoreLogo from "../../images/svgs/AppStoreLogo.svg"
 import "./styles.css"
 
 const InstantAssessment = () => (
-  <div className="inst-asst-container py-5">
+  <div id="mobile" className="inst-asst-container py-5">
     <div className="container-md">
       <div className="row g-0 d-flex align-items-center">
         <div className="col-12 col-md-6 inst-asst-img-container">

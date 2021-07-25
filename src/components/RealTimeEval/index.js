@@ -3,17 +3,18 @@ import { StaticImage } from "gatsby-plugin-image"
 import SideRibbon from "../../images/svgs/SideRibbon.svg"
 import LowerArrow from "../../images/svgs/LowerArrow.svg"
 import RibbonBg from "../../images/svgs/RibbonBg.svg"
+import Chrome from "../../images/svgs/Chrome.svg"
 
 import "./styles.css"
 
 const RealTimeEval = () => (
-  <div className="real-time-container py-5 position-relative">
-          <RibbonBg className="ribbon-bg" />
+  <div id="extention" className="real-time-container py-5 position-relative">
+    <RibbonBg className="ribbon-bg" />
     <div className="container-md">
       <div className="row g-0 d-flex align-items-center">
         <div className="col-12 col-md-6 real-eval-container position-relative">
+          <SideRibbon className="side-ribbon" />
           <div className="position-relative d-inline-block">
-            <SideRibbon className="side-ribbon" />
             <h1>REAL-TIME EVALUATION</h1>
           </div>
           <p className="text-white">
@@ -21,6 +22,10 @@ const RealTimeEval = () => (
             libero feugiat, placerat metus sit amet, laoreet nibh. Vivamus a
             arcu non mauris blandit lobortis. Duis vitae mattis lectus.
           </p>
+          <div className="chrome-button">
+            download chrome extension
+            <Chrome height="30" />
+          </div>
           <LowerArrow className="lower-arrow" />
         </div>
         <div className="col-12 col-md-6">

@@ -66,7 +66,9 @@ const Footer = () => (
     <div className="container-md">
       <div className="row g-0 d-flex align-items-center justify-content-between">
         <div className="col-12 col-sm-4 col-md-2 text-center text-sm-start">
-          <DueDillyLogo />
+          <Link to="/">
+            <DueDillyLogo />
+          </Link>
         </div>
         <div className="col-12 col-sm-8 col-md-10">
           <div>
@@ -78,7 +80,6 @@ const Footer = () => (
                       to={link.path}
                       className="nav-link px-2 py-2"
                       aria-current={link.label}
-                      href="#"
                     >
                       {link.label}
                     </Link>
@@ -94,7 +95,7 @@ const Footer = () => (
                       to={link.path}
                       className="nav-link px-2 py-2"
                       aria-current="page"
-                      href="#"
+                      href="/"
                     >
                       {link.label}
                     </Link>

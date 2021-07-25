@@ -7,20 +7,20 @@ import "./styles.css"
 
 const headerLinks = [
   { key: "marketplace", label: "MARKETPLACE", path: "/" },
-  { key: "mobile", label: "MOBILE", path: "/" },
-  { key: "extention", label: "EXTENSION", path: "/" },
-  { key: "card_fac", label: "CARD FAC", path: "/" },
-  { key: "login", label: "LOGIN", path: "/" },
-  { key: "sign_up", label: "SIGN UP", path: "/" },
+  { key: "mobile", label: "MOBILE", path: "#mobile" },
+  { key: "extention", label: "EXTENSION", path: "#extention" },
+  { key: "card_fac", label: "CARD FAC", path: "/fac-report" },
+  // { key: "login", label: "LOGIN", path: "/" },
+  // { key: "sign_up", label: "SIGN UP", path: "/" },
 ]
 
-const Header = () => {
+const Header = ({ setModal }) => {
   const [activeLint, setActiveLink] = React.useState("marketplace")
   return (
     <header className="fixed-top">
       <nav className="navbar navbar-expand-lg navbar-dark">
         <div className="container-md py-2">
-          <a className="navbar-brand" href="#">
+          <a className="navbar-brand" href="/">
             <DueDillyLogo />
           </a>
           <button
@@ -51,12 +51,45 @@ const Header = () => {
                       activeLint === item.key ? " active" : ""
                     }`}
                     aria-current="page"
-                    href="#"
                   >
                     {item.label}
                   </Link>
                 </li>
               ))}
+
+              <li
+                onClick={() => {
+                  setActiveLink("login")
+                  setModal('login')
+                }}
+                className="nav-item mx-1 px-1"
+              >
+                <div
+                  className={`nav-link px-3${
+                    activeLint === "login" ? " active" : ""
+                  }`}
+                  aria-current="page"
+                >
+                  Login
+                </div>
+              </li>
+
+              <li
+                onClick={() => {
+                  setActiveLink("sign_up")
+                  setModal('sign_up')
+                }}
+                className="nav-item mx-1 px-1"
+              >
+                <div
+                  className={`nav-link px-3${
+                    activeLint === "sign_up" ? " active" : ""
+                  }`}
+                  aria-current="page"
+                >
+                  SIGN UP
+                </div>
+              </li>
             </ul>
           </div>
         </div>
