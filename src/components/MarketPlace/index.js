@@ -20,10 +20,10 @@ const MarketCard = ({
     <div className="col-12 col-md-6 col-xl-4 py-2">
       <div className="p-3 card">
         <div className="d-flex">
-          <object data={image} className="card-image-wrapper"></object>
+          <img src={image} className="card-image-wrapper"></img>
           <div className="px-3">
             <div className="d-flex align-items-center">
-              <object data={avatar} className="avatar-image"></object>
+              <img src={avatar} className="avatar-image"></img>
               <p className="card-text text-nowrap font-weight-bold">{link}</p>
             </div>
             <p className="small py-2">{description}</p>

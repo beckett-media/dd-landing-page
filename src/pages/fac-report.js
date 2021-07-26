@@ -10,7 +10,7 @@ const FacReport = () => (
     <FacBanner />
     <GradientLine />
     <QualityAssessment/>
-    <InfoSection />
+    <InfoSection image="https://images.pexels.com/photos/247431/pexels-photo-247431.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=140&w=400" />
   </div>
 )
 
