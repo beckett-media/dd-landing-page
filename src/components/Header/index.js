@@ -7,15 +7,21 @@ import "./styles.css"
 
 const headerLinks = [
   { key: "marketplace", label: "MARKETPLACE", path: "/" },
-  { key: "mobile", label: "MOBILE", path: "#mobile" },
-  { key: "extention", label: "EXTENSION", path: "#extention" },
-  { key: "card_fac", label: "CARD FAC", path: "/fac-report" },
-  // { key: "login", label: "LOGIN", path: "/" },
-  // { key: "sign_up", label: "SIGN UP", path: "/" },
+  { key: "mobile", label: "MOBILE", path: "/#mobile" },
+  { key: "extention", label: "EXTENSION", path: "/#extention" },
+  { key: "fac-report", label: "CARD FAC", path: "/fac-report" },
 ]
 
 const Header = ({ setModal }) => {
-  const [activeLint, setActiveLink] = React.useState("marketplace")
+  const [activeLint, setActiveLink] = React.useState()
+
+  React.useEffect(() => {
+    if (window.location.hash) setActiveLink(window.location.hash.slice(1))
+    else if (window.location.pathname != "/")
+      setActiveLink(window.location.pathname.slice(1))
+    else setActiveLink("marketplace")
+  }, [])
+
   return (
     <header className="fixed-top">
       <nav className="navbar navbar-expand-lg navbar-dark">
@@ -60,7 +66,7 @@ const Header = ({ setModal }) => {
               <li
                 onClick={() => {
                   setActiveLink("login")
-                  setModal('login')
+                  setModal("login")
                 }}
                 className="nav-item mx-1 px-1"
               >
@@ -77,7 +83,7 @@ const Header = ({ setModal }) => {
               <li
                 onClick={() => {
                   setActiveLink("sign_up")
-                  setModal('sign_up')
+                  setModal("sign_up")
                 }}
                 className="nav-item mx-1 px-1"
               >
