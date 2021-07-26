@@ -9,7 +9,7 @@ const headerLinks = [
   { key: "marketplace", label: "MARKETPLACE", path: "/" },
   { key: "mobile", label: "MOBILE", path: "/#mobile" },
   { key: "extention", label: "EXTENSION", path: "/#extention" },
-  { key: "fac-report", label: "CARD FAC", path: "/fac-report" },
+  { key: "card-fac", label: "CARD FAC", path: "/#card-fac" },
 ]
 
 const Header = ({ setModal }) => {
