@@ -5,13 +5,30 @@
 .upper-footer-button {
   white-space: nowrap;
   font-size: 18px;
-  background-color: transparent;
+  background-color: #ffffff;
   border: 2px solid white;
   text-transform: uppercase;
-  color: white;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: #57f0d8;
 }
 
 .upper-footer-button:hover {
-  background: white;
-  color: #57f0d8;
+  background: transparent;
+  color: #ffffff;
+}
+
+#UpperFooteremailInput{
+  border: 2px solid #ffffff;
+  border-radius: 0px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: transparent;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+
+#UpperFooteremailInput::placeholder {
+  color: #ffffff;
+  font-weight: 400;
 }
