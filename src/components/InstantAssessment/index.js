@@ -8,7 +8,7 @@ import AppStoreLogo from "../../images/svgs/AppStoreLogo.svg"
 import "./styles.css"
 
 const InstantAssessment = () => (
-  <div id="mobile" className="inst-asst-container py-5">
+  <div id="mobile" className="inst-asst-container py-5 position-relative">
     <div className="container-md">
       <div className="row g-0 d-flex align-items-center">
         <div className="col-12 col-md-6 inst-asst-img-container">
@@ -42,6 +42,23 @@ const InstantAssessment = () => (
         </div>
       </div>
     </div>
+    <StaticImage
+      src="../../images/globe-bg.png"
+      quality={50}
+      formats={["AUTO", "WEBP", "AVIF"]}
+      style={{
+        width: 100,
+        height: 100,
+        position: "absolute",
+        right: -50,
+        bottom: "5rem",
+        opacity: 0.2,
+      }}
+      imgStyle={{
+        height: "100%",
+        objectFit: "100%",
+      }}
+    />
   </div>
 )
 

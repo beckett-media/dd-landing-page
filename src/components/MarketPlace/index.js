@@ -30,7 +30,11 @@ const MarketCard = ({
           />
           <div className="px-3">
             <div className="d-flex align-items-center">
-              <StaticImage className="avatar-image" src={avatarUrl} alt={link} />
+              <StaticImage
+                className="avatar-image"
+                src={avatarUrl}
+                alt={link}
+              />
               <p className="card-text text-nowrap font-weight-bold">{link}</p>
             </div>
             <p className="small py-2">{description}</p>
@@ -64,7 +68,26 @@ const MarketCard = ({
 const MarketPlace = () => {
   const marketCards = useSelector(({ common }) => common?.marketCards)
   return (
-    <div id="market-place" className="market-place-container py-5">
+    <div
+      id="market-place"
+      className="market-place-container py-5 position-relative"
+    >
+      <StaticImage
+        src="../../images/globe-bg.png"
+        quality={50}
+        formats={["AUTO", "WEBP", "AVIF"]}
+        style={{
+          width: 200,
+          height: 200,
+          position: "absolute",
+          left: -50,
+          bottom: "10rem",
+        }}
+        imgStyle={{
+          height: "100%",
+          objectFit: "100%",
+        }}
+      />
       <div className="container-md position-relative py-5">
         <StarDotted className="star-dotted-top" />
         <h1 className="market-place-title text-center">
@@ -86,6 +109,23 @@ const MarketPlace = () => {
           </div>
         </div>
       </div>
+      <StaticImage
+        src="../../images/globe-bg.png"
+        quality={50}
+        formats={["AUTO", "WEBP", "AVIF"]}
+        style={{
+          width: 200,
+          height: 200,
+          position: "absolute",
+          right: -50,
+          top: "7rem",
+          transform: "rotate(180deg)",
+        }}
+        imgStyle={{
+          height: "100%",
+          objectFit: "100%",
+        }}
+      />
     </div>
   )
 }

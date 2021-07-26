@@ -10,6 +10,7 @@ h2 {
 
 .card-fac-container {
   background: #F4F5F6;
+  overflow: hidden;
 }
 
 .fac-text-container{

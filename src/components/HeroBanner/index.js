@@ -11,7 +11,7 @@ const HeroBanner = () => (
     <HeroBg className="hero-bcg-top" />
     <HeroBg className="hero-bcg" />
     <div className="due-dilly-clockwise-wrapper">
-    <span className="due-dilly-clockwise">DUE DILLY</span>
+      <span className="due-dilly-clockwise">DUE DILLY</span>
     </div>
     <div className="container-md">
       <div className="row g-0 py-5 d-flex align-items-center">
@@ -39,6 +39,23 @@ const HeroBanner = () => (
         </div>
       </div>
     </div>
+    <StaticImage
+      src="../../images/globe-bg.png"
+      quality={50}
+      formats={["AUTO", "WEBP", "AVIF"]}
+      style={{
+        width: 200,
+        height: 200,
+        position: "absolute",
+        bottom: -50,
+        left: "5rem",
+        opacity: 0.2,
+      }}
+      imgStyle={{
+        height: "100%",
+        objectFit: "100%",
+      }}
+    />
   </div>
 )
 

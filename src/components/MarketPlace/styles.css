@@ -11,6 +11,7 @@
 
 .market-place-container {
   padding-bottom: 0px !important;
+  overflow: hidden;
 }
 
 .market-place-gray-container {
