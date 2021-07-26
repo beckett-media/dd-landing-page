@@ -10,16 +10,14 @@
   padding-right: 4rem;
 }
 
-
 .font-weight-bolder {
   font-weight: 900;
 }
 
 @media only screen and (max-width: 991px) {
-  
-.fac-banner-img-container {
-  padding-right: 0px;
-}
+  .fac-banner-img-container {
+    padding-right: 0px;
+  }
 }
 
 .selected-image-mark {
@@ -39,17 +37,25 @@
   height: 100px;
   object-fit: cover;
 }
-.gallery-big-wrapper{
+.gallery-big-wrapper {
   width: 100%;
-  height:400px
+  height: 400px;
 }
 
-.text-cyan{
-  color: #30BACC;
+.text-cyan {
+  color: #30bacc;
+}
+.text-red {
+  color: #b73b57;
 }
 
 .max-val-box {
   padding: 1rem;
+  min-height: 200px;
   border: 2px solid #fff;
   color: #ffffff;
+}
+
+.extra-small {
+  font-size: x-small;
 }

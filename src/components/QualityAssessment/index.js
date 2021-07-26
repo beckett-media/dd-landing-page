@@ -6,9 +6,22 @@ import Surface from "../../images/svgs/Surface.svg"
 import HeroBg from "../../images/svgs/HeroBg.svg"
 
 import "./styles.css"
+import { Link } from "gatsby"
+
+const QualityAssessmentCard = ({ title, child, grade }) => {
+  return (
+    <div className="max-val-box h-100 d-flex justify-content-between flex-column">
+      <p className="text-white h5 font-weight-bold text-center">{title}</p>
+      {child}
+      <p className="text-white h5 text-center m-0">Overall Grade: {grade}</p>
+    </div>
+  )
+}
 
 const QualityAssessment = () => (
-  <div style={{ background: "#0E1024",position:"relative",overflow:"hidden" }}>
+  <div
+    style={{ background: "#0E1024", position: "relative", overflow: "hidden" }}
+  >
     <HeroBg className="qa-bcg-left" />
     <HeroBg className="qa-bcg-right" />
     <div className="container-md py-5">
@@ -16,13 +29,104 @@ const QualityAssessment = () => (
         <strong>CARD</strong> QUALITY ASSESSMENT
       </p>
       <div className="white-underline"></div>
-      <div className="d-flex justify-content-between">
-        <Corners width="250px" height="300px" />
-        <Centering width="250px" height="300px" />
-        <Surface width="250px" height="300px" />
-        <Edges width="250px" height="300px" />
+      <div className="d-flex row justify-content-between align-items-stretch">
+        <div className="col-12 col-md-6 col-xl-3 my-2">
+          <QualityAssessmentCard
+            title="Corners"
+            grade={<span className="green font-weight-bold">A+</span>}
+            child={
+              <div className="row">
+                <div className="col-6 py-2">
+                  <p className="text-white text-nowrap extra-small m-1">
+                    Top Left Corner #1
+                  </p>
+                  <p className="text-cyan text-nowrap small m-1">Sharp</p>
+                </div>
+                <div className="col-6 py-2">
+                  <p className="text-white text-nowrap extra-small m-1">
+                    Top Right Corner #2
+                  </p>
+                  <p className="text-cyan text-nowrap small m-1">Sharp</p>
+                </div>
+                <div className="col-6 py-2">
+                  <p className="text-white text-nowrap extra-small m-1">
+                    Bottom Left Corner #3
+                  </p>
+                  <p className="text-cyan text-nowrap small m-1">Sharp</p>
+                </div>
+                <div className="col-6 py-2">
+                  <p className="text-white text-nowrap extra-small m-1">
+                    Bottom Right Corner #4
+                  </p>
+                  <p className="text-cyan text-nowrap small m-1">Sharp</p>
+                </div>
+              </div>
+            }
+          />
+        </div>
+        <div className="col-12 col-md-6 col-xl-3 my-2">
+          <QualityAssessmentCard
+            title="Centering"
+            grade={<span className="text-cyan font-weight-bold">B</span>}
+            child={
+              <div className="text-center text-white px-2 py-5">
+                The centering is{" "}
+                <span className="text-red font-weight-bold">off center</span>{" "}
+                from left to right.
+              </div>
+            }
+          />
+        </div>
+        <div className="col-12 col-md-6 col-xl-3 my-2">
+          <QualityAssessmentCard
+            title="Surface"
+            grade={<span className="green font-weight-bold">A+</span>}
+            child={
+              <div className="text-center text-white px-2 py-5">
+                Click <Link to="#">here</Link> to see a surface defect map of
+                the card.
+              </div>
+            }
+          />
+        </div>
+        <div className="col-12 col-md-6 col-xl-3 my-2">
+          <QualityAssessmentCard
+            title="Edges"
+            grade={<span className="green font-weight-bold">A+</span>}
+            child={
+              <div className="row">
+                <div className="col-6 py-2">
+                  <p className="text-white text-nowrap extra-small m-1">
+                    Top Edge
+                  </p>
+                  <p className="text-cyan text-nowrap small m-1">Sharp</p>
+                </div>
+                <div className="col-6 py-2">
+                  <p className="text-white text-nowrap extra-small m-1">
+                    Bottom Edge
+                  </p>
+                  <p className="text-cyan text-nowrap small m-1">Sharp</p>
+                </div>
+                <div className="col-6 py-2">
+                  <p className="text-white text-nowrap extra-small m-1">
+                    Left Edge
+                  </p>
+                  <p className="text-cyan text-nowrap small m-1">Sharp</p>
+                </div>
+                <div className="col-6 py-2">
+                  <p className="text-white text-nowrap extra-small m-1">
+                    Right Edge
+                  </p>
+                  <p className="text-cyan text-nowrap small m-1">Sharp</p>
+                </div>
+              </div>
+            }
+          />
+        </div>
       </div>
-      <p className="text-white">Overall Grade: A</p>
+      <p className="text-white py-3 h2 font-weight-bold">
+        Overall Grade: <span className="green font-weight-bold">A</span>
+      </p>
     </div>
   </div>
 )

@@ -103,7 +103,9 @@ const FacBanner = () => (
           </p>
           <p className="text-white m-0">FACTUAL ASSESSMENT OF CARD</p>
         </div>
+        <div className="d-none d-lg-flex">
         <Share fill="#fff" width="40" />
+        </div>
       </div>
       <div className="row g-0 py-5 d-flex">
         <div className="col-12 col-lg-7 fac-banner-img-container position-relative">
