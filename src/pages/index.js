@@ -13,7 +13,7 @@ import MarketPlace from "../components/MarketPlace"
 const Home = () => {
   return (
     <Layout>
-      <Seo title="Home" />
+      <Seo title="Due Dilly" />
       <HeroBanner />
       <GradientLine />
       <MarketPlace />

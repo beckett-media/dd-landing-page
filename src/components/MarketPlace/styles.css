@@ -9,6 +9,10 @@
   width: 5rem;
 }
 
+.market-place-container {
+  padding-bottom: 0px !important;
+}
+
 .market-place-gray-container {
   background-color: #f4f5f6;
 }
@@ -44,16 +48,16 @@
   border-radius: 100%;
 }
 
-.font-weight-bold{
+.font-weight-bold {
   font-weight: 600;
 }
 
-.small{
+.small {
   font-size: 0.75em;
   margin-bottom: 0px;
   line-height: normal;
 }
 
-.border-right{
-  border-right: 1px solid #3B3E57;
+.border-right {
+  border-right: 1px solid #3b3e57;
 }

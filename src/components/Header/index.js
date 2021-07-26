@@ -70,7 +70,7 @@ const Header = ({ setModal }) => {
                   }`}
                   aria-current="page"
                 >
-                  Login
+                  LOGIN
                 </div>
               </li>
 
