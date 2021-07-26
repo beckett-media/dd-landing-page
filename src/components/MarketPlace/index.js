@@ -19,7 +19,7 @@ const MarketCard = ({
   const avatarUrl =
     "https://images.pexels.com/photos/247431/pexels-photo-247431.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=140&w=400"
   return (
-    <div className="col-12 col-sm-6 col-lg-4">
+    <div className="col-12 col-md-6 col-xl-4 py-2">
       <div className="p-3 card">
         <div className="d-flex">
           <StaticImage
@@ -88,14 +88,14 @@ const MarketPlace = () => {
           objectFit: "100%",
         }}
       />
-      <div className="container-md position-relative py-5">
+      <div className="container-lg position-relative py-5">
         <StarDotted className="star-dotted-top" />
         <h1 className="market-place-title text-center">
           EXPLORE THE MARKETPLACE
         </h1>
       </div>
       <div className="market-place-gray-container py-5">
-        <div className="container-md ">
+        <div className="container-lg ">
           <div className="row g-0 d-flex align-items-center">
             <div className="col-12 position-relative py-5">
               <h3 className="market-place-list-title">LATEST LISTINGS</h3>
