@@ -1,27 +1,27 @@
-import React, { useEffect, useRef } from "react"
-import { notify } from "react-notify-toast"
+import React, { useEffect, useRef, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import useFetch from "use-http"
 import { setMeta } from "../../actions/common"
 import Button from "../Common/Button"
 import Input from "../Common/Input"
 import Link from "../Common/Link"
+import Notify from "../Notify"
 
 const ForgotPassword = ({ switchMode }) => {
+  const [notify, setNotify] = useState()
   const { post: generateOtp, loading: loadingGenerateOtp } = useFetch(
-    "/user/generate-otp",
+    "https://api.duedilly.co/user/generate-otp",
     { cachePolicy: "no-cache" }
   )
   const { post: verifyOtp, loading: loadingVerifyOtp } = useFetch(
-    "/user/verify-otp",
+    "https://api.duedilly.co/user/verify-otp",
     { cachePolicy: "no-cache" }
   )
   const { post: setNewPassword, loading: loadingNewPassword } = useFetch(
-    "/user/new-password",
+    "https://api.duedilly.co/user/new-password",
     { cachePolicy: "no-cache" }
   )
   const dispatch = useDispatch()
-  // const [step, setStep] = useState(0);
   const meta = useSelector(({ common }) => common) || {}
   const forgotPasswordDataRef = useRef()
 
@@ -45,12 +45,17 @@ const ForgotPassword = ({ switchMode }) => {
 
   const handleResponse = (data, message, step, done) => {
     if (data.success) {
-      notify.show(message, "success", 3000)
-      // setStep(step);
+      setNotify({ message, success: true })
+      setTimeout(() => {
+        setNotify()
+      }, 3000)
       dispatch(setMeta({ forgotPassword: forgotPasswordDataRef.current }))
       if (done) _switchMode(0)
     } else if (data.error) {
-      notify.show(data.error.errorMessage, "error", 3000)
+      setNotify({ message: data.error.errorMessage, success: false })
+      setTimeout(() => {
+        setNotify()
+      }, 3000)
     }
   }
 
@@ -84,7 +89,10 @@ const ForgotPassword = ({ switchMode }) => {
           break
       }
     } catch (e) {
-      notify.show("Something went wrong!", "error", 3000)
+      setNotify({ message: "Something went wrong!", success: false })
+      setTimeout(() => {
+        setNotify()
+      }, 3000)
     }
   }
 
@@ -92,6 +100,7 @@ const ForgotPassword = ({ switchMode }) => {
 
   return (
     <div>
+      <Notify message={notify?.message} status={notify?.success} />
       {!email && (
         <div>
           <h4 className={"text-center mb-3 font-weight-bold"}>
