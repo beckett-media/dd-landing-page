@@ -8,33 +8,22 @@ import ProtectionIcon from "../../images/svgs/ProtectionIcon.svg"
 import "./styles.css"
 
 const MarketCard = ({
-  // image,
-  // avatar,
+  image,
+  avatar,
   link,
   description,
   price,
   status,
   time,
 }) => {
-  const avatarUrl =
-    "https://images.pexels.com/photos/247431/pexels-photo-247431.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=140&w=400"
   return (
     <div className="col-12 col-md-6 col-xl-4 py-2">
       <div className="p-3 card">
         <div className="d-flex">
-          <StaticImage
-            className="card-image-wrapper"
-            imgClassName="card-image"
-            src={avatarUrl}
-            alt={link}
-          />
+          <object data={image} className="card-image-wrapper"></object>
           <div className="px-3">
             <div className="d-flex align-items-center">
-              <StaticImage
-                className="avatar-image"
-                src={avatarUrl}
-                alt={link}
-              />
+              <object data={avatar} className="avatar-image"></object>
               <p className="card-text text-nowrap font-weight-bold">{link}</p>
             </div>
             <p className="small py-2">{description}</p>
@@ -42,7 +31,10 @@ const MarketCard = ({
         </div>
         <div className="row py-2">
           <div className="col-12 col-sm-6 col-md-7 col-lg-6 col-xl-5 d-flex align-items-center">
-            <Link className="card-text text-nowrap small text-dark">
+            <Link
+              className="card-text text-nowrap small text-dark"
+              to="fac-report"
+            >
               <ProtectionIcon style={{ marginRight: 5 }} />
               View Card FAC
             </Link>

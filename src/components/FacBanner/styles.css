@@ -1,0 +1,55 @@
+.fac-container {
+  background: #121634;
+  padding-left: 20px;
+  position: relative;
+  padding-bottom: 1rem !important;
+  overflow: hidden;
+}
+.fac-banner-arrow {
+  position: absolute;
+  right: 0px;
+  width: 220px;
+  top: 0px;
+}
+
+.fac-bcg {
+  position: absolute;
+  top: 2rem;
+  right: -12.5rem;
+  max-height: 115%;
+}
+
+.fac-bcg-top {
+  position: absolute;
+  max-height: 100%;
+  width: 100%;
+  top: -80%;
+  left: -55%;
+  transform: rotate(-225deg);
+}
+
+.fac-banner-img-container {
+  padding-right: 4rem;
+}
+
+.fac-gradient-line {
+  margin-top: 5rem;
+  width: 220px;
+  height: 40px;
+}
+
+.font-weight-bolder{
+  font-weight: 900;
+}
+
+.selected-image-mark{
+  background: transparent linear-gradient(117deg, #37c4ce 0%, #57f0d8 100%) 0%
+    0% no-repeat padding-box;
+    height: 3px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.mr-4{
+  margin-right: 2rem !important;
+}

@@ -37,7 +37,7 @@
 .card-image-wrapper {
   height: 100px;
   overflow: hidden;
-  max-width: 130px;
+  width: 220px;
   border-radius: 13px;
 }
 
