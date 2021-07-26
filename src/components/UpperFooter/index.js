@@ -6,7 +6,7 @@ const UpperFooter = () => (
   <div className="py-5 upper-footer">
     <div className="container-md">
       <div className="row g-0 d-flex align-items-center justify-content-between">
-        <div className="col-12 text-white py-3 text-center">
+        <div className="col-12 text-white py-3 text-center font-weight-bold">
           Want to get the hottest drops, new releases, and free swag? Signup for
           our mailing list!
         </div>
