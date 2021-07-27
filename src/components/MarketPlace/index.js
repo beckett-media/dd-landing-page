@@ -26,13 +26,13 @@ const MarketCard = ({
               <img src={avatar} className="avatar-image"></img>
               <p className="card-text text-nowrap font-weight-bold">{link}</p>
             </div>
-            <p className="small py-2">{description}</p>
+            <p className="small py-2 shapiro-font">{description}</p>
           </div>
         </div>
         <div className="row py-2">
           <div className="col-12 col-sm-6 col-md-7 col-lg-6 col-xl-5 d-flex align-items-center">
             <Link
-              className="card-text text-nowrap small text-dark"
+              className="card-text text-nowrap small font-weight-bold text-dark"
               to="fac-report"
             >
               <ProtectionIcon style={{ marginRight: 5 }} />
@@ -42,14 +42,14 @@ const MarketCard = ({
           <div className="col border-right ">{price}</div>
           <div className="col">
             <p
-              className="m-0"
+              className="m-0 shapiro-font"
               style={{
                 fontSize: "0.875em",
               }}
             >
               {status}
             </p>
-            <p className="small">{time}</p>
+            <p className="small shapiro-font">{time}</p>
           </div>
         </div>
       </div>
@@ -82,7 +82,7 @@ const MarketPlace = () => {
       />
       <div className="container-lg position-relative py-5">
         <StarDotted className="star-dotted-top" />
-        <h1 className="market-place-title text-center">
+        <h1 className="market-place-title text-center pti-font">
           EXPLORE THE MARKETPLACE
         </h1>
       </div>
@@ -90,7 +90,7 @@ const MarketPlace = () => {
         <div className="container-lg ">
           <div className="row g-0 d-flex align-items-center">
             <div className="col-12 position-relative py-5">
-              <h3 className="market-place-list-title">LATEST LISTINGS</h3>
+              <h3 className="market-place-list-title pti-font">LATEST LISTINGS</h3>
               <div className="market-place-list-title-underline"></div>
               <div className="row pt-5">
                 {marketCards.map(item => (

@@ -28,9 +28,9 @@ const InstantAssessment = () => (
         <div className="col-12 col-md-6 inst-asst-text-container position-relative">
           <LowerArrow className="upper-arrow" />
           <div className="position-relative d-inline-block">
-            <h1>INSTANT ASSESSMENT</h1>
+            <h2 className="pti-font text-white" >INSTANT ASSESSMENT</h2>
           </div>
-          <p className="text-white">
+          <p className="text-white font-shapiro">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ac
             libero feugiat, placerat metus sit amet, laoreet nibh. Vivamus a
             arcu non mauris blandit lobortis. Duis vitae mattis lectus.

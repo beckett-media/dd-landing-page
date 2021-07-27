@@ -2,8 +2,8 @@ module.exports = {
   siteMetadata: {
     title: `Revolutionizing how the world buys and sells sports cards`,
     description: `Revolutionizing how the world buys and sells sports cards`,
-    author: ``,
-    siteUrl: `https://duedilly.co`,
+    author: `Due Dilly`,
+    siteUrl: `https://www.duedilly.co`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -26,7 +26,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`,
+        icon: `src/images/due-dilly.png`,
       },
     },
     `gatsby-plugin-gatsby-cloud`,
