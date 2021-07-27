@@ -3,7 +3,7 @@ module.exports = {
     title: `Revolutionizing how the world buys and sells sports cards`,
     description: `Revolutionizing how the world buys and sells sports cards`,
     author: ``,
-    siteUrl: ``,
+    siteUrl: `https://duedilly.co`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
