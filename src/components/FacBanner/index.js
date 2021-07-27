@@ -8,7 +8,7 @@ import "./styles.css"
 const MarketValueBox = () => {
   return (
     <div className="max-val-box">
-      <p className="text-white text-center text-lg-start">
+      <p className="text-white text-center text-lg-start small">
         Market Value as of the date of the CardFacs was generated with a
         statement that this estimate will be valued for 3 days of date it was
         generated.
@@ -98,7 +98,7 @@ const FacBanner = () => (
     <div className="container-md">
       <div className="d-flex w-100 justify-content-between">
         <div className="">
-          <p className="h1 m-0 text-white font-weight-bolder">
+          <p className="h2 m-0 text-white font-weight-bolder font-pti">
             DUE DILLY CARD FAC
           </p>
           <p className="text-white m-0">FACTUAL ASSESSMENT OF CARD</p>
@@ -112,15 +112,15 @@ const FacBanner = () => (
           <ImageGallery gallery={galleryImages} initialImg={galleryImages[0]} />
         </div>
         <div className="col-12 col-lg-5">
-          <p className="h1 m-0 text-uppercase font-weight-bolder text-white">
+          <p className="h1 m-0 text-uppercase font-weight-bolder text-white font-pti">
             Derek Jeter
           </p>
-          <p className="text-white h4 my-3">
+          <p className="text-white h5 my-3">
             Career Retrospective Topps NOW® Chrome Card 15B
           </p>
-          <p className="text-white h4">2021</p>
-          <p className="text-white py-2">Autographed Card</p>
-          <p className="text-white h3 fond-weight-bolder">
+          <p className="text-white h5">2021</p>
+          <p className="text-white py-2 small">Autographed Card</p>
+          <p className="text-white h3 fond-weight-bolder font-poppins">
             <strong>MARKET</strong> VALUE
           </p>
           <div className="white-underline"></div>

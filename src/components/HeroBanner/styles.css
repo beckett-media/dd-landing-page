@@ -41,15 +41,15 @@
 
 .due-dilly-clockwise {
   color: transparent;
-  transform: scaleY(1.4) rotate(90deg);
+  transform: rotate(90deg);
   -webkit-text-stroke: 1px white;
   display: block;
-  font-size: 60px;
+  font-size: 50px;
 }
 
 .due-dilly-clockwise-wrapper {
   position: absolute;
-  bottom: 10rem;
-  left: -7rem;
+  bottom: 8rem;
+  left: -8rem;
   opacity: 0.2;
 }

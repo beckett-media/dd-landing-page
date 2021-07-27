@@ -1,3 +1,5 @@
+@import "../../styles/typography.css";
+
 html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -21,6 +23,23 @@ body {
   font-feature-settings: "kern", "liga", "clig", "calt";
 }
 
+.text-dark {
+  color: #43475f;
+}
+
 .layout-body {
   margin-top: 83px;
+}
+
+.pti-font {
+  letter-spacing: 1.14px;
+  font-family: "Pti-Improv";
+}
+
+.shapiro-font {
+  font-family: "Shapiro";
+}
+
+.font-poppins{
+  font-family: "Poppins";
 }

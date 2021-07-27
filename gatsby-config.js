@@ -2,8 +2,8 @@ module.exports = {
   siteMetadata: {
     title: `Revolutionizing how the world buys and sells sports cards`,
     description: `Revolutionizing how the world buys and sells sports cards`,
-    author: ``,
-    siteUrl: ``,
+    author: `Due Dilly`,
+    siteUrl: `https://www.duedilly.co`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

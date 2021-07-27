@@ -11,15 +11,15 @@ const HeroBanner = () => (
     <HeroBg className="hero-bcg-top" />
     <HeroBg className="hero-bcg" />
     <div className="due-dilly-clockwise-wrapper">
-      <span className="due-dilly-clockwise">DUE DILLY</span>
+      <span className="due-dilly-clockwise pti-font">DUE DILLY</span>
     </div>
     <div className="container-md">
       <div className="row g-0 py-5 d-flex align-items-center">
         <div className="col-12 col-md-5">
           <div className="position-relative d-inline-block">
-            <h1>INSTANT CARD ASSESSMENT</h1>
+            <h2 className="pti-font text-white" >INSTANT CARD ASSESSMENT</h2>
           </div>
-          <p className="text-white">
+          <p className="text-white shapiro-font">
             Buy, sell, and collect Due Dilly assessed cards.
           </p>
           <GradientLine className="gradient-line hero-gradient-line" />

@@ -58,9 +58,9 @@ const CardFAC = () => (
         <div className="col-12 col-md-6 fac-text-container position-relative">
           <div className="position-relative d-inline-block">
             <RibbonTitle className="ribbon-title" />
-            <h2>CARD FAC</h2>
+            <h2 className="text-dark font-pti">CARD FAC</h2>
           </div>
-          <p>
+          <p className="font-shapiro">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ac
             libero feugiat, placerat metus sit amet, laoreet nibh. Vivamus a
             arcu non mauris blandit lobortis. Duis vitae mattis lectus.
