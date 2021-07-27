@@ -1,11 +1,9 @@
 import * as React from "react"
-import { useScreenshot, createFileName } from "use-react-screenshot"
 import {
   EmailShareButton,
   FacebookShareButton,
   TwitterShareButton,
 } from "react-share"
-import ReactToPdf from "react-to-pdf"
 import ReactModal from "react-modal"
 
 import Share from "../../images/svgs/Share.svg"
@@ -34,18 +32,18 @@ const customStyles = {
   overlay: { zIndex: 999999 },
 }
 
-const ShareContainer = ({ toPdf, getImage }) => {
+const ShareContainer = () => {
   const [modal, setModal] = React.useState(false)
 
   const copyToClipboard = () => {
     const el = document.createElement("textarea")
-    el.value = "This is copied"
+    el.value = "https://epic-villani-e0510b.netlify.app/"
     document.body.appendChild(el)
     el.select()
     document.execCommand("copy")
     document.body.removeChild(el)
   }
-  
+
   return (
     <div className="d-flex">
       <ReactModal
@@ -60,7 +58,7 @@ const ShareContainer = ({ toPdf, getImage }) => {
           type="button"
           onClick={() => {
             setModal(false)
-            toPdf()
+            // toPdf()
           }}
           className="btn btn-primary mx-2"
         >
@@ -71,7 +69,7 @@ const ShareContainer = ({ toPdf, getImage }) => {
           className="btn btn-info text-white mx-2"
           onClick={() => {
             setModal(false)
-            getImage()
+            // getImage()
           }}
         >
           <Camera width="30px" height="30px" fill="#FFF" /> Image
@@ -98,27 +96,33 @@ const ShareContainer = ({ toPdf, getImage }) => {
       </div>
       <div className="mx-2">
         <TwitterShareButton
-          url={"http://www.camperstribe.com"}
-          quote={"CampersTribe - World is yours to explore"}
-          hashtag="#camperstribe"
+          url={"https://epic-villani-e0510b.netlify.app/"}
+          quote={
+            "Due Dilly - Revolutionizing how the world buys and sells sports cards."
+          }
+          hashtag="#duedilly"
         >
           <TwitterBlue />
         </TwitterShareButton>
       </div>
       <div className="mx-2">
         <FacebookShareButton
-          url={"http://www.camperstribe.com"}
-          quote={"CampersTribe - World is yours to explore"}
-          hashtag="#camperstribe"
+          url={"https://epic-villani-e0510b.netlify.app/"}
+          quote={
+            "Due Dilly - Revolutionizing how the world buys and sells sports cards."
+          }
+          hashtag="#duedilly"
         >
           <FacebookBlue />
         </FacebookShareButton>
       </div>
       <div className="mx-2">
         <EmailShareButton
-          url={"http://www.camperstribe.com"}
-          quote={"CampersTribe - World is yours to explore"}
-          hashtag="#camperstribe"
+          url={"https://epic-villani-e0510b.netlify.app/"}
+          quote={
+            "Due Dilly - Revolutionizing how the world buys and sells sports cards."
+          }
+          hashtag="#duedilly"
         >
           <Email />
         </EmailShareButton>
@@ -225,93 +229,67 @@ const galleryImages = [
 ]
 
 const FacBanner = () => {
-  const pdfRef = React.useRef(null)
-  const imgRef = React.useRef(null)
-  const [image, setImage] = useScreenshot()
   const [shareModal, setShareModal] = React.useState(false)
-
-  const getImage = () => setImage(imgRef.current)
-
-  const download = (img, { name = "img", extension = "jpg" } = {}) => {
-    const a = document.createElement("a")
-    a.href = img
-    a.download = createFileName(extension, name)
-    a.click()
-    setImage()
-  }
-
-  React.useEffect(() => {
-    if (image)
-      setTimeout(() => {
-        download(image, { name: "due-dillyimg", extension: "jpg" })
-      }, 500)
-  }, [image])
 
   return (
     <>
-      <div ref={r => (imgRef.current = r)}>
-        <ReactToPdf targetRef={pdfRef.current}>
-          {({ toPdf }) => (
-            <div className="fac-container py-5" ref={r => (pdfRef.current = r)}>
-              <div className="due-dilly-clockwise-wrapper">
-                <span className="due-dilly-clockwise">DUE DILLY</span>
-              </div>
-              <div className="container-md">
-                <div className="d-flex w-100 justify-content-between">
-                  <div className="">
-                    <p className="h2 m-0 text-white font-weight-bolder pti-font">
-                      DUE DILLY CARD FAC
-                    </p>
-                    <p className="text-white m-0">FACTUAL ASSESSMENT OF CARD</p>
-                  </div>
-                  <div className="d-none d-lg-flex">
-                    <ShareContainer toPdf={toPdf} getImage={getImage} />
-                  </div>
-                  <div
-                    className="d-flex d-lg-none"
-                    onClick={() => setShareModal(true)}
-                  >
-                    <Share fill="#fff" width="40" />
-                  </div>
-                  <ReactModal
-                    isOpen={Boolean(shareModal)}
-                    onRequestClose={() => {
-                      setShareModal(false)
-                    }}
-                    style={customStyles}
-                  >
-                    <div className="d-flex">
-                      <ShareContainer toPdf={toPdf} getImage={getImage} />
-                    </div>
-                  </ReactModal>
-                </div>
-                <div className="row g-0 py-5 d-flex">
-                  <div className="col-12 col-lg-7 fac-banner-img-container position-relative">
-                    <ImageGallery
-                      gallery={galleryImages}
-                      initialImg={galleryImages[0]}
-                    />
-                  </div>
-                  <div className="col-12 col-lg-5">
-                    <p className="h1 m-0 text-uppercase font-weight-bolder text-white pti-font">
-                      Derek Jeter
-                    </p>
-                    <p className="text-white h5 my-3">
-                      Career Retrospective Topps NOW® Chrome Card 15B
-                    </p>
-                    <p className="text-white h5">2021</p>
-                    <p className="text-white py-2 small">Autographed Card</p>
-                    <p className="text-white h3 fond-weight-bolder font-poppins">
-                      <strong>MARKET</strong> VALUE
-                    </p>
-                    <div className="white-underline"></div>
-                    <MarketValueBox />
-                  </div>
-                </div>
-              </div>
+      <div className="fac-container py-5">
+        <div className="due-dilly-clockwise-wrapper">
+          <span className="due-dilly-clockwise">DUE DILLY</span>
+        </div>
+        <div className="container-md">
+          <div className="d-flex w-100 justify-content-between">
+            <div className="">
+              <p className="h2 m-0 text-white font-weight-bolder pti-font">
+                DUE DILLY CARD FAC
+              </p>
+              <p className="text-white m-0">FACTUAL ASSESSMENT OF CARD</p>
             </div>
-          )}
-        </ReactToPdf>
+            <div className="d-none d-lg-flex">
+              <ShareContainer />
+            </div>
+            <div
+              className="d-flex d-lg-none"
+              onClick={() => setShareModal(true)}
+            >
+              <Share fill="#fff" width="40" />
+            </div>
+            <ReactModal
+              isOpen={Boolean(shareModal)}
+              onRequestClose={() => {
+                setShareModal(false)
+              }}
+              style={customStyles}
+            >
+              <div className="d-flex">
+                <ShareContainer />
+              </div>
+            </ReactModal>
+          </div>
+          <div className="row g-0 py-5 d-flex">
+            <div className="col-12 col-lg-7 fac-banner-img-container position-relative">
+              <ImageGallery
+                gallery={galleryImages}
+                initialImg={galleryImages[0]}
+              />
+            </div>
+            <div className="col-12 col-lg-5">
+              <p className="h1 m-0 text-uppercase font-weight-bolder text-white pti-font">
+                Derek Jeter
+              </p>
+              <p className="text-white h5 my-3">
+                Career Retrospective Topps NOW® Chrome Card 15B
+              </p>
+              <p className="text-white h5">2021</p>
+              <p className="text-white py-2 small">Autographed Card</p>
+              <p className="text-white h3 fond-weight-bolder font-poppins">
+                <strong>MARKET</strong> VALUE
+              </p>
+              <div className="white-underline"></div>
+              <MarketValueBox />
+            </div>
+          </div>
+        </div>
       </div>
     </>
   )
