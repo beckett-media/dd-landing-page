@@ -1,9 +1,88 @@
 import * as React from "react"
-import { StaticImage } from "gatsby-plugin-image"
 import Share from "../../images/svgs/Share.svg"
-// import MarketValueBox from "../../images/svgs/MarketValueBox.svg"
+
+import Download from "../../images/svgs/Download.svg"
+import Copy from "../../images/svgs/Copy.svg"
+import TwitterBlue from "../../images/svgs/TwitterBlue.svg"
+import FacebookBlue from "../../images/svgs/FacebookBlue.svg"
+import Email from "../../images/svgs/Email.svg"
+import Instagram from "../../images/svgs/Instagram.svg"
+
+import {
+  EmailShareButton,
+  FacebookShareButton,
+  HatenaShareButton,
+  InstapaperShareButton,
+  LineShareButton,
+  LinkedinShareButton,
+  LivejournalShareButton,
+  MailruShareButton,
+  OKShareButton,
+  PinterestShareButton,
+  PocketShareButton,
+  RedditShareButton,
+  TelegramShareButton,
+  TumblrShareButton,
+  TwitterShareButton,
+  ViberShareButton,
+  VKShareButton,
+  WhatsappShareButton,
+  WorkplaceShareButton,
+} from "react-share"
 
 import "./styles.css"
+
+const ShareContainer = () => {
+  return (
+    <div className="d-flex">
+      <div className="mx-2">
+        <Download />
+      </div>
+      <div className="mx-2">
+        <Copy />
+      </div>
+      <div className="mx-2">
+        <TwitterShareButton
+          url={"http://www.camperstribe.com"}
+          quote={"CampersTribe - World is yours to explore"}
+          hashtag="#camperstribe"
+        >
+          <TwitterBlue />
+        </TwitterShareButton>
+      </div>
+      <div className="mx-2">
+        <FacebookShareButton
+          url={"http://www.camperstribe.com"}
+          quote={"CampersTribe - World is yours to explore"}
+          hashtag="#camperstribe"
+        >
+          <FacebookBlue />
+        </FacebookShareButton>
+      </div>
+      <div className="mx-2">
+        <EmailShareButton
+          url={"http://www.camperstribe.com"}
+          quote={"CampersTribe - World is yours to explore"}
+          hashtag="#camperstribe"
+        >
+          <Email />
+        </EmailShareButton>
+      </div>
+      {/* <div
+        className="mx-2"
+        style={{
+          width: 50,
+          height: 50,
+          borderRadius: "50%",
+          background: "#00C4FF",
+          padding: 7.5,
+        }}
+      >
+        <Instagram fill="#fff" />
+      </div> */}
+    </div>
+  )
+}
 
 const MarketValueBox = () => {
   return (
@@ -104,7 +183,10 @@ const FacBanner = () => (
           <p className="text-white m-0">FACTUAL ASSESSMENT OF CARD</p>
         </div>
         <div className="d-none d-lg-flex">
-        <Share fill="#fff" width="40" />
+          <ShareContainer />
+        </div>
+        <div className="d-flex d-lg-none">
+          <Share fill="#fff" width="40" />
         </div>
       </div>
       <div className="row g-0 py-5 d-flex">
