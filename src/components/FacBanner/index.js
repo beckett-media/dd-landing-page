@@ -1,45 +1,38 @@
 import * as React from "react"
-import Share from "../../images/svgs/Share.svg"
+import { useScreenshot } from "use-react-screenshot"
+import {
+  EmailShareButton,
+  FacebookShareButton,
+  TwitterShareButton,
+} from "react-share"
+import ReactToPdf from "react-to-pdf"
 
+import Share from "../../images/svgs/Share.svg"
 import Download from "../../images/svgs/Download.svg"
 import Copy from "../../images/svgs/Copy.svg"
 import TwitterBlue from "../../images/svgs/TwitterBlue.svg"
 import FacebookBlue from "../../images/svgs/FacebookBlue.svg"
 import Email from "../../images/svgs/Email.svg"
-import Instagram from "../../images/svgs/Instagram.svg"
-
-import {
-  EmailShareButton,
-  FacebookShareButton,
-  HatenaShareButton,
-  InstapaperShareButton,
-  LineShareButton,
-  LinkedinShareButton,
-  LivejournalShareButton,
-  MailruShareButton,
-  OKShareButton,
-  PinterestShareButton,
-  PocketShareButton,
-  RedditShareButton,
-  TelegramShareButton,
-  TumblrShareButton,
-  TwitterShareButton,
-  ViberShareButton,
-  VKShareButton,
-  WhatsappShareButton,
-  WorkplaceShareButton,
-} from "react-share"
+// import Instagram from "../../images/svgs/Instagram.svg"
 
 import "./styles.css"
 
-const ShareContainer = () => {
+const ShareContainer = ({ getImage, toPdf }) => {
   return (
     <div className="d-flex">
-      <div className="mx-2">
-        <Download />
+      <div
+        className="mx-2 d-flex align-items-center justify-content-center"
+        style={{
+          width: 50,
+          height: 50,
+          borderRadius: "50%",
+          background: "#0092C7",
+        }}
+      >
+        <Download width="30px" height="30px" onClick={toPdf} fill="#fff" />
       </div>
       <div className="mx-2">
-        <Copy />
+        <Copy onClick={getImage} />
       </div>
       <div className="mx-2">
         <TwitterShareButton
@@ -169,48 +162,61 @@ const galleryImages = [
   },
 ]
 
-const FacBanner = () => (
-  <div className="fac-container py-5">
-    <div className="due-dilly-clockwise-wrapper">
-      <span className="due-dilly-clockwise">DUE DILLY</span>
-    </div>
-    <div className="container-md">
-      <div className="d-flex w-100 justify-content-between">
-        <div className="">
-          <p className="h2 m-0 text-white font-weight-bolder pti-font">
-            DUE DILLY CARD FAC
-          </p>
-          <p className="text-white m-0">FACTUAL ASSESSMENT OF CARD</p>
+const FacBanner = () => {
+  const ref = React.useRef(null)
+  const [image, takeScreenshot] = useScreenshot()
+  console.log("image: ", image)
+  const getImage = () => takeScreenshot(ref.current)
+  return (
+    <ReactToPdf targetRef={ref.current}>
+      {({ toPdf }) => (
+        <div className="fac-container py-5" ref={r => (ref.current = r)}>
+          <div className="due-dilly-clockwise-wrapper">
+            <span className="due-dilly-clockwise">DUE DILLY</span>
+          </div>
+          <div className="container-md">
+            <div className="d-flex w-100 justify-content-between">
+              <div className="">
+                <p className="h2 m-0 text-white font-weight-bolder pti-font">
+                  DUE DILLY CARD FAC
+                </p>
+                <p className="text-white m-0">FACTUAL ASSESSMENT OF CARD</p>
+              </div>
+              <div className="d-none d-lg-flex">
+                <ShareContainer getImage={getImage} toPdf={toPdf} />
+              </div>
+              <div className="d-flex d-lg-none">
+                <Share fill="#fff" width="40" />
+              </div>
+            </div>
+            <div className="row g-0 py-5 d-flex">
+              <div className="col-12 col-lg-7 fac-banner-img-container position-relative">
+                <ImageGallery
+                  gallery={galleryImages}
+                  initialImg={galleryImages[0]}
+                />
+              </div>
+              <div className="col-12 col-lg-5">
+                <p className="h1 m-0 text-uppercase font-weight-bolder text-white pti-font">
+                  Derek Jeter
+                </p>
+                <p className="text-white h5 my-3">
+                  Career Retrospective Topps NOW® Chrome Card 15B
+                </p>
+                <p className="text-white h5">2021</p>
+                <p className="text-white py-2 small">Autographed Card</p>
+                <p className="text-white h3 fond-weight-bolder font-poppins">
+                  <strong>MARKET</strong> VALUE
+                </p>
+                <div className="white-underline"></div>
+                <MarketValueBox />
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="d-none d-lg-flex">
-          <ShareContainer />
-        </div>
-        <div className="d-flex d-lg-none">
-          <Share fill="#fff" width="40" />
-        </div>
-      </div>
-      <div className="row g-0 py-5 d-flex">
-        <div className="col-12 col-lg-7 fac-banner-img-container position-relative">
-          <ImageGallery gallery={galleryImages} initialImg={galleryImages[0]} />
-        </div>
-        <div className="col-12 col-lg-5">
-          <p className="h1 m-0 text-uppercase font-weight-bolder text-white pti-font">
-            Derek Jeter
-          </p>
-          <p className="text-white h5 my-3">
-            Career Retrospective Topps NOW® Chrome Card 15B
-          </p>
-          <p className="text-white h5">2021</p>
-          <p className="text-white py-2 small">Autographed Card</p>
-          <p className="text-white h3 fond-weight-bolder font-poppins">
-            <strong>MARKET</strong> VALUE
-          </p>
-          <div className="white-underline"></div>
-          <MarketValueBox />
-        </div>
-      </div>
-    </div>
-  </div>
-)
+      )}
+    </ReactToPdf>
+  )
+}
 
 export default FacBanner
