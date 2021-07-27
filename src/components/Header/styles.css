@@ -5,12 +5,13 @@ header .nav-link {
   font-size: 14px;
 }
 
-header .nav-link:hover,
-header .nav-link.active {
+.gradient-link {
   background: transparent linear-gradient(117deg, #37c4ce 0%, #57f0d8 100%) 0%
     0% no-repeat padding-box;
+}
+header .nav-link:hover {
   letter-spacing: 0.36px;
-  color: white;
+  color: #37C4CE !important;
   text-transform: capitalize;
   font-size: 14px;
 }

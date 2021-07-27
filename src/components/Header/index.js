@@ -88,7 +88,7 @@ const Header = ({ setModal }) => {
                 className="nav-item mx-1 px-1"
               >
                 <div
-                  className={`nav-link px-3${
+                  className={`nav-link gradient-link px-3${
                     activeLint === "sign_up" ? " active" : ""
                   }`}
                   aria-current="page"
