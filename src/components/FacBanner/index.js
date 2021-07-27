@@ -98,7 +98,7 @@ const FacBanner = () => (
     <div className="container-md">
       <div className="d-flex w-100 justify-content-between">
         <div className="">
-          <p className="h2 m-0 text-white font-weight-bolder font-pti">
+          <p className="h2 m-0 text-white font-weight-bolder pti-font">
             DUE DILLY CARD FAC
           </p>
           <p className="text-white m-0">FACTUAL ASSESSMENT OF CARD</p>
@@ -112,7 +112,7 @@ const FacBanner = () => (
           <ImageGallery gallery={galleryImages} initialImg={galleryImages[0]} />
         </div>
         <div className="col-12 col-lg-5">
-          <p className="h1 m-0 text-uppercase font-weight-bolder text-white font-pti">
+          <p className="h1 m-0 text-uppercase font-weight-bolder text-white pti-font">
             Derek Jeter
           </p>
           <p className="text-white h5 my-3">

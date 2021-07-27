@@ -15,7 +15,7 @@ const RealTimeEval = () => (
         <div className="col-12 col-md-6 real-eval-container position-relative">
           <SideRibbon className="side-ribbon" />
           <div className="position-relative d-inline-block">
-            <h2 className="text-white font-pti">REAL-TIME<br/>EVALUATION</h2>
+            <h2 className="text-white pti-font">REAL-TIME<br/>EVALUATION</h2>
           </div>
           <p className="text-white font-shapiro">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ac
