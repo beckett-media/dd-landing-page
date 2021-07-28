@@ -23,6 +23,13 @@ body {
   font-feature-settings: "kern", "liga", "clig", "calt";
 }
 
+a:link {
+  text-decoration: none;
+  color: #37c4ce;
+}
+a:visited {
+  color: #37c4ce;
+}
 .text-dark {
   color: #43475f;
 }
@@ -40,6 +47,6 @@ body {
   font-family: "Shapiro";
 }
 
-.font-poppins{
+.font-poppins {
   font-family: "Poppins";
 }

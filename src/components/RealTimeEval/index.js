@@ -6,6 +6,7 @@ import RibbonBg from "../../images/svgs/RibbonBg.svg"
 import Chrome from "../../images/svgs/Chrome.svg"
 
 import "./styles.css"
+import { Link } from "gatsby"
 
 const RealTimeEval = () => (
   <div id="extention" className="real-time-container py-5 position-relative">
@@ -15,17 +16,27 @@ const RealTimeEval = () => (
         <div className="col-12 col-md-6 real-eval-container position-relative">
           <SideRibbon className="side-ribbon" />
           <div className="position-relative d-inline-block">
-            <h2 className="text-white pti-font">REAL-TIME<br/>EVALUATION</h2>
+            <h2 className="text-white pti-font">
+              REAL-TIME
+              <br />
+              EVALUATION
+            </h2>
           </div>
           <p className="text-white font-shapiro">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ac
             libero feugiat, placerat metus sit amet, laoreet nibh. Vivamus a
             arcu non mauris blandit lobortis. Duis vitae mattis lectus.
           </p>
-          <div className="chrome-button">
-            download chrome extension
-            <Chrome height="30" />
-          </div>
+          <Link
+            target="_blank"
+            to="https://chrome.google.com/webstore/detail/due-dilly/abbkdcinklakngmpghnhjkdjgnabbgek"
+          >
+            <div className="chrome-button">
+              download chrome extension
+              <Chrome height="30" />
+            </div>
+          </Link>
+
           <LowerArrow className="lower-arrow" />
         </div>
         <div className="col-12 col-md-6">

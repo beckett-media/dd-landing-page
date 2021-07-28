@@ -50,7 +50,7 @@ const Layout = ({ children }) => {
         }}
         style={customStyles}
       >
-        <Auth type={modal} />
+        <Auth close={() => setModal("")} type={modal} />
       </ReactModal>
     </>
   )

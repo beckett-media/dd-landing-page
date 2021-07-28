@@ -7,10 +7,15 @@ import { login } from "../../actions/auth"
 import Input from "../Common/Input"
 import getOS from "../../utils/getOS"
 import Notify from "../Notify"
+import { CONFIG } from "../../constants/Config"
 
-const Signup = ({ switchMode }) => {
+const Signup = ({ switchMode, close }) => {
   const { loading, response, post } = useFetch(
-    "https://api.duedilly.co/user/register-user"
+    `${CONFIG.base_url}/user/register-user`,
+    {
+      cachePolicy: "no-cache",
+      headers: { "x-app-token": CONFIG["x-app-token"] },
+    }
   )
   const dispatch = useDispatch()
   const [user, setUser] = useState()
@@ -26,17 +31,21 @@ const Signup = ({ switchMode }) => {
   const onSubmit = async formData => {
     let {
       message,
+      success,
       data: { user },
     } = await post("", { ...formData })
-    if (user) setUser(user)
-    if (message) {
-      setNotify({
-        success: user ? true : false,
-        message,
-      })
-      setTimeout(() => {
-        setNotify()
-      }, 3000)
+    if (!success) {
+      if (message) {
+        setNotify({
+          success: false,
+          message,
+        })
+        setTimeout(() => {
+          setNotify()
+        }, 3000)
+      }
+    } else {
+      if (user) setUser(user)
     }
   }
 
@@ -45,8 +54,11 @@ const Signup = ({ switchMode }) => {
     if (user && response.headers) {
       data["x-auth-token"] = response.headers.get("x-auth-token")
       data["x-refresh-token"] = response.headers.get("x-refresh-token")
+      localStorage.setItem("x-auth-token", data["x-auth-token"])
+      localStorage.setItem("x-refresh-token", data["x-refresh-token"])
       data = { ...data, firstTime: true, ...user }
       dispatch(login(data))
+      close()
     }
   }, [user, response.headers])
 

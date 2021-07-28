@@ -10,7 +10,7 @@ import "../../styles/Form.css"
 import "../../styles/Header.css"
 import "../../styles/MainSection.css"
 
-const Auth = ({ login, type }) => {
+const Auth = ({ login, close, type }) => {
   const [mode, switchMode] = useState(0)
   const meta = useSelector(({ common }) => common) || {}
 
@@ -24,9 +24,11 @@ const Auth = ({ login, type }) => {
 
   return (
     <div className={"form"}>
-      {mode === 0 && <Login login={login} switchMode={switchMode} />}
-      {mode === 1 && <Signup switchMode={switchMode} />}
-      {mode === 2 && <ForgotPassword switchMode={switchMode} />}
+      {mode === 0 && (
+        <Login close={close} login={login} switchMode={switchMode} />
+      )}
+      {mode === 1 && <Signup close={close} switchMode={switchMode} />}
+      {mode === 2 && <ForgotPassword close={close} switchMode={switchMode} />}
     </div>
   )
 }

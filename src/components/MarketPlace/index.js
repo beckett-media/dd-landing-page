@@ -1,34 +1,40 @@
 import * as React from "react"
 import { StaticImage } from "gatsby-plugin-image"
 import { Link } from "gatsby"
-import { useSelector } from "react-redux"
 import StarDotted from "../../images/svgs/StarDotted.svg"
 import ProtectionIcon from "../../images/svgs/ProtectionIcon.svg"
 
 import "./styles.css"
+import { CONFIG } from "../../constants/Config"
+import useFetch from "use-http"
 
-const MarketCard = ({
-  image,
-  avatar,
-  link,
-  description,
-  price,
-  status,
-  time,
-}) => {
+const MarketCard = ({ images, avatar, seller, title, price, _id }) => {
   return (
     <div className="col-12 col-md-6 col-xl-4 py-2">
       <div className="p-3 card">
-        <div className="d-flex">
-          <img src={image} className="card-image-wrapper"></img>
-          <div className="px-3">
-            <div className="d-flex align-items-center">
-              <img src={avatar} className="avatar-image"></img>
-              <p className="card-text text-nowrap font-weight-bold">{link}</p>
+        <Link target="_blank" to={`${CONFIG.marketplace_url}/product/${_id}`}>
+          <div className="d-flex">
+            <img
+              src={CONFIG.base_url + "/" + images[0]}
+              className="card-image-wrapper"
+            ></img>
+            <div className="px-3">
+              <div className={`d-flex align-items-center`}>
+                <img
+                  src={seller.avatar}
+                  className={`avatar-image ${
+                    !seller.avatar ? "bg-secondary" : ""
+                  }`}
+                ></img>
+
+                <p className="card-text text-nowrap font-weight-bold">
+                  {seller.fullName}
+                </p>
+              </div>
+              <p className="small py-2 shapiro-font">{title}</p>
             </div>
-            <p className="small py-2 shapiro-font">{description}</p>
           </div>
-        </div>
+        </Link>
         <div className="row py-2">
           <div className="col-12 col-sm-6 col-md-7 col-lg-6 col-xl-5 d-flex align-items-center">
             <Link
@@ -39,8 +45,10 @@ const MarketCard = ({
               View Card FAC
             </Link>
           </div>
-          <div className="col border-right ">{price}</div>
-          <div className="col">
+          <div className="col" style={{ textAlign: "right" }}>
+            ${price.toFixed()}
+          </div>
+          {/* <div className="col">
             <p
               className="m-0 shapiro-font"
               style={{
@@ -50,7 +58,7 @@ const MarketCard = ({
               {status}
             </p>
             <p className="small shapiro-font">{time}</p>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
@@ -58,7 +66,22 @@ const MarketCard = ({
 }
 
 const MarketPlace = () => {
-  const marketCards = useSelector(({ common }) => common?.marketCards)
+  const [marketCards, setMarketCards] = React.useState([])
+  const { get: getListings, loading } = useFetch(
+    CONFIG.base_url + "/marketplace",
+    {
+      cachePolicy: "no-cache",
+      headers: { "x-app-token": CONFIG["x-app-token"] },
+    }
+  )
+  const _getListings = async () => {
+    let { data } = await getListings()
+    let { newArrival } = data
+    setMarketCards(newArrival)
+  }
+  React.useEffect(() => {
+    _getListings()
+  }, [])
   return (
     <div
       id="market-place"

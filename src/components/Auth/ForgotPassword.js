@@ -2,24 +2,34 @@ import React, { useEffect, useRef, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import useFetch from "use-http"
 import { setMeta } from "../../actions/common"
+import { CONFIG } from "../../constants/Config"
 import Button from "../Common/Button"
 import Input from "../Common/Input"
 import Link from "../Common/Link"
 import Notify from "../Notify"
 
-const ForgotPassword = ({ switchMode }) => {
+const ForgotPassword = ({ switchMode, close }) => {
   const [notify, setNotify] = useState()
   const { post: generateOtp, loading: loadingGenerateOtp } = useFetch(
-    "https://api.duedilly.co/user/generate-otp",
-    { cachePolicy: "no-cache" }
+    `${CONFIG.base_url}/user/generate-otp`,
+    {
+      cachePolicy: "no-cache",
+      headers: { "x-app-token": CONFIG["x-app-token"] },
+    }
   )
   const { post: verifyOtp, loading: loadingVerifyOtp } = useFetch(
-    "https://api.duedilly.co/user/verify-otp",
-    { cachePolicy: "no-cache" }
+    `${CONFIG.base_url}/user/verify-otp`,
+    {
+      cachePolicy: "no-cache",
+      headers: { "x-app-token": CONFIG["x-app-token"] },
+    }
   )
   const { post: setNewPassword, loading: loadingNewPassword } = useFetch(
-    "https://api.duedilly.co/user/new-password",
-    { cachePolicy: "no-cache" }
+    `${CONFIG.base_url}/user/new-password`,
+    {
+      cachePolicy: "no-cache",
+      headers: { "x-app-token": CONFIG["x-app-token"] },
+    }
   )
   const dispatch = useDispatch()
   const meta = useSelector(({ common }) => common) || {}

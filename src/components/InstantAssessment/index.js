@@ -6,6 +6,7 @@ import GooglePlayLogo from "../../images/svgs/GooglePlayLogo.svg"
 import AppStoreLogo from "../../images/svgs/AppStoreLogo.svg"
 
 import "./styles.css"
+import { Link } from "gatsby"
 
 const InstantAssessment = () => (
   <div id="mobile" className="inst-asst-container py-5 position-relative">
@@ -28,7 +29,7 @@ const InstantAssessment = () => (
         <div className="col-12 col-md-6 inst-asst-text-container position-relative">
           <LowerArrow className="upper-arrow" />
           <div className="position-relative d-inline-block">
-            <h2 className="pti-font text-white" >INSTANT ASSESSMENT</h2>
+            <h2 className="pti-font text-white">INSTANT ASSESSMENT</h2>
           </div>
           <p className="text-white font-shapiro">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ac
@@ -36,8 +37,15 @@ const InstantAssessment = () => (
             arcu non mauris blandit lobortis. Duis vitae mattis lectus.
           </p>
           <div className="d-flex">
-            <AppStoreLogo className="app-store" />
-            <GooglePlayLogo className="play-store" />
+            <Link
+              target="_blank"
+              to="https://apps.apple.com/us/app/due-dilly/id1568882229"
+            >
+              <AppStoreLogo className="app-store" />
+            </Link>
+            <Link target="_blank" to="#">
+              <GooglePlayLogo className="play-store" />
+            </Link>
           </div>
         </div>
       </div>

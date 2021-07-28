@@ -7,10 +7,15 @@ import { login } from "../../actions/auth"
 import Input from "../Common/Input"
 import getOS from "../../utils/getOS"
 import Notify from "../Notify"
+import { CONFIG } from "../../constants/Config"
 
-const Login = ({ switchMode }) => {
+const Login = ({ switchMode, close }) => {
   const { loading, response, post } = useFetch(
-    "https://api.duedilly.co/authenticate/sign-in-user"
+    `${CONFIG.base_url}/authenticate/sign-in-user`,
+    {
+      cachePolicy: "no-cache",
+      headers: { "x-app-token": CONFIG["x-app-token"] },
+    }
   )
   const dispatch = useDispatch()
   const [user, setUser] = useState()
@@ -28,26 +33,35 @@ const Login = ({ switchMode }) => {
     let {
       message,
       data: { user },
+      success,
     } = await post("", { ...formData })
-    if (user) setUser(user)
-    if (message) {
-      setNotify({
-        success: user ? true : false,
-        message,
-      })
-      setTimeout(() => {
-        setNotify()
-      }, 3000)
+
+    if (!success) {
+      if (message) {
+        setNotify({
+          success: false,
+          message,
+        })
+        setTimeout(() => {
+          setNotify()
+        }, 3000)
+      }
+    } else {
+      if (user) setUser(user)
     }
   }
 
   useEffect(() => {
     let data = {}
     if (user && response.headers) {
+      console.log("response.headers: ", response.headers)
       data["x-auth-token"] = response.headers.get("x-auth-token")
       data["x-refresh-token"] = response.headers.get("x-refresh-token")
+      localStorage.setItem("x-auth-token", data["x-auth-token"])
+      localStorage.setItem("x-refresh-token", data["x-refresh-token"])
       data = { ...data, ...user }
       dispatch(login(data))
+      close()
     }
   }, [user, response.headers])
 
