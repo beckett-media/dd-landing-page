@@ -15,6 +15,9 @@ const headerLinks = [
 const Header = ({ setModal }) => {
   const [activeLint, setActiveLink] = React.useState()
 
+  const closeNavLink = () => {
+    document.getElementById("navbarSupportedContent").classList.remove("show")
+  }
   React.useEffect(() => {
     if (window.location.hash) setActiveLink(window.location.hash.slice(1))
     else if (window.location.pathname != "/")
@@ -48,7 +51,10 @@ const Header = ({ setModal }) => {
               {headerLinks.map(item => (
                 <li
                   key={item.key}
-                  onClick={() => setActiveLink(item.key)}
+                  onClick={() => {
+                    closeNavLink()
+                    setActiveLink(item.key)
+                  }}
                   className="nav-item mx-1 px-1"
                 >
                   <Link
@@ -67,6 +73,7 @@ const Header = ({ setModal }) => {
                 onClick={() => {
                   setActiveLink("login")
                   setModal("login")
+                  closeNavLink()
                 }}
                 className="nav-item mx-1 px-1"
               >
@@ -84,6 +91,7 @@ const Header = ({ setModal }) => {
                 onClick={() => {
                   setActiveLink("sign_up")
                   setModal("sign_up")
+                  closeNavLink()
                 }}
                 className="nav-item mx-1 px-1"
               >

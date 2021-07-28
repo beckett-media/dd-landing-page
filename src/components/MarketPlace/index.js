@@ -72,6 +72,23 @@ const MarketPlace = () => {
           width: 200,
           height: 200,
           position: "absolute",
+          right: -50,
+          top: "7rem",
+          transform: "rotate(180deg)",
+        }}
+        imgStyle={{
+          height: "100%",
+          objectFit: "100%",
+        }}
+      />
+      <StaticImage
+        src="../../images/globe-bg.png"
+        quality={50}
+        formats={["AUTO", "WEBP", "AVIF"]}
+        style={{
+          width: 200,
+          height: 200,
+          position: "absolute",
           left: -50,
           bottom: "10rem",
         }}
@@ -90,7 +107,9 @@ const MarketPlace = () => {
         <div className="container-lg ">
           <div className="row g-0 d-flex align-items-center">
             <div className="col-12 position-relative py-5">
-              <h3 className="market-place-list-title pti-font">LATEST LISTINGS</h3>
+              <h3 className="market-place-list-title pti-font">
+                LATEST LISTINGS
+              </h3>
               <div className="market-place-list-title-underline"></div>
               <div className="row pt-5">
                 {marketCards.map(item => (
@@ -101,23 +120,6 @@ const MarketPlace = () => {
           </div>
         </div>
       </div>
-      <StaticImage
-        src="../../images/globe-bg.png"
-        quality={50}
-        formats={["AUTO", "WEBP", "AVIF"]}
-        style={{
-          width: 200,
-          height: 200,
-          position: "absolute",
-          right: -50,
-          top: "7rem",
-          transform: "rotate(180deg)",
-        }}
-        imgStyle={{
-          height: "100%",
-          objectFit: "100%",
-        }}
-      />
     </div>
   )
 }
