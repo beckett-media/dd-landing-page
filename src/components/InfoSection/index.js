@@ -1,13 +1,15 @@
 import * as React from "react"
-import Chart from "react-apexcharts"
-
+// import Chart from ""
+import loadable from "@loadable/component"
 import Instagram from "../../images/svgs/Instagram.svg"
 import Facebook from "../../images/svgs/Facebook.svg"
 import Youtube from "../../images/svgs/Youtube.svg"
 import Twitter from "../../images/svgs/Twitter.svg"
 import GraphIcon from "../../images/svgs/Graph.svg"
-
 import "./styles.css"
+
+const Chart = loadable(() => import("react-apexcharts"))
+
 
 const ChartSection = () => {
   const series = [
