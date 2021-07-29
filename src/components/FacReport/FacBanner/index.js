@@ -6,17 +6,20 @@ import {
 } from "react-share"
 import ReactModal from "react-modal"
 
-import Share from "../../images/svgs/Share.svg"
-import Download from "../../images/svgs/Download.svg"
-import Copy from "../../images/svgs/Copy.svg"
-import TwitterBlue from "../../images/svgs/TwitterBlue.svg"
-import FacebookBlue from "../../images/svgs/FacebookBlue.svg"
-import Email from "../../images/svgs/Email.svg"
-import Pdf from "../../images/svgs/Pdf.svg"
-import Camera from "../../images/svgs/Camera.svg"
+import Share from "../../../images/svgs/Share.svg"
+import Download from "../../../images/svgs/Download.svg"
+import Copy from "../../../images/svgs/Copy.svg"
+import TwitterBlue from "../../../images/svgs/TwitterBlue.svg"
+import FacebookBlue from "../../../images/svgs/FacebookBlue.svg"
+import Email from "../../../images/svgs/Email.svg"
+import Pdf from "../../../images/svgs/Pdf.svg"
+import Camera from "../../../images/svgs/Camera.svg"
 // import Instagram from "../../images/svgs/Instagram.svg"
+import html2canvas from "html2canvas"
+import { jsPDF } from "jspdf"
 
 import "./styles.css"
+import { CONFIG } from "../../../constants/Config"
 
 ReactModal.setAppElement("#___gatsby")
 
@@ -32,7 +35,7 @@ const customStyles = {
   overlay: { zIndex: 999999 },
 }
 
-const ShareContainer = () => {
+const ShareContainer = ({ getImage, getPDF, cardId }) => {
   const [modal, setModal] = React.useState(false)
 
   const copyToClipboard = () => {
@@ -58,7 +61,7 @@ const ShareContainer = () => {
           type="button"
           onClick={() => {
             setModal(false)
-            // toPdf()
+            getPDF()
           }}
           className="btn btn-primary mx-2"
         >
@@ -69,7 +72,7 @@ const ShareContainer = () => {
           className="btn btn-info text-white mx-2"
           onClick={() => {
             setModal(false)
-            // getImage()
+            getImage()
           }}
         >
           <Camera width="30px" height="30px" fill="#FFF" /> Image
@@ -144,7 +147,7 @@ const ShareContainer = () => {
   )
 }
 
-const MarketValueBox = () => {
+const MarketValueBox = ({ gradeData }) => {
   return (
     <div className="max-val-box">
       <p className="text-white text-center text-lg-start small">
@@ -156,12 +159,18 @@ const MarketValueBox = () => {
         Place in the top 5 grading prices:
       </p>
       <div className="d-flex flex-wrap justify-content-around justify-content-xl-between">
-        <div className="col-4 col-xl-2 py-4 py-xl-2">
-          <p className="text-white  text-nowrap text-center">GRD - 10</p>
-          <p className="text-cyan font-weight-bolder m-0 text-nowrap text-center">
-            $6082
-          </p>
-        </div>
+        {gradeData
+          ?.filter(item => item._id.grade >= 6 && item.grader == "PSA")
+          .map(({ _id: { gradeData }, avgValue }) => (
+            <div className="col-4 col-xl-2 py-4 py-xl-2">
+              <p className="text-white  text-nowrap text-center">
+                GRD - {gradeData}
+              </p>
+              <p className="text-cyan font-weight-bolder m-0 text-nowrap text-center">
+                ${avgValue.toFixed()}
+              </p>
+            </div>
+          ))}
         <div className="col-4 col-xl-2 py-4 py-xl-2">
           <p className="text-white  text-nowrap text-center">GRD - 9</p>
           <p className="text-cyan font-weight-bolder m-0 text-nowrap text-center">
@@ -214,23 +223,82 @@ const ImageGallery = ({ gallery, initialImg }) => {
   )
 }
 
-const galleryImages = [
-  {
-    key: "image_1",
-    url: "https://images.pexels.com/photos/247431/pexels-photo-247431.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=140&w=400",
-  },
-  {
-    key: "image_2",
-    url: "https://images.pexels.com/photos/3244513/pexels-photo-3244513.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=140&w=400",
-  },
-  {
-    key: "image_3",
-    url: "https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=140&w=400",
-  },
-]
-
-const FacBanner = () => {
+const FacBanner = ({
+  card,
+  gradeData,
+  loadingGradeData,
+  currentPageRef,
+  cardId,
+}) => {
   const [shareModal, setShareModal] = React.useState(false)
+  const [gallery, setGallery] = React.useState([])
+
+  React.useEffect(() => {
+    if (card)
+      setGallery([
+        { url: CONFIG.base_url + "/" + card.front },
+        { url: CONFIG.base_url + "/" + card.back },
+      ])
+  }, [card])
+
+  const getPDF = () => {
+    var HTML_Width = currentPageRef.current.clientWidth
+    var HTML_Height = currentPageRef.current.clientHeight
+    var top_left_margin = 15
+    var PDF_Width = HTML_Width + top_left_margin * 2
+    var PDF_Height = PDF_Width * 1.5 + top_left_margin * 2
+    var canvas_image_width = HTML_Width
+    var canvas_image_height = HTML_Height
+
+    var totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 1
+
+    html2canvas(currentPageRef.current, { allowTaint: true }).then(function (
+      canvas
+    ) {
+      canvas.getContext("2d")
+
+      var imgData = canvas.toDataURL("image/jpeg", 1.0)
+      var pdf = new jsPDF("p", "pt", [PDF_Width, PDF_Height])
+      pdf.addImage(
+        imgData,
+        "JPG",
+        top_left_margin,
+        top_left_margin,
+        canvas_image_width,
+        canvas_image_height
+      )
+
+      for (var i = 1; i <= totalPDFPages; i++) {
+        pdf.addPage(PDF_Width, PDF_Height)
+        pdf.addImage(
+          imgData,
+          "JPG",
+          top_left_margin,
+          -(PDF_Height * i) + top_left_margin * 4,
+          canvas_image_width,
+          canvas_image_height
+        )
+      }
+
+      pdf.save(`${cardId}-report.pdf`)
+    })
+  }
+
+  const getImage = () => {
+    html2canvas(currentPageRef.current).then(canvas => {
+      var image = canvas.toDataURL()
+
+      // create temporary link
+      var tmpLink = document.createElement("a")
+      tmpLink.download = `${cardId}-report.png` // set the name of the download file
+      tmpLink.href = image
+
+      // temporarily add link to body and initiate the download
+      document.body.appendChild(tmpLink)
+      tmpLink.click()
+      document.body.removeChild(tmpLink)
+    })
+  }
 
   return (
     <>
@@ -247,7 +315,11 @@ const FacBanner = () => {
               <p className="text-white m-0">FACTUAL ASSESSMENT OF CARD</p>
             </div>
             <div className="d-none d-lg-flex">
-              <ShareContainer />
+              <ShareContainer
+                cardId={cardId}
+                getPDF={getPDF}
+                getImage={getImage}
+              />
             </div>
             <div
               className="d-flex d-lg-none"
@@ -269,25 +341,24 @@ const FacBanner = () => {
           </div>
           <div className="row g-0 py-5 d-flex">
             <div className="col-12 col-lg-7 fac-banner-img-container position-relative">
-              <ImageGallery
-                gallery={galleryImages}
-                initialImg={galleryImages[0]}
-              />
+              {gallery.length && (
+                <ImageGallery gallery={gallery} initialImg={gallery[0]} />
+              )}
             </div>
             <div className="col-12 col-lg-5">
               <p className="h1 m-0 text-uppercase font-weight-bolder text-white pti-font">
-                Derek Jeter
+                {card?.playerNames.join(" ")}
               </p>
               <p className="text-white h5 my-3">
-                Career Retrospective Topps NOW® Chrome Card 15B
+                {card?.type} {card?.brand} {card?.modelNo} {card?.serialNo}
               </p>
-              <p className="text-white h5">2021</p>
-              <p className="text-white py-2 small">Autographed Card</p>
-              <p className="text-white h3 fond-weight-bolder font-poppins">
+              <p className="text-white h5">{card?.year}</p>
+              {/* <p className="text-white py-2 small">Autographed Card</p> */}
+              <p className="text-white h3 fond-weight-bolder font-poppins mt-5">
                 <strong>MARKET</strong> VALUE
               </p>
               <div className="white-underline"></div>
-              <MarketValueBox />
+              <MarketValueBox gradeData={gradeData} />
             </div>
           </div>
         </div>
