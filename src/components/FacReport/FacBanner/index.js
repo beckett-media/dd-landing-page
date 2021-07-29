@@ -35,12 +35,12 @@ const customStyles = {
   overlay: { zIndex: 999999 },
 }
 
-const ShareContainer = ({ getImage, getPDF, cardId }) => {
+const ShareContainer = ({ getImage, getPDF }) => {
   const [modal, setModal] = React.useState(false)
 
   const copyToClipboard = () => {
     const el = document.createElement("textarea")
-    el.value = "https://epic-villani-e0510b.netlify.app/"
+    el.value = window.location.href
     document.body.appendChild(el)
     el.select()
     document.execCommand("copy")
@@ -100,7 +100,7 @@ const ShareContainer = ({ getImage, getPDF, cardId }) => {
       </div>
       <div className="mx-2">
         <TwitterShareButton
-          url={"https://epic-villani-e0510b.netlify.app/"}
+          url={window.location.href}
           quote={
             "Due Dilly - Revolutionizing how the world buys and sells sports cards."
           }
@@ -111,7 +111,7 @@ const ShareContainer = ({ getImage, getPDF, cardId }) => {
       </div>
       <div className="mx-2">
         <FacebookShareButton
-          url={"https://epic-villani-e0510b.netlify.app/"}
+          url={window.location.href}
           quote={
             "Due Dilly - Revolutionizing how the world buys and sells sports cards."
           }
@@ -122,7 +122,7 @@ const ShareContainer = ({ getImage, getPDF, cardId }) => {
       </div>
       <div className="mx-2">
         <EmailShareButton
-          url={"https://epic-villani-e0510b.netlify.app/"}
+          url={window.location.href}
           quote={
             "Due Dilly - Revolutionizing how the world buys and sells sports cards."
           }
@@ -315,11 +315,7 @@ const FacBanner = ({
               <p className="text-white m-0">FACTUAL ASSESSMENT OF CARD</p>
             </div>
             <div className="d-none d-lg-flex">
-              <ShareContainer
-                cardId={cardId}
-                getPDF={getPDF}
-                getImage={getImage}
-              />
+              <ShareContainer getPDF={getPDF} getImage={getImage} />
             </div>
             <div
               className="d-flex d-lg-none"
