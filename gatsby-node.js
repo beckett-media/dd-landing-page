@@ -3,7 +3,7 @@
  *
  * See: https://www.gatsbyjs.com/docs/node-apis/
  */
-
+let path = require("path")
 // You can delete this file if you're not using it
 exports.onCreatePage = async ({ page, actions }) => {
   const { createPage } = actions
@@ -12,7 +12,7 @@ exports.onCreatePage = async ({ page, actions }) => {
   // only on the client.
   if (page.path.match(/^\/fac-report/)) {
     page.matchPath = "/fac-report/*"
-
+    page.component = path.resolve(`src/pages/fac-report.js`)
     // Update the page.
     createPage(page)
   }

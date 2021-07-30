@@ -11,6 +11,7 @@ import { CONFIG } from "../../constants/Config"
 const FacBanner = loadable(() => import("./FacBanner"))
 
 const FacReport = ({ id }) => {
+  console.log("id: ", id)
   const [reportData, setData] = React.useState({})
   const currentPage = React.useRef()
   const url = typeof window !== "undefined" ? window.location.href : ""

@@ -1,7 +1,8 @@
 import React from "react"
-import { Router } from "@reach/router"
 import FacReport from "../components/FacReport"
 import Seo from "../components/seo"
+import { Router } from "@reach/router"
+
 const App = () => {
   return (
     <>

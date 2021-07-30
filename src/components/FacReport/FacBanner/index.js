@@ -101,9 +101,7 @@ const ShareContainer = ({ getImage, getPDF }) => {
       <div className="mx-2">
         <TwitterShareButton
           url={window.location.href}
-          quote={
-            "Due Dilly - Revolutionizing how the world buys and sells sports cards."
-          }
+          quote={"Checkout this Card FAC Report from Due Dilly"}
           hashtag="#duedilly"
         >
           <TwitterBlue />
@@ -112,9 +110,7 @@ const ShareContainer = ({ getImage, getPDF }) => {
       <div className="mx-2">
         <FacebookShareButton
           url={window.location.href}
-          quote={
-            "Due Dilly - Revolutionizing how the world buys and sells sports cards."
-          }
+          quote={"Checkout this Card FAC Report from Due Dilly"}
           hashtag="#duedilly"
         >
           <FacebookBlue />
@@ -122,11 +118,10 @@ const ShareContainer = ({ getImage, getPDF }) => {
       </div>
       <div className="mx-2">
         <EmailShareButton
+          onClick={() => {}}
           url={window.location.href}
-          quote={
-            "Due Dilly - Revolutionizing how the world buys and sells sports cards."
-          }
-          hashtag="#duedilly"
+          subject={"Card FAC Report | Due Dilly"}
+          body={`Checkout this Card FAC Report from Due Dilly ${window.location.href}`}
         >
           <Email />
         </EmailShareButton>
@@ -337,7 +332,7 @@ const FacBanner = ({
           </div>
           <div className="row g-0 py-5 d-flex">
             <div className="col-12 col-lg-7 fac-banner-img-container position-relative">
-              {gallery.length && (
+              {gallery.length > 0 && (
                 <ImageGallery gallery={gallery} initialImg={gallery[0]} />
               )}
             </div>
