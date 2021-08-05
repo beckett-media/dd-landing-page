@@ -173,7 +173,7 @@ const MarketValueBox = ({ gradeData, loading }) => {
       </p>
 
       {loading ? (
-        <div className="d-flex justify-content-center p-5">
+        <div className="d-flex justify-content-center p-5 align-items-center h-100">
           <Loader />
         </div>
       ) : (

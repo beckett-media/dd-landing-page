@@ -12,7 +12,7 @@ import Loader from "../../Loader"
 
 const Chart = loadable(() => import("react-apexcharts"))
 
-const ChartSection = ({ priceData }) => {
+const ChartSection = ({ priceData, loading }) => {
   const [chartData, setChartData] = React.useState({})
   const [period, setPeriod] = React.useState("monthly")
 
@@ -84,72 +84,30 @@ const ChartSection = ({ priceData }) => {
     }
   }, [priceData])
 
-  const options = {
-    chart: {
-      id: "apexchart-example",
-      foreColor: "#ffffff",
-      toolbar: {
-        show: false,
-      },
-    },
-    stroke: {
-      curve: "smooth",
-      lineCap: "butt",
-      colors: "#30BACC",
-    },
-    xaxis: {
-      categories: ["28 Dec", "29 Dec", "30 Dec", "1 Jan", "2 Jan"],
-    },
-
-    tooltip: {
-      custom: ({ dataPointIndex, w }) => {
-        return (
-          '<div class="graph-tooltip">' +
-          "<span>" +
-          "$" +
-          JSON.stringify(w.globals.stackedSeriesTotals[dataPointIndex]) +
-          "m" +
-          "</span>" +
-          "</div>"
-        )
-      },
-    },
-  }
-
   return (
-    <div className="max-val-box w-100 position-relative py-3">
-      {/* <div
-        className="green font-weight-bold"
-        style={{
-          position: "absolute",
-          top: 20,
-          left: 20,
-        }}
-      >
-        <GraphIcon width="30px" height="30px" fill="#9ADBA4" /> Positive
-      </div> */}
-      {/* <div
-        className="text-white h4 font-weight-bolder"
-        style={{
-          position: "absolute",
-          top: 20,
-          right: 20,
-        }}
-      >
-        $4083
-      </div> */}
-      {chartData && priceData && (
-        <Chart
-          style={{ paddingTop: 20 }}
-          // options={options}
-          // series={series}
-          options={chartData.options}
-          series={chartData.series}
-          // type="line"
-          type="line"
-          width={"100%"}
-          height={320}
-        />
+    <div
+      className="max-val-box w-100 position-relative py-3"
+      style={{ height: 375 }}
+    >
+      {loading ? (
+        <div className="d-flex justify-content-center p-5 align-items-center h-100">
+          <Loader />
+        </div>
+      ) : (
+        chartData &&
+        priceData && (
+          <Chart
+            style={{ paddingTop: 20 }}
+            // options={options}
+            // series={series}
+            options={chartData.options}
+            series={chartData.series}
+            // type="line"
+            type="line"
+            width={"100%"}
+            height={320}
+          />
+        )
       )}
     </div>
   )
@@ -224,15 +182,10 @@ const InfoSection = ({ priceData, user, loading }) => {
               <strong>PRICING</strong> TREND
             </p>
             <div className="white-underline"></div>
-            {loading ? (
-              <div className="d-flex justify-content-center p-5">
-                <Loader />
-              </div>
-            ) : (
-              <div className="d-flex justify-content-between">
-                <ChartSection priceData={priceData} />
-              </div>
-            )}
+
+            <div className="d-flex justify-content-between">
+              <ChartSection loading={loading} priceData={priceData} />
+            </div>
           </div>
         </div>
       </div>
