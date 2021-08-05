@@ -42,14 +42,16 @@
 .due-dilly-clockwise {
   color: transparent;
   transform: rotate(90deg);
-  -webkit-text-stroke: 1px white;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
   display: block;
   font-size: 50px;
+  font-family: "Pti-Improv";
 }
 
 .due-dilly-clockwise-wrapper {
   position: absolute;
   bottom: 8rem;
   left: -8rem;
-  opacity: 0.2;z-index: 1;
+  opacity: 0.2;
+  z-index: 1;
 }

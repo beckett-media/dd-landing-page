@@ -347,6 +347,7 @@ const FacBanner = ({ card, gradeData, loading, currentPageRef, cardId }) => {
               </div>
             </ReactModal>
           </div>
+
           <div className="row g-0 py-5 d-flex">
             <div
               className={`col-12 col-lg-${
