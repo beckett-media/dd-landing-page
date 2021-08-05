@@ -9,7 +9,7 @@ import "./styles.css"
 import { Link } from "gatsby"
 
 const RealTimeEval = () => (
-  <div id="extention" className="real-time-container py-5 position-relative">
+  <div id="extension" className="real-time-container py-5 position-relative">
     <RibbonBg className="ribbon-bg" />
     <div className="container-md">
       <div className="row g-0 d-flex align-items-center">

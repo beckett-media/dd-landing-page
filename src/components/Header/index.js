@@ -10,9 +10,9 @@ import { useDispatch, useSelector } from "react-redux"
 import { login, updateUser } from "../../actions/auth"
 
 const headerLinks = [
-  { key: "marketplace", label: "MARKETPLACE", path: "/" },
+  { key: "marketplace", label: "MARKETPLACE", path: "/#market-place" },
   { key: "mobile", label: "MOBILE", path: "/#mobile" },
-  { key: "extention", label: "EXTENSION", path: "/#extention" },
+  { key: "extension", label: "EXTENSION", path: "/#extension" },
   { key: "card-fac", label: "CARD FAC", path: "/#card-fac" },
 ]
 
@@ -43,7 +43,7 @@ const Header = ({ setModal }) => {
     if (window.location.hash) setActiveLink(window.location.hash.slice(1))
     else if (window.location.pathname != "/")
       setActiveLink(window.location.pathname.slice(1))
-    else setActiveLink("marketplace")
+    // else setActiveLink("marketplace")
 
     if (localStorage.getItem("x-auth-token")) {
       _getUserInfo()

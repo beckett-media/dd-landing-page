@@ -11,11 +11,9 @@ import { CONFIG } from "../../constants/Config"
 const FacBanner = loadable(() => import("./FacBanner"))
 
 const FacReport = ({ id }) => {
-  console.log("id: ", id)
   const [reportData, setData] = React.useState({})
   const currentPage = React.useRef()
   const url = typeof window !== "undefined" ? window.location.href : ""
-  console.log("url: ", url)
 
   const reportDataRef = React.useRef()
 
@@ -47,10 +45,13 @@ const FacReport = ({ id }) => {
     cachePolicy: "no-cache",
   })
 
-  const { post: getJobStatus, error: errorGetJobStatus } = useFetch(
-    CONFIG.base_url + "/api/v1/job/status",
-    { cachePolicy: "no-cache" }
-  )
+  const {
+    post: getJobStatus,
+    loading: loadingJobStatus,
+    error: errorGetJobStatus,
+  } = useFetch(CONFIG.base_url + "/api/v1/job/status", {
+    cachePolicy: "no-cache",
+  })
 
   const initGradeAndPricingFetch = async jobId => {
     const { priceFetchComplete, gradingFetchComplete } = reportDataRef.current
@@ -134,7 +135,7 @@ const FacReport = ({ id }) => {
         currentPageRef={currentPage}
         card={reportData?.fac?.card}
         gradeData={reportData?.gradeData}
-        loadingGradeData={loadingGradingData}
+        loading={loadingGradingData || loading || loadingJobStatus}
         cardId={id}
       />
       <GradientLine />
@@ -142,7 +143,10 @@ const FacReport = ({ id }) => {
       <InfoSection
         user={reportData?.fac?.user}
         priceData={reportData?.priceData}
-        image="https://images.pexels.com/photos/247431/pexels-photo-247431.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=140&w=400"
+        loading={
+          loading ||
+          ((loadingJobStatus || loadingPricingData) && !reportData?.priceData)
+        }
       />
     </div>
   )

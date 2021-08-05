@@ -8,6 +8,7 @@ import Twitter from "../../../images/svgs/Twitter.svg"
 import GraphIcon from "../../../images/svgs/Graph.svg"
 import "./styles.css"
 import { CONFIG } from "../../../constants/Config"
+import Loader from "../../Loader"
 
 const Chart = loadable(() => import("react-apexcharts"))
 
@@ -54,7 +55,6 @@ const ChartSection = ({ priceData }) => {
           },
           tooltip: {
             custom: ({ dataPointIndex, w }) => {
-              console.log("w: ", w)
               return (
                 '<div class="graph-tooltip">' +
                 "<span>" +
@@ -103,7 +103,6 @@ const ChartSection = ({ priceData }) => {
 
     tooltip: {
       custom: ({ dataPointIndex, w }) => {
-        console.log("dataPointIndex: ", dataPointIndex)
         return (
           '<div class="graph-tooltip">' +
           "<span>" +
@@ -156,8 +155,7 @@ const ChartSection = ({ priceData }) => {
   )
 }
 
-const InfoSection = ({ priceData, user }) => {
-  console.log("user: ", user)
+const InfoSection = ({ priceData, user, loading }) => {
   return (
     <div style={{ background: "#121634" }}>
       <div className="container-md ">
@@ -226,9 +224,15 @@ const InfoSection = ({ priceData, user }) => {
               <strong>PRICING</strong> TREND
             </p>
             <div className="white-underline"></div>
-            <div className="d-flex justify-content-between">
-              <ChartSection priceData={priceData} />
-            </div>
+            {loading ? (
+              <div className="d-flex justify-content-center p-5">
+                <Loader />
+              </div>
+            ) : (
+              <div className="d-flex justify-content-between">
+                <ChartSection priceData={priceData} />
+              </div>
+            )}
           </div>
         </div>
       </div>

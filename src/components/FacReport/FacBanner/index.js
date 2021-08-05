@@ -20,6 +20,7 @@ import { jsPDF } from "jspdf"
 
 import "./styles.css"
 import { CONFIG } from "../../../constants/Config"
+import Loader from "../../Loader"
 
 ReactModal.setAppElement("#___gatsby")
 
@@ -37,6 +38,7 @@ const customStyles = {
 
 const ShareContainer = ({ getImage, getPDF }) => {
   const [modal, setModal] = React.useState(false)
+  const [copied, setCopied] = React.useState(false)
 
   const copyToClipboard = () => {
     const el = document.createElement("textarea")
@@ -45,6 +47,10 @@ const ShareContainer = ({ getImage, getPDF }) => {
     el.select()
     document.execCommand("copy")
     document.body.removeChild(el)
+    setCopied(true)
+    setTimeout(() => {
+      setCopied(false)
+    }, 2000)
   }
 
   return (
@@ -95,7 +101,22 @@ const ShareContainer = ({ getImage, getPDF }) => {
           fill="#fff"
         />
       </div>
-      <div className="mx-2">
+      <div className="mx-2" style={{ position: "relative" }}>
+        <div
+          class={`alert alert-primary p-2 text-center alert-dismissible fade ${
+            copied ? "show" : ""
+          }`}
+          style={{
+            position: "absolute",
+            width: 150,
+            left: "50%",
+            bottom: -80,
+            transform: "translateX(-50%)",
+          }}
+          role="alert"
+        >
+          <small className="text-center">URL copied to clipboard!</small>
+        </div>
         <Copy style={{ cursor: "pointer" }} onClick={() => copyToClipboard()} />
       </div>
       <div className="mx-2">
@@ -142,7 +163,7 @@ const ShareContainer = ({ getImage, getPDF }) => {
   )
 }
 
-const MarketValueBox = ({ gradeData }) => {
+const MarketValueBox = ({ gradeData, loading }) => {
   return (
     <div className="max-val-box">
       <p className="text-white text-center text-lg-start small">
@@ -150,64 +171,65 @@ const MarketValueBox = ({ gradeData }) => {
         statement that this estimate will be valued for 3 days of date it was
         generated.
       </p>
-      <p className="text-white text-center font-weight-bold py-3">
-        Place in the top 5 grading prices:
-      </p>
-      <div className="d-flex flex-wrap justify-content-around justify-content-xl-between">
-        {gradeData
-          ?.filter(item => item._id.grade >= 6 && item.grader == "PSA")
-          .map(({ _id: { gradeData }, avgValue }) => (
-            <div className="col-4 col-xl-2 py-4 py-xl-2">
-              <p className="text-white  text-nowrap text-center">
-                GRD - {gradeData}
-              </p>
-              <p className="text-cyan font-weight-bolder m-0 text-nowrap text-center">
-                ${avgValue.toFixed()}
-              </p>
-            </div>
-          ))}
-        <div className="col-4 col-xl-2 py-4 py-xl-2">
-          <p className="text-white  text-nowrap text-center">GRD - 9</p>
-          <p className="text-cyan font-weight-bolder m-0 text-nowrap text-center">
-            $1298
-          </p>
+
+      {loading ? (
+        <div className="d-flex justify-content-center p-5">
+          <Loader />
         </div>
-        <div className="col-4 col-xl-2 py-4 py-xl-2">
-          <p className="text-white  text-nowrap text-center">GRD - 8</p>
-          <p className="text-cyan font-weight-bolder m-0 text-nowrap text-center">
-            $400
+      ) : (
+        <>
+          <p className="text-white text-center font-weight-bold py-3">
+            Place in the top 5 grading prices:
           </p>
-        </div>
-        <div className="col-4 col-xl-2 py-4 py-xl-2">
-          <p className="text-white  text-nowrap text-center">GRD - 7</p>
-          <p className="text-cyan font-weight-bolder m-0 text-nowrap text-center">
-            $167
-          </p>
-        </div>
-        <div className="col-4 col-xl-2 py-4 py-xl-2">
-          <p className="text-white  text-nowrap text-center">GRD - 6</p>
-          <p className="text-cyan font-weight-bolder m-0 text-nowrap text-center">
-            $60
-          </p>
-        </div>
-      </div>
+          <div className="d-flex flex-wrap ">
+            {gradeData
+              ?.filter(item => item._id.grade >= 6 && item._id.grader == "PSA")
+              .map(({ _id: { grade }, avgValue }) => (
+                <div className="col-4 col-xl-2 py-4 py-xl-2">
+                  <p className="text-white  text-nowrap text-center">
+                    GRD - {grade}
+                  </p>
+                  <p className="text-cyan font-weight-bolder m-0 text-nowrap text-center">
+                    ${avgValue.toFixed()}
+                  </p>
+                </div>
+              ))}
+          </div>
+        </>
+      )}
     </div>
   )
 }
 
-const ImageGallery = ({ gallery, initialImg }) => {
+const ImageGallery = ({ gallery, initialImg, setOrientation }) => {
   const [selectedImage, setSelectedImage] = React.useState(initialImg)
+  const setLayoutOrientation = source => {
+    let image = new Image()
+    image.src = source
+    if (image.width > image.height) {
+      setOrientation("landscape")
+    } else {
+      setOrientation("portrait")
+    }
+  }
+
+  React.useEffect(() => {
+    if (selectedImage.url) {
+      setLayoutOrientation(selectedImage.url)
+    }
+  }, [selectedImage])
+
   return (
     <div className="">
-      <img src={selectedImage.url} className="gallery-big-wrapper" />
-      <div className="d-flex my-4">
+      <img src={selectedImage.url} className="gallery-big-image" />
+      <div className="d-flex my-4 flex-wrap">
         {gallery.map(item => (
           <div
             onClick={() => setSelectedImage(item)}
             key={item.key}
             className="mr-4"
           >
-            <img src={item.url} className="gallery-small-wrapper" />
+            <img src={item.url} className="gallery-thumbnail" />
             {selectedImage?.key === item.key ? (
               <div className="selected-image-mark"></div>
             ) : null}
@@ -218,21 +240,16 @@ const ImageGallery = ({ gallery, initialImg }) => {
   )
 }
 
-const FacBanner = ({
-  card,
-  gradeData,
-  loadingGradeData,
-  currentPageRef,
-  cardId,
-}) => {
+const FacBanner = ({ card, gradeData, loading, currentPageRef, cardId }) => {
   const [shareModal, setShareModal] = React.useState(false)
   const [gallery, setGallery] = React.useState([])
+  const [orientation, setOrientation] = React.useState("portrait")
 
   React.useEffect(() => {
     if (card)
       setGallery([
-        { url: CONFIG.base_url + "/" + card.front },
-        { url: CONFIG.base_url + "/" + card.back },
+        { url: CONFIG.base_url + "/" + card.front, key: "front" },
+        { url: CONFIG.base_url + "/" + card.back, key: "back" },
       ])
   }, [card])
 
@@ -331,12 +348,24 @@ const FacBanner = ({
             </ReactModal>
           </div>
           <div className="row g-0 py-5 d-flex">
-            <div className="col-12 col-lg-7 fac-banner-img-container position-relative">
+            <div
+              className={`col-12 col-lg-${
+                orientation === "portrait" ? "4" : "7"
+              } fac-banner-img-container position-relative`}
+            >
               {gallery.length > 0 && (
-                <ImageGallery gallery={gallery} initialImg={gallery[0]} />
+                <ImageGallery
+                  gallery={gallery}
+                  setOrientation={setOrientation}
+                  initialImg={gallery[0]}
+                />
               )}
             </div>
-            <div className="col-12 col-lg-5">
+            <div
+              className={`col-12 col-lg-${
+                orientation === "portrait" ? "8" : "5"
+              }`}
+            >
               <p className="h1 m-0 text-uppercase font-weight-bolder text-white pti-font">
                 {card?.playerNames.join(" ")}
               </p>
@@ -349,7 +378,7 @@ const FacBanner = ({
                 <strong>MARKET</strong> VALUE
               </p>
               <div className="white-underline"></div>
-              <MarketValueBox gradeData={gradeData} />
+              <MarketValueBox gradeData={gradeData} loading={loading} />
             </div>
           </div>
         </div>
