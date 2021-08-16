@@ -7,6 +7,7 @@ import ProtectionIcon from "../../images/svgs/ProtectionIcon.svg"
 import "./styles.css"
 import { CONFIG } from "../../constants/Config"
 import useFetch from "use-http"
+import ProductHorizontal from "../ProductHorizontal"
 
 const MarketCard = ({ images, avatar, seller, title, price, _id }) => {
   return (
@@ -67,6 +68,7 @@ const MarketCard = ({ images, avatar, seller, title, price, _id }) => {
 
 const MarketPlace = () => {
   const [marketCards, setMarketCards] = React.useState([])
+  const [metaData, setMetaData] = React.useState({})
   const { get: getListings, loading } = useFetch(
     CONFIG.base_url + "/marketplace",
     {
@@ -76,7 +78,8 @@ const MarketPlace = () => {
   )
   const _getListings = async () => {
     let { data } = await getListings()
-    let { newArrival } = data
+    let { newArrival, products, grades } = data
+    setMetaData({ products, grades })
     setMarketCards(newArrival)
   }
   React.useEffect(() => {
@@ -136,7 +139,17 @@ const MarketPlace = () => {
               <div className="market-place-list-title-underline"></div>
               <div className="row pt-5">
                 {marketCards.map(item => (
-                  <MarketCard {...item} />
+                  <div className="col-md-3">
+                    <ProductHorizontal
+                      packaging={metaData.products.find(
+                        ({ _id }) => _id === item.product
+                      )}
+                      grade={metaData.grades.find(
+                        ({ _id }) => _id == item.grade
+                      )}
+                      product={item}
+                    />
+                  </div>
                 ))}
               </div>
             </div>
