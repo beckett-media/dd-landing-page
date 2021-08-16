@@ -7,7 +7,7 @@ import GradientLine from "../GradientLine"
 import "./styles.css"
 
 const HeroBanner = () => (
-  <div className="hero-container py-5">
+  <div className="hero-container py-2">
     <HeroBg className="hero-bcg-top" />
     <HeroBg className="hero-bcg" />
     <div className="due-dilly-clockwise-wrapper">
@@ -17,7 +17,7 @@ const HeroBanner = () => (
       <div className="row g-0 py-5 d-flex align-items-center">
         <div className="col-12 col-md-5">
           <div className="position-relative d-inline-block">
-            <h2 className="pti-font text-white" >INSTANT CARD ASSESSMENT</h2>
+            <h2 className="pti-font text-white">INSTANT CARD ASSESSMENT</h2>
           </div>
           <p className="text-white shapiro-font">
             Buy, sell, and collect Due Dilly assessed cards.

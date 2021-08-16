@@ -510,6 +510,7 @@
   text-align: right;
   color: #ccc;
   margin: 0 !important;
+  line-height: 1;
 }
 .ps-product--horizontal .ps-product__price.sale {
   color: #f30;
@@ -530,7 +531,7 @@
   padding: 20px;
 }
 .ps-product--horizontal .ps-product__content span {
-  font-size: 0.65rem;
+  font-size: 0.55rem;
   display: block;
   height: 40px;
   color: rgba(0, 0, 0, 0.65);
@@ -544,13 +545,16 @@
 
 .ps-product--horizontal .ps-product__meta p {
   margin-bottom: 0;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
+  line-height: 1;
 }
 
 .ps-product__meta {
   display: flex;
   flex-direction: row;
+  align-items: flex-end;
 }
+
 .ps-product__meta > div {
   margin-right: 15px;
 }

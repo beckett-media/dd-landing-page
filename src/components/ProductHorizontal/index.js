@@ -38,6 +38,7 @@ const ProductHorizontal = ({ product, grade, packaging }) => {
             style={{
               display: "flex",
               justifyContent: "space-between",
+              alignItems: "flex-end",
             }}
           >
             <div className="ps-product__meta">
@@ -53,6 +54,17 @@ const ProductHorizontal = ({ product, grade, packaging }) => {
                   <strong className="text-secondary">{grade.name}</strong>
                 </p>
               </div>
+              {product.card && (
+                <div>
+                  <a
+                    target="_blank"
+                    style={{ fontSize: 12, lineHeight: 1, display: "block" }}
+                    href={`/fac-report/${product.card}`}
+                  >
+                    View FAC Report
+                  </a>
+                </div>
+              )}
             </div>
             <div className="ps-product__price">${product.price.toFixed()}</div>
           </div>
