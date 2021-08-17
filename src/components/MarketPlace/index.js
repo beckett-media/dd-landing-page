@@ -139,7 +139,7 @@ const MarketPlace = () => {
               <div className="market-place-list-title-underline"></div>
               <div className="row pt-5">
                 {marketCards.map(item => (
-                  <div className="col-md-3">
+                  <div className="col-sm-6 col-md-4 col-lg-3">
                     <ProductHorizontal
                       packaging={metaData.products.find(
                         ({ _id }) => _id === item.product

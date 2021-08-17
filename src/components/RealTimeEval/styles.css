@@ -44,6 +44,7 @@ h1 {
 
 .chrome-button {
   padding: 10px;
+  font-size: 12px;
   display: inline;
   width: fit-content;
   border: 2px solid #fff;

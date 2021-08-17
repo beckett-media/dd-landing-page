@@ -29,8 +29,13 @@
 
 .hero-banner-img-container {
   padding-top: 5rem;
-  padding: 2rem;
+  padding: 0;
   background-color: #121634;
+}
+@media only screen and (min-width: 768px) {
+  .hero-banner-img-container {
+    padding: 1.5rem;
+  }
 }
 
 .hero-gradient-line {

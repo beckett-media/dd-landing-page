@@ -558,3 +558,12 @@
 .ps-product__meta > div {
   margin-right: 15px;
 }
+
+img,
+svg {
+  max-width: 100%;
+}
+
+h1 {
+  font-size: calc(1.375rem + 1vw);
+}
