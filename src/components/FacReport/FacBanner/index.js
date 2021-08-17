@@ -376,7 +376,7 @@ const FacBanner = ({ card, gradeData, loading, currentPageRef, cardId }) => {
               <p className="text-white h5">{card?.year}</p>
               {/* <p className="text-white py-2 small">Autographed Card</p> */}
               <p className="text-white h3 fond-weight-bolder font-poppins mt-5">
-                <strong>MARKET</strong> VALUE
+                <strong>MARKET</strong> VALUE 🔥
               </p>
               <div className="white-underline"></div>
               <MarketValueBox gradeData={gradeData} loading={loading} />

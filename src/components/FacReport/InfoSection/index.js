@@ -5,7 +5,8 @@ import Instagram from "../../../images/svgs/Instagram.svg"
 import Facebook from "../../../images/svgs/Facebook.svg"
 import Youtube from "../../../images/svgs/Youtube.svg"
 import Twitter from "../../../images/svgs/Twitter.svg"
-import GraphIcon from "../../../images/svgs/Graph.svg"
+import VerifiedBadge from "../../../images/verified-badge.png"
+
 import "./styles.css"
 import { CONFIG } from "../../../constants/Config"
 import Loader from "../../Loader"
@@ -143,7 +144,8 @@ const InfoSection = ({ priceData, user, loading }) => {
                 </div>
                 <div className="px-2 m-3">
                   <p className="text-white m-0 h4 font-weight-bold">
-                    {user?.fullName}
+                    {user?.fullName}{" "}
+                    <img align="middle" width="30px" src={VerifiedBadge}></img>
                   </p>
                   {user?.username && (
                     <p className="text-white m-0 font-weight-bold">
