@@ -59,7 +59,7 @@ const ProductHorizontal = ({ product, grade, packaging }) => {
                   <a
                     target="_blank"
                     style={{ fontSize: 12, lineHeight: 1, display: "block" }}
-                    href={`/fac-report/${product.card}`}
+                    href={`/fac-report/${product.card._id}`}
                   >
                     View FAC Report
                   </a>
