@@ -10,7 +10,6 @@ h1 {
 }
 
 .real-eval-container {
-  max-width: 500px;
   padding-left: 15px;
   display: flex;
   flex-direction: column;

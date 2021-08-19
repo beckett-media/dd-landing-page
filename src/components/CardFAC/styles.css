@@ -1,32 +1,27 @@
-
-p{
+p {
   color: #121634;
 }
 
 h2 {
   font-weight: 900;
-  color: #43475F;
+  color: #43475f;
 }
 
 .card-fac-container {
-  background: #F4F5F6;
+  background: #f4f5f6;
   overflow: hidden;
 }
 
-.fac-text-container{
-  max-width: 500px;
-}
-
-.ribbon-title{
+.ribbon-title {
   position: absolute;
-    top: -20px;
-    right: -10px;
-    width:80%
+  top: -20px;
+  right: -10px;
+  width: 80%;
 }
 
-.star-dotted{
+.star-dotted {
   position: absolute;
   bottom: -5rem;
-  right:  0px;
-  width:5rem
+  right: 0px;
+  width: 5rem;
 }

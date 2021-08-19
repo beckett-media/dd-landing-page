@@ -47,8 +47,7 @@ const CardFAC = () => (
             src="../../images/card-fac.png"
             quality={100}
             formats={["AUTO", "WEBP", "AVIF"]}
-            alt="A Gatsby astronaut"
-            style={{ height: 650 }}
+            alt="Card FAC"
             imgStyle={{
               height: "100%",
               objectFit: "contain",

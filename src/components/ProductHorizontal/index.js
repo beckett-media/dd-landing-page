@@ -17,13 +17,7 @@ const ProductHorizontal = ({ product, grade, packaging }) => {
               alt={product.title}
               src={CONFIG.base_url + "/" + product?.images[0]}
             />
-          )) || (
-            <img
-              width="100%"
-              alt={product.title}
-              src={CONFIG.marketplace_url + "/static/img/not-found.jpg"}
-            />
-          )}
+          )) || <></>}
         </div>
         <div className="ps-product__content">
           <>
@@ -66,8 +60,8 @@ const ProductHorizontal = ({ product, grade, packaging }) => {
                 </div>
               )}
             </div>
-            <div className="ps-product__price">${product.price.toFixed()}</div>
           </div>
+          <div className="ps-product__price">${product.price.toFixed()}</div>
         </div>
       </div>
     </Link>

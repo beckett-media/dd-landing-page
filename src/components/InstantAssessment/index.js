@@ -36,7 +36,7 @@ const InstantAssessment = () => (
             libero feugiat, placerat metus sit amet, laoreet nibh. Vivamus a
             arcu non mauris blandit lobortis. Duis vitae mattis lectus.
           </p>
-          <div className="d-flex">
+          <div className="d-flex pb-5 pb-sm-0">
             <Link
               target="_blank"
               to="https://apps.apple.com/us/app/due-dilly/id1568882229"

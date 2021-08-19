@@ -10,7 +10,7 @@ import { Link } from "gatsby"
 
 const RealTimeEval = () => (
   <div id="extension" className="real-time-container py-5 position-relative">
-    <RibbonBg className="ribbon-bg" />
+    <RibbonBg className="ribbon-bg d-sm-none d-md-block" />
     <div className="container-md">
       <div className="row g-0 d-flex align-items-center">
         <div className="col-12 col-md-6 real-eval-container position-relative">

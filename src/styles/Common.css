@@ -486,9 +486,12 @@
 }
 .ps-product--horizontal .ps-product__price {
   font-weight: 800;
-  font-size: 0.85rem;
+  font-size: 1rem !important;
   color: #37c4ce !important;
   text-align: right;
+  word-break: break-all;
+  display: block;
+  margin-top: 1rem !important;
 }
 .ps-product--horizontal .ps-product__player {
   color: #222;
@@ -504,14 +507,7 @@
 .ps-product--horizontal .ps-product__title:hover {
   color: #222;
 }
-.ps-product--horizontal .ps-product__price {
-  font-size: 20px;
-  font-weight: 800;
-  text-align: right;
-  color: #ccc;
-  margin: 0 !important;
-  line-height: 1;
-}
+
 .ps-product--horizontal .ps-product__price.sale {
   color: #f30;
 }
@@ -523,8 +519,14 @@
   overflow: hidden;
   width: 100%;
   text-align: center;
+  background: url("../images/duedilly-outline.png");
+  background-size: contain;
   background-color: #f5f5f5;
   padding: 10px;
+}
+.ps-product--horizontal .ps-product__thumbnail img {
+  height: 100%;
+  width: auto;
 }
 .ps-product--horizontal .ps-product__content {
   width: 100%;
@@ -547,6 +549,10 @@
   margin-bottom: 0;
   font-size: 0.75rem;
   line-height: 1;
+}
+
+.ps-product--horizontal .ps-product__meta a {
+  font-size: 0.8rem !important;
 }
 
 .ps-product__meta {

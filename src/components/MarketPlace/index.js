@@ -91,6 +91,7 @@ const MarketPlace = () => {
       className="market-place-container py-5 position-relative"
     >
       <StaticImage
+        className="d-none d-sm-block"
         src="../../images/globe-bg.png"
         quality={50}
         formats={["AUTO", "WEBP", "AVIF"]}
