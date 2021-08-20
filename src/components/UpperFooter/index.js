@@ -15,8 +15,7 @@ const UpperFooter = () => (
             <div class="form-group d-block d-md-flex text-center text-md-left">
               <input
                 type="email"
-                class="form-control"
-                id="UpperFooteremailInput"
+                class="form-control light"
                 aria-describedby="emailHelp"
                 placeholder="Enter Email Address"
               />

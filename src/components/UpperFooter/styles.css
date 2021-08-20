@@ -18,7 +18,7 @@
   color: #ffffff;
 }
 
-#UpperFooteremailInput{
+.form-control.light {
   border: 2px solid #ffffff;
   border-radius: 0px;
   font-weight: 600;
@@ -28,6 +28,6 @@
   margin-bottom: 1rem;
 }
 
-#UpperFooteremailInput::placeholder {
+.form-control.light::placeholder {
   color: #ffffff;
 }
