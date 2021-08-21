@@ -4,7 +4,7 @@ export const CONFIG = {
     "pk_test_51HDEqSDZO5dpgj2KwmQY26irjAt1GBg2I2iEy90NUuHHyQefpMwyxeKCN2opBwiOXD6gAYjEe106kG4eWreUZYO9005Ys9lGdc",
   base_url: "https://api.duedilly.co" || "http://localhost:4000",
   marketplace_url:
-    "https://marketplace.duedilly.com" ||
+    "https://marketplace.duedilly.co" ||
     "https://epic-villani-e0510b.netlify.app" ||
     "http://localhost:3000",
   "x-app-token":
