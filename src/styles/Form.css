@@ -16,3 +16,8 @@
   font-size: 10px;
   text-align: right;
 }
+
+.error-success-container {
+  text-align: center;
+  position: inherit !important;
+}

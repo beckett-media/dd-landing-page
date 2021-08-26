@@ -1,4 +1,5 @@
 import * as React from "react"
+import EmailForm from "../EngageBayForm/emailForm"
 
 import "./styles.css"
 
@@ -11,7 +12,8 @@ const UpperFooter = () => (
           our mailing list!
         </div>
         <div className="col-12 py-1">
-          <form>
+          <EmailForm />
+          {/* <form>
             <div class="form-group d-block d-md-flex text-center text-md-left">
               <input
                 type="email"
@@ -26,7 +28,7 @@ const UpperFooter = () => (
                 Submit
               </button>
             </div>
-          </form>
+          </form> */}
         </div>
       </div>
     </div>

@@ -1,5 +1,8 @@
 import * as React from "react"
 import { useSelector } from "react-redux"
+import { withPrefix } from "gatsby"
+import { Helmet } from "react-helmet"
+
 import Layout from "../components/Layout"
 import Seo from "../components/seo"
 import HeroBanner from "../components/HeroBanner"
@@ -8,6 +11,7 @@ import CardFAC from "../components/CardFAC"
 import GradientLine from "../components/GradientLine"
 import RealTimeEval from "../components/RealTimeEval"
 import InstantAssessment from "../components/InstantAssessment"
+import LandingPageBannerLink from "../components/LandingPageBannerLink"
 import MarketPlace from "../components/MarketPlace"
 import SimpleCrypto from "simple-crypto-js"
 var simpleCrypto = new SimpleCrypto("myTotalySecretKey")
@@ -29,8 +33,12 @@ const Home = () => {
   return (
     <Layout authKey={authKey}>
       <Seo title="Due Dilly" />
+      <Helmet>
+        <script src={withPrefix("form.js")} type="text/javascript" />
+      </Helmet>
       <HeroBanner />
       <GradientLine />
+      <LandingPageBannerLink />
       <MarketPlace authKey={authKey} />
       <InstantAssessment />
       <RealTimeEval />

@@ -5,6 +5,7 @@ import LowerArrow from "../../images/svgs/LowerArrow.svg"
 import GradientLine from "../GradientLine"
 
 import "./styles.css"
+import EmailNameForm from "../EngageBayForm/emailNameForm"
 
 const HeroBanner = () => (
   <div className="hero-container py-2">
@@ -22,30 +23,7 @@ const HeroBanner = () => (
           <p className="text-white shapiro-font">
             Buy, sell, and collect Due Dilly assessed cards.
           </p>
-          <div className="form-group">
-            <div className="row">
-              <div className="col-12 col-sm-6 col-md-12 col-lg-6">
-                <input
-                  type="text"
-                  className="form-control light"
-                  placeholder="Your Name"
-                />
-              </div>
-              <div className="col-12 col-sm-6 col-md-12 col-lg-6">
-                <input
-                  className="form-control light"
-                  placeholder="Your email address"
-                  type="email"
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            class="gradient-link px-3 py-3 nav-link text-center"
-            style={{ width: "auto" }}
-          >
-            SIGN UP FOR EARLY ACCESS
-          </div>
+          <EmailNameForm />
         </div>
         <div className="col-12 col-md-7 pt-3 pt-md-0 hero-banner-img-container position-relative">
           <LowerArrow className="hero-banner-arrow" />
