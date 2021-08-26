@@ -1,5 +1,5 @@
 import * as React from "react"
-
+import { useSelector } from "react-redux"
 import Layout from "../components/Layout"
 import Seo from "../components/seo"
 import HeroBanner from "../components/HeroBanner"
@@ -14,15 +14,17 @@ var simpleCrypto = new SimpleCrypto("myTotalySecretKey")
 
 const Home = () => {
   const [authKey, setAuthKey] = React.useState()
-
+  const user = useSelector(({ auth }) => auth)
   React.useEffect(() => {
-    let data = JSON.stringify({
-      xAuthToken: localStorage.getItem(`x-auth-token`),
-      refreshToken: localStorage.getItem(`x-refresh-token`),
-    })
-    var encryptedData = simpleCrypto.encrypt(data)
-    setAuthKey(encryptedData)
-  }, [])
+    if (user?.id) {
+      let data = JSON.stringify({
+        xAuthToken: localStorage.getItem(`x-auth-token`),
+        refreshToken: localStorage.getItem(`x-refresh-token`),
+      })
+      var encryptedData = simpleCrypto.encrypt(data)
+      setAuthKey(encryptedData)
+    }
+  }, [user])
 
   return (
     <Layout authKey={authKey}>
