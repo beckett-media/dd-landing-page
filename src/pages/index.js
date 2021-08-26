@@ -21,7 +21,7 @@ const Home = () => {
       refreshToken: localStorage.getItem(`x-refresh-token`),
     })
     var encryptedData = simpleCrypto.encrypt(data)
-    setAuthKey(encryptedData)
+    setAuthKey(encodeURIComponent(encryptedData))
   }, [])
 
   return (
