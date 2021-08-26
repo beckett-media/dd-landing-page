@@ -1,5 +1,4 @@
 import * as React from "react"
-import { GatsbyImage } from "gatsby-plugin-image"
 import { Link } from "gatsby"
 import { CONFIG } from "../../constants/Config"
 const ProductHorizontal = ({ product, grade, packaging, authKey }) => {
@@ -8,7 +7,10 @@ const ProductHorizontal = ({ product, grade, packaging, authKey }) => {
     <Link
       target="_blank"
       href={
-        CONFIG.marketplace_url + "/product/" + product._id + `?auth=${authKey}`
+        CONFIG.marketplace_url +
+        "/product/" +
+        product._id +
+        `?auth=${encodeURIComponent(authKey)}`
       }
     >
       <div className="ps-product--horizontal">

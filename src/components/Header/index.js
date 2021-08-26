@@ -133,7 +133,11 @@ const Header = ({ setModal, authKey }) => {
                 </>
               )) || (
                 <Link
-                  to={`${CONFIG.marketplace_url}/account/user-information?auth=${authKey}`}
+                  to={`${
+                    CONFIG.marketplace_url
+                  }/account/user-information?auth=${encodeURIComponent(
+                    authKey
+                  )}`}
                 >
                   <li className="nav-item mx-1 px-1 text-light">
                     {(user.profilePicture && (
