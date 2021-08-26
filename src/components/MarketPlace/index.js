@@ -66,7 +66,7 @@ const MarketCard = ({ images, avatar, seller, title, price, _id }) => {
   )
 }
 
-const MarketPlace = () => {
+const MarketPlace = ({ authKey }) => {
   const [marketCards, setMarketCards] = React.useState([])
   const [metaData, setMetaData] = React.useState({})
   const { get: getListings, loading } = useFetch(
@@ -142,6 +142,7 @@ const MarketPlace = () => {
                 {marketCards.map(item => (
                   <div className="col-sm-6 col-md-4 col-lg-3">
                     <ProductHorizontal
+                      authKey={authKey}
                       packaging={metaData.products.find(
                         ({ _id }) => _id === item.product
                       )}

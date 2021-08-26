@@ -23,7 +23,7 @@ const customStyles = {
   overlay: { zIndex: 999999 },
 }
 
-const Layout = ({ children }) => {
+const Layout = ({ children, authKey }) => {
   const [modal, setModal] = React.useState("")
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -38,6 +38,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header
+        authKey={authKey}
         setModal={val => setModal(val)}
         siteTitle={data.site.siteMetadata?.title || `Title`}
       />

@@ -16,7 +16,7 @@ const headerLinks = [
   { key: "card-fac", label: "CARD FAC", path: "/#card-fac" },
 ]
 
-const Header = ({ setModal }) => {
+const Header = ({ setModal, authKey }) => {
   const user = useSelector(({ auth }) => auth)
   const dispatch = useDispatch()
   const [activeLint, setActiveLink] = React.useState()
@@ -132,7 +132,9 @@ const Header = ({ setModal }) => {
                   </li>
                 </>
               )) || (
-                <Link to={`${CONFIG.marketplace_url}/account/user-information`}>
+                <Link
+                  to={`${CONFIG.marketplace_url}/account/user-information?auth=${authKey}`}
+                >
                   <li className="nav-item mx-1 px-1 text-light">
                     {(user.profilePicture && (
                       <img

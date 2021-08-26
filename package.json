@@ -44,6 +44,7 @@
     "react-redux": "^7.2.4",
     "react-share": "^4.4.0",
     "redux": "^4.1.0",
+    "simple-crypto-js": "^3.0.0",
     "use-http": "^1.0.21"
   },
   "devDependencies": {
