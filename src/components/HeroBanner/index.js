@@ -18,10 +18,11 @@ const HeroBanner = () => (
       <div className="row g-0 py-5 d-flex align-items-center">
         <div className="col-12 col-md-5">
           <div className="position-relative d-inline-block">
-            <h2 className="pti-font text-white">INSTANT CARD ASSESSMENT</h2>
+            <h2 className="pti-font text-white">TECH FOR THE HOBBY</h2>
           </div>
           <p className="text-white shapiro-font">
-            Buy, sell, and collect Due Dilly assessed cards.
+            We’ve created disruptive tools to help you find and sell raw cards
+            faster.
           </p>
           <EmailNameForm />
         </div>
