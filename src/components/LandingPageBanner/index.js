@@ -58,55 +58,6 @@ const LandingPageBanner = () => {
               The first 333 drop announcement date coming soon...be first to
               mint.
             </p>
-            {/* <form className="form-group" onSubmit={onSubmit}>
-              <div className="row">
-                <div className="col-12 col-sm-6 col-md-12 col-lg-6">
-                  <input
-                    data-ebay_field="last_name"
-                    data-ebay_add_as=""
-                    id="last_name"
-                    title=""
-                    name="last_name"
-                    type="text"
-                    placeholder="Last Name"
-                    class="form-control light"
-                  />
-                </div>
-                <div className="col-12 col-sm-6 col-md-12 col-lg-6">
-                  <input
-                    data-ebay_field="last_name"
-                    data-ebay_add_as=""
-                    id="last_name"
-                    title=""
-                    name="last_name"
-                    type="text"
-                    required="true"
-                    placeholder="Last Name"
-                    class="form-control light"
-                  />
-                </div>
-                <div className="col-12 col-sm-12 col-md-12 col-lg-12">
-                  <input
-                    data-ebay_field="email"
-                    data-ebay_add_as=""
-                    id="email"
-                    title=""
-                    name="email"
-                    type="email"
-                    placeholder="Enter your email address"
-                    class="form-control light"
-                    required="true"
-                  />
-                </div>
-              </div>
-              <button
-                class="gradient-link px-3 py-3 nav-link text-center"
-                style={{ width: "100%" }}
-                type="submit"
-              >
-                MINT THE FIRST SERIES
-              </button>
-            </form> */}
             <Form />
           </div>
         </div>
@@ -116,8 +67,8 @@ const LandingPageBanner = () => {
         quality={50}
         formats={["AUTO", "WEBP", "AVIF"]}
         style={{
-          width: 200,
-          height: 200,
+          width: 150,
+          height: 150,
           position: "absolute",
           bottom: -50,
           left: "5rem",
