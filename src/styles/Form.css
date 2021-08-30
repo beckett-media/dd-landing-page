@@ -19,5 +19,13 @@
 
 .error-success-container {
   text-align: center;
+  padding-top: 25px;
   position: inherit !important;
+}
+
+.error-success-container p span {
+  color: #fff !important;
+  font-size: 1.2rem !important;
+  font-weight: 900 !important;
+  font-family: "Pti-Improv" !important;
 }
