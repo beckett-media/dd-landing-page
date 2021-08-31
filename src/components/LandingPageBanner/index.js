@@ -3,9 +3,22 @@ import React, { useState } from "react"
 import { StaticImage } from "gatsby-plugin-image"
 import HeroBg from "../../images/svgs/HeroBg.svg"
 import LowerArrow from "../../images/svgs/LowerArrow.svg"
-
+import { Link } from "gatsby"
 import "./styles.css"
 import Form from "../EngageBayForm/fullForm"
+
+const linkSection2 = [
+  {
+    key: "linkSection2_1",
+    label: "Home",
+    path: "/",
+  },
+  {
+    key: "linkSection2_2",
+    label: "Privacy",
+    path: "/privacy-policy",
+  },
+]
 
 const LandingPageBanner = () => {
   return (
@@ -59,6 +72,22 @@ const LandingPageBanner = () => {
               mint.
             </p>
             <Form />
+            <ul className="nav justify-content-between justify-content-sm-center">
+              {linkSection2.map(link => {
+                return (
+                  <li key={link.key} className="nav-item mb-0">
+                    <Link
+                      to={link.path}
+                      className="nav-link px-2 py-2"
+                      aria-current="page"
+                      href="/"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                )
+              })}
+            </ul>
           </div>
         </div>
       </div>
