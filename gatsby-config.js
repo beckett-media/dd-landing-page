@@ -39,5 +39,11 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: "gatsby-plugin-load-script",
+      options: {
+        src: "/form.js", // Change to the script filename
+      },
+    },
   ],
 }
