@@ -1,4 +1,5 @@
 import * as React from "react"
+import { Link } from "gatsby"
 
 import DueDillyLogo from "../../images/svgs/DueDillyLogo.svg"
 
