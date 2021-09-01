@@ -1,6 +1,4 @@
 import * as React from "react"
-import { withPrefix, Link } from "gatsby"
-import Helmet from "react-helmet"
 
 import DueDillyLogo from "../../images/svgs/DueDillyLogo.svg"
 
@@ -108,9 +106,6 @@ const Footer = () => (
         </div>
       </div>
     </div>
-    <Helmet>
-      <script src={withPrefix("adroll.js")} type="text/javascript" />
-    </Helmet>
   </footer>
 )
 

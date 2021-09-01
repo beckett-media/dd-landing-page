@@ -1,4 +1,3 @@
-alert("aaa")
 adroll_adv_id = "ZHPD7I2QSJA6PN3MVLQZJQ"
 adroll_pix_id = "YN4H6NK6D5EPLA4QTQQEHI"
 adroll_version = "2.0"

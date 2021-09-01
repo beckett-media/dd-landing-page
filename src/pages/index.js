@@ -33,10 +33,6 @@ const Home = () => {
   return (
     <Layout authKey={authKey}>
       <Seo title="Due Dilly" />
-      <Helmet>
-        {/* <script src={withPrefix("adroll.js")} type="text/javascript" /> */}
-        {/* <script src={withPrefix("form.js")} type="text/javascript" /> */}
-      </Helmet>
       <HeroBanner />
       <GradientLine />
       <LandingPageBannerLink />
