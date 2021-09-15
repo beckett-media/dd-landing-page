@@ -17,7 +17,7 @@ const InstantAssessment = () => (
             </h2>
           </div>
           <p className="text-white font-shapiro">
-            Use your physical cards for assest-backed NFTs
+            Use your physical cards for asset-backed NFTs
           </p>
         </div>
         <div className="col-12 col-md-4 inst-asst-text-container position-relative p-0 pb-4">
