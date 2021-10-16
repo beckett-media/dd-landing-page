@@ -29,18 +29,15 @@ const InstantAssessment = () => (
         <div className="col-12 col-md-6 inst-asst-text-container position-relative">
           <LowerArrow className="upper-arrow" />
           <div className="position-relative d-inline-block">
-            <h2 className="pti-font text-white">INSTANT ASSESSMENT</h2>
+            <h2 className="pti-font text-white">GET A QUALITY SCORE</h2>
           </div>
           <p className="text-white font-shapiro">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ac
-            libero feugiat, placerat metus sit amet, laoreet nibh. Vivamus a
-            arcu non mauris blandit lobortis. Duis vitae mattis lectus.
+            Use our advanced tech to assess the quality of edges, corners,
+            centering and surface. We’ll then share a grading comp that shows
+            what your raw card could be graded for if sent to PSA, BGS or SGC.
           </p>
           <div className="d-flex pb-5 pb-sm-0">
-            <Link
-              target="_blank"
-              to="https://apps.apple.com/us/app/due-dilly/id1568882229"
-            >
+            <Link target="_blank" to="#">
               <AppStoreLogo className="app-store" />
             </Link>
             <Link target="_blank" to="#">

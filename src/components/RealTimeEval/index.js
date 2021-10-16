@@ -16,21 +16,14 @@ const RealTimeEval = () => (
         <div className="col-12 col-md-6 real-eval-container position-relative">
           <SideRibbon className="side-ribbon" />
           <div className="position-relative d-inline-block">
-            <h2 className="text-white pti-font">
-              REAL-TIME
-              <br />
-              EVALUATION
-            </h2>
+            <h2 className="text-white pti-font">DISCOVERY TOOL</h2>
           </div>
           <p className="text-white font-shapiro">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ac
-            libero feugiat, placerat metus sit amet, laoreet nibh. Vivamus a
-            arcu non mauris blandit lobortis. Duis vitae mattis lectus.
+            Use our chrome extension to find undervalued raw cards based on
+            real-time pricing and quality assessments when buying on 3rd party
+            marketplaces like eBay, StockX and FB marketplac
           </p>
-          <Link
-            target="_blank"
-            to="https://chrome.google.com/webstore/detail/due-dilly/abbkdcinklakngmpghnhjkdjgnabbgek"
-          >
+          <Link target="_blank" to="#">
             <div className="chrome-button">
               download chrome extension
               <Chrome height="30" />

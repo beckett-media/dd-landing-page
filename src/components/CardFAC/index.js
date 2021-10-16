@@ -57,12 +57,13 @@ const CardFAC = () => (
         <div className="col-12 col-md-6 fac-text-container position-relative">
           <div className="position-relative d-inline-block">
             <RibbonTitle className="ribbon-title" />
-            <h2 className="text-dark pti-font">CARD FAC</h2>
+            <h2 className="text-dark pti-font">FACTUAL ASSESSMENT REPORT</h2>
           </div>
           <p className="font-shapiro">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ac
-            libero feugiat, placerat metus sit amet, laoreet nibh. Vivamus a
-            arcu non mauris blandit lobortis. Duis vitae mattis lectus.
+            Get a full assessment report for every assessed card in our
+            marketplace and share the report when listing in other marketplaces.
+            The FAC report provides real-time pricing data, market value, full
+            quality assessment and seller info details.
           </p>
           <StarDotted className="star-dotted" />
         </div>

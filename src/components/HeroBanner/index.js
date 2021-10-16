@@ -5,6 +5,7 @@ import LowerArrow from "../../images/svgs/LowerArrow.svg"
 import GradientLine from "../GradientLine"
 
 import "./styles.css"
+import EmailNameForm from "../EngageBayForm/emailNameForm"
 
 const HeroBanner = () => (
   <div className="hero-container py-2">
@@ -17,35 +18,13 @@ const HeroBanner = () => (
       <div className="row g-0 py-5 d-flex align-items-center">
         <div className="col-12 col-md-5">
           <div className="position-relative d-inline-block">
-            <h2 className="pti-font text-white">INSTANT CARD ASSESSMENT</h2>
+            <h2 className="pti-font text-white">TECH FOR THE HOBBY</h2>
           </div>
           <p className="text-white shapiro-font">
-            Buy, sell, and collect Due Dilly assessed cards.
+            We’ve created disruptive tools to help you find and sell raw cards
+            faster.
           </p>
-          <div className="form-group">
-            <div className="row">
-              <div className="col-12 col-sm-6 col-md-12 col-lg-6">
-                <input
-                  type="text"
-                  className="form-control light"
-                  placeholder="Your Name"
-                />
-              </div>
-              <div className="col-12 col-sm-6 col-md-12 col-lg-6">
-                <input
-                  className="form-control light"
-                  placeholder="Your email address"
-                  type="email"
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            class="gradient-link px-3 py-3 nav-link text-center"
-            style={{ width: "auto" }}
-          >
-            SIGN UP FOR EARLY ACCESS
-          </div>
+          <EmailNameForm />
         </div>
         <div className="col-12 col-md-7 pt-3 pt-md-0 hero-banner-img-container position-relative">
           <LowerArrow className="hero-banner-arrow" />
