@@ -163,7 +163,7 @@ const ShareContainer = ({ getImage, getPDF }) => {
   )
 }
 
-const MarketValueBox = ({ gradeData, loading }) => {
+const MarketValueBox = ({ gradeData = [], loading }) => {
   return (
     <div className="max-val-box">
       <p className="text-white text-center text-lg-start small">
@@ -183,7 +183,7 @@ const MarketValueBox = ({ gradeData, loading }) => {
           </p>
           <div className="d-flex flex-wrap ">
             {gradeData
-              ?.filter(item => item._id.grade >= 6 && item._id.grader == "PSA")
+              .filter(item => item._id.grade >= 6 && item._id.grader == "PSA")
               .map(({ _id: { grade }, avgValue }) => (
                 <div className="col-4 col-xl-2 py-4 py-xl-2">
                   <p className="text-white  text-nowrap text-center">
@@ -241,6 +241,7 @@ const ImageGallery = ({ gallery, initialImg, setOrientation }) => {
 }
 
 const FacBanner = ({ card, gradeData, loading, currentPageRef, cardId }) => {
+  console.log("gradeData: ", gradeData)
   const [shareModal, setShareModal] = React.useState(false)
   const [gallery, setGallery] = React.useState([])
   const [orientation, setOrientation] = React.useState("portrait")
