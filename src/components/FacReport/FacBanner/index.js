@@ -241,7 +241,6 @@ const ImageGallery = ({ gallery, initialImg, setOrientation }) => {
 }
 
 const FacBanner = ({ card, gradeData, loading, currentPageRef, cardId }) => {
-  console.log("gradeData: ", gradeData)
   const [shareModal, setShareModal] = React.useState(false)
   const [gallery, setGallery] = React.useState([])
   const [orientation, setOrientation] = React.useState("portrait")

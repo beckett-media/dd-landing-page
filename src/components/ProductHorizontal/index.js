@@ -2,7 +2,6 @@ import * as React from "react"
 import { Link } from "gatsby"
 import { CONFIG } from "../../constants/Config"
 const ProductHorizontal = ({ product, grade, packaging, authKey }) => {
-  console.log("product: ", product)
   return (
     <Link
       target="_blank"

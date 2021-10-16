@@ -64,7 +64,7 @@ const FacReport = ({ id }) => {
       let { data: gradeData = [] } = await fetchGrading("", {
         jobId,
       })
-      console.log("gradeData xxx", gradeData)
+
       reportDataRef.current = { ...reportDataRef.current, gradeData }
     }
 
@@ -95,7 +95,6 @@ const FacReport = ({ id }) => {
 
   const initFetch = async () => {
     let { data: fac } = await getReport(`/${id}`)
-    console.log("fac: ", fac)
 
     setData({ fac })
     reportDataRef.current = { fac }
