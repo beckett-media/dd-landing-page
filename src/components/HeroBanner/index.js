@@ -28,7 +28,7 @@ const HeroBanner = () => (
         </div>
         <div className="col-12 col-md-7 pt-3 pt-md-0 hero-banner-img-container position-relative">
           <LowerArrow className="hero-banner-arrow" />
-          <StaticImage
+          {/* <StaticImage
             src="../../images/hero.png"
             quality={100}
             formats={["AUTO", "WEBP", "AVIF"]}
@@ -37,7 +37,23 @@ const HeroBanner = () => (
               height: "100%",
               objectFit: "contain",
             }}
-          />
+          /> */}
+          <div style={{ padding: "65% 0 0 0", position: "relative" }}>
+            <iframe
+              src="https://player.vimeo.com/video/591753392?h=a6b9f2d511&autoplay=1&loop=1&autopause=0&muted=1"
+              frameborder="0"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowfullscreen
+              style={{
+                position: "absolute",
+                top: "0",
+                left: "0",
+                width: "100%",
+                height: "100%",
+              }}
+              title="DUE DILLY NFTs"
+            />
+          </div>
         </div>
       </div>
     </div>
