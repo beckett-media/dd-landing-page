@@ -54,7 +54,6 @@ const Login = ({ switchMode, close }) => {
   useEffect(() => {
     let data = {}
     if (user && response.headers) {
-      console.log("response.headers: ", response.headers)
       data["x-auth-token"] = response.headers.get("x-auth-token")
       data["x-refresh-token"] = response.headers.get("x-refresh-token")
       localStorage.setItem("x-auth-token", data["x-auth-token"])

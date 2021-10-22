@@ -25,7 +25,7 @@ const FacReport = ({ id }) => {
   )
 
   const { post: createJob, error: errorCreateJob } = useFetch(
-    CONFIG.base_url + "/api/v1/job/create",
+    CONFIG.base_url + "/api/v1/public/job/create",
     { cachePolicy: "no-cache" }
   )
 
@@ -33,7 +33,7 @@ const FacReport = ({ id }) => {
     post: fetchPricing,
     loading: loadingPricingData,
     error: errorPricingData,
-  } = useFetch(CONFIG.base_url + "/api/v1/cards/get-price-analytics", {
+  } = useFetch(CONFIG.base_url + "/api/v1/public/cards/get-price-analytics", {
     cachePolicy: "no-cache",
   })
 
@@ -41,7 +41,7 @@ const FacReport = ({ id }) => {
     post: fetchGrading,
     loading: loadingGradingData,
     error: errorGradingData,
-  } = useFetch(CONFIG.base_url + "/api/v1/cards/get-grade-analytics", {
+  } = useFetch(CONFIG.base_url + "/api/v1/public/cards/get-grade-analytics", {
     cachePolicy: "no-cache",
   })
 
@@ -49,7 +49,7 @@ const FacReport = ({ id }) => {
     post: getJobStatus,
     loading: loadingJobStatus,
     error: errorGetJobStatus,
-  } = useFetch(CONFIG.base_url + "/api/v1/job/status", {
+  } = useFetch(CONFIG.base_url + "/api/v1/public/job/status", {
     cachePolicy: "no-cache",
   })
 
@@ -61,9 +61,10 @@ const FacReport = ({ id }) => {
     } = await getJobStatus({ jobId })
 
     if (!gradingFetchComplete) {
-      let { data: gradeData } = await fetchGrading("", {
+      let { data: gradeData = [] } = await fetchGrading("", {
         jobId,
       })
+
       reportDataRef.current = { ...reportDataRef.current, gradeData }
     }
 

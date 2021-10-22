@@ -16,7 +16,6 @@ const QualityAssessmentCard = ({ title, child, grade }) => {
 }
 
 const QualityAssessment = ({ card }) => {
-  console.log("card: ", card)
   const cornerText = {
     top_right: "Top Right Corner #1",
     top_left: "Top Left Corner #2",
@@ -25,7 +24,7 @@ const QualityAssessment = ({ card }) => {
   }
 
   const [isVisibleSurfaceMap, showSurfaceMap] = React.useState(false)
-  console.log("isVisibleSurfaceMap: ", isVisibleSurfaceMap)
+
   return (
     <div
       style={{
@@ -75,7 +74,35 @@ const QualityAssessment = ({ card }) => {
               }
               child={
                 <div className="text-center text-white px-2 py-5 font-poppins">
-                  {card?.grading?.centering}
+                  {card?.grading?.centering["left/right"] && (
+                    <p className="text-white">
+                      <strong>Left / Right</strong>{" "}
+                      {card?.grading?.centering["left/right"]}
+                    </p>
+                  )}
+                  {card?.grading?.centering["top/bottom"] && (
+                    <p className="text-white">
+                      <strong>Top / Bottom</strong>{" "}
+                      {card?.grading?.centering["top/bottom"]}
+                    </p>
+                  )}
+                  {card?.grading?.centering["letter_grade"] && (
+                    <div
+                      style={{
+                        marginTop: 15,
+                        background: "rgba(255,255,255,0.5)",
+                        borderRadius: 30,
+                        padding: 30,
+                        lineHeight: 30,
+                      }}
+                    >
+                      <h6>
+                        <strong>
+                          {card?.grading?.centering["letter_grade"]}
+                        </strong>
+                      </h6>
+                    </div>
+                  )}
                 </div>
               }
             />

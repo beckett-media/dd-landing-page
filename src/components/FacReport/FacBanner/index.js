@@ -163,7 +163,7 @@ const ShareContainer = ({ getImage, getPDF }) => {
   )
 }
 
-const MarketValueBox = ({ gradeData, loading }) => {
+const MarketValueBox = ({ gradeData = [], loading }) => {
   return (
     <div className="max-val-box">
       <p className="text-white text-center text-lg-start small">
@@ -176,6 +176,10 @@ const MarketValueBox = ({ gradeData, loading }) => {
         <div className="d-flex justify-content-center p-5 align-items-center h-100">
           <Loader />
         </div>
+      ) : !gradeData.length ? (
+        <p className="text-white mt-3 text-center font-weight-bold py-3">
+          No grading data available
+        </p>
       ) : (
         <>
           <p className="text-white text-center font-weight-bold py-3">
@@ -183,7 +187,7 @@ const MarketValueBox = ({ gradeData, loading }) => {
           </p>
           <div className="d-flex flex-wrap ">
             {gradeData
-              ?.filter(item => item._id.grade >= 6 && item._id.grader == "PSA")
+              .filter(item => item._id.grade >= 6 && item._id.grader == "PSA")
               .map(({ _id: { grade }, avgValue }) => (
                 <div className="col-4 col-xl-2 py-4 py-xl-2">
                   <p className="text-white  text-nowrap text-center">
