@@ -50,7 +50,7 @@ const ChartSection = ({ priceData, loading }) => {
           yaxis: {
             labels: {
               formatter: function (value) {
-                return `$${value}`
+                return `$${Math.ceil(value * 10) / 10}`
               },
             },
           },

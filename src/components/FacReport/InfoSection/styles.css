@@ -6,6 +6,7 @@
   border: 2px solid #56e6f0;
   overflow: hidden;
   border-radius: 100%;
+  max-width: none;
 }
 
 .social-media-wrapper {
@@ -19,11 +20,11 @@
   justify-content: center;
 }
 
-.graph-tooltip{
+.graph-tooltip {
   font-size: 20px;
   color: #000;
   font-weight: 600;
   background-color: #ffffff;
-  font-family: 'Archivo';
+  font-family: "Archivo";
   padding: 0px 10px;
 }

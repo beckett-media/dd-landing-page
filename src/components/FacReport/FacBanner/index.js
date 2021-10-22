@@ -176,6 +176,10 @@ const MarketValueBox = ({ gradeData = [], loading }) => {
         <div className="d-flex justify-content-center p-5 align-items-center h-100">
           <Loader />
         </div>
+      ) : !gradeData.length ? (
+        <p className="text-white mt-3 text-center font-weight-bold py-3">
+          No grading data available
+        </p>
       ) : (
         <>
           <p className="text-white text-center font-weight-bold py-3">
