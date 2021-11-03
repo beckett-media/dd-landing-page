@@ -17,7 +17,6 @@ import Camera from "../../../images/svgs/Camera.svg"
 // import Instagram from "../../images/svgs/Instagram.svg"
 import html2canvas from "html2canvas"
 import { jsPDF } from "jspdf"
-
 import "./styles.css"
 import { CONFIG } from "../../../constants/Config"
 import Loader from "../../Loader"
@@ -97,7 +96,8 @@ const ShareContainer = ({ getImage, getPDF }) => {
           width="30px"
           height="30px"
           style={{ cursor: "pointer" }}
-          onClick={() => setModal(true)}
+          // onClick={() => setModal(true)}
+          onClick={() => getImage()}
           fill="#fff"
         />
       </div>
@@ -267,48 +267,100 @@ const FacBanner = ({ card, gradeData, loading, currentPageRef, cardId }) => {
     var canvas_image_height = HTML_Height
 
     var totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 1
-
-    html2canvas(currentPageRef.current, { allowTaint: true }).then(function (
-      canvas
-    ) {
+    html2canvas(currentPageRef.current, {
+      allowTaint: true,
+      useCORS: true,
+      scale: 1,
+      scrollY: -window.scrollY,
+    }).then(function (canvas) {
       canvas.getContext("2d")
 
       var imgData = canvas.toDataURL("image/jpeg", 1.0)
-      var pdf = new jsPDF("p", "pt", [PDF_Width, PDF_Height])
-      pdf.addImage(
-        imgData,
-        "JPG",
-        top_left_margin,
-        top_left_margin,
-        canvas_image_width,
-        canvas_image_height
-      )
+      var imgWidth = 210
+      var pageHeight = 290
+      var imgHeight = (canvas.height * imgWidth) / canvas.width
+      var heightLeft = imgHeight
 
-      for (var i = 1; i <= totalPDFPages; i++) {
-        pdf.addPage(PDF_Width, PDF_Height)
-        pdf.addImage(
-          imgData,
-          "JPG",
-          top_left_margin,
-          -(PDF_Height * i) + top_left_margin * 4,
-          canvas_image_width,
-          canvas_image_height
-        )
+      var doc = new jsPDF("p", "mm", "a4")
+      var position = 0
+      var pageData = canvas.toDataURL("image/jpeg", 1.0)
+      var imgData = encodeURIComponent(pageData)
+
+      doc.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight)
+      doc.setLineWidth(5)
+      doc.setDrawColor(255, 255, 255)
+      doc.rect(0, 0, 210, 295)
+      heightLeft -= pageHeight
+
+      while (heightLeft >= 0) {
+        position = heightLeft - imgHeight
+        doc.addPage()
+        doc.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight)
+        doc.setLineWidth(5)
+        doc.setDrawColor(255, 255, 255)
+        doc.rect(0, 0, 210, 295)
+        heightLeft -= pageHeight
       }
+      doc.save(`${cardId}-report.pdf`)
 
-      pdf.save(`${cardId}-report.pdf`)
+      // var imgData = canvas.toDataURL("image/png")
+      // var imgWidth = 210
+      // var pageHeight = 295
+      // var imgHeight = (canvas.height * imgWidth) / canvas.width
+      // var heightLeft = imgHeight
+      // var doc = new jsPDF("p", "mm", "a4")
+      // var position = 0
+
+      // doc.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight)
+      // heightLeft -= pageHeight
+
+      // while (heightLeft >= 0) {
+      //   doc.addPage(PDF_Width, PDF_Height)
+
+      //   position = heightLeft - imgHeight
+      //   doc.addPage()
+      //   doc.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight)
+      //   heightLeft -= pageHeight
+      // }
+      // doc.save(`${cardId}-report.pdf`)
+
+      // var pdf = new jsPDF("p", "pt", [PDF_Width, PDF_Height])
+      // pdf.addImage(
+      //   imgData,
+      //   "JPG",
+      //   top_left_margin,
+      //   top_left_margin,
+      //   canvas_image_width,
+      //   canvas_image_height
+      // )
+
+      // for (var i = 1; i <= totalPDFPages; i++) {
+      //   pdf.addPage(PDF_Width, PDF_Height)
+      //   pdf.addImage(
+      //     imgData,
+      //     "JPG",
+      //     top_left_margin,
+      //     top_left_margin,
+      //     canvas_image_width,
+      //     canvas_image_height
+      //   )
+      // }
+
+      // pdf.save(`${cardId}-report.pdf`)
     })
   }
 
   const getImage = () => {
-    html2canvas(currentPageRef.current).then(canvas => {
+    html2canvas(currentPageRef.current, {
+      allowTaint: true,
+      useCORS: true,
+      scrollY: -window.scrollY,
+    }).then(canvas => {
       var image = canvas.toDataURL()
-
       // create temporary link
       var tmpLink = document.createElement("a")
       tmpLink.download = `${cardId}-report.png` // set the name of the download file
       tmpLink.href = image
-
       // temporarily add link to body and initiate the download
       document.body.appendChild(tmpLink)
       tmpLink.click()
@@ -347,7 +399,7 @@ const FacBanner = ({ card, gradeData, loading, currentPageRef, cardId }) => {
               style={customStyles}
             >
               <div className="d-flex">
-                <ShareContainer />
+                <ShareContainer getPDF={getPDF} getImage={getImage} />
               </div>
             </ReactModal>
           </div>
