@@ -36,26 +36,31 @@ const linkSection1 = [
 const linkSection2 = [
   {
     key: "linkSection2_1",
-    label: "Discord",
-    path: "/",
+    label: "Twitter",
+    path: "https://twitter.com/getduedilly",
   },
   {
     key: "linkSection2_2",
-    label: "Twitter",
-    path: "/",
+    label: "Instagram",
+    path: "https://instagram.com/getduedilly",
   },
   {
     key: "linkSection2_3",
-    label: "Instagram",
-    path: "/",
+    label: "Facebook",
+    path: "https://www.facebook.com/Due-Dilly-107235348358371",
   },
   {
     key: "linkSection2_4",
+    label: "TikTok",
+    path: "https://www.tiktok.com/@getduedilly",
+  },
+  {
+    key: "linkSection2_5",
     label: "Terms",
     path: "/terms-and-conditions",
   },
   {
-    key: "linkSection2_5",
+    key: "linkSection2_6",
     label: "Privacy",
     path: "/privacy-policy",
   },
