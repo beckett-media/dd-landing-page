@@ -7,8 +7,10 @@ const App = () => {
   return (
     <>
       <Seo
-        title="Due Dilly | Sports Card FAC"
-        description="Factual Assessment of Card for Quality and Market Trends"
+        title={`Due Dilly | Sports Card Snapscore ${(<span>&trade;</span>)}`}
+        description={`Snapscore ${(
+          <span>&trade;</span>
+        )} Assessment of Card for Quality and Market Trends`}
       />
       <Router>
         <FacReport path="/fac-report/:id" />

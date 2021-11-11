@@ -43,7 +43,7 @@ const MarketCard = ({ images, avatar, seller, title, price, _id }) => {
               to="fac-report"
             >
               <ProtectionIcon style={{ marginRight: 5 }} />
-              View Card FAC
+              View Card Snapscore&trade;
             </Link>
           </div>
           <div className="col" style={{ textAlign: "right" }}>
@@ -138,6 +138,17 @@ const MarketPlace = ({ authKey }) => {
                 LATEST LISTINGS
               </h3>
               <div className="market-place-list-title-underline"></div>
+              <Link
+                className="card-text text-nowrap small font-weight-bold text-dark"
+                to="https://marketplace.duedilly.co"
+                target="_blank"
+                style={{
+                  position: "relative",
+                  float: "right",
+                }}
+              >
+                View All
+              </Link>
               <div className="row pt-5">
                 {marketCards.map(item => (
                   <div className="col-sm-6 col-md-4 col-lg-3">

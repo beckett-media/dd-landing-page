@@ -122,7 +122,9 @@ const ShareContainer = ({ getImage, getPDF }) => {
       <div className="mx-2">
         <TwitterShareButton
           url={window.location.href}
-          quote={"Checkout this Card FAC Report from Due Dilly"}
+          quote={`Checkout this Card Snapscore ${(
+            <span>&trade;</span>
+          )} Report from Due Dilly`}
           hashtag="#duedilly"
         >
           <TwitterBlue />
@@ -131,7 +133,9 @@ const ShareContainer = ({ getImage, getPDF }) => {
       <div className="mx-2">
         <FacebookShareButton
           url={window.location.href}
-          quote={"Checkout this Card FAC Report from Due Dilly"}
+          quote={`Checkout this Card Snapscore ${(
+            <span>&trade;</span>
+          )} Report from Due Dilly`}
           hashtag="#duedilly"
         >
           <FacebookBlue />
@@ -141,8 +145,8 @@ const ShareContainer = ({ getImage, getPDF }) => {
         <EmailShareButton
           onClick={() => {}}
           url={window.location.href}
-          subject={"Card FAC Report | Due Dilly"}
-          body={`Checkout this Card FAC Report from Due Dilly ${window.location.href}`}
+          subject={`Card Snapscore ${<span>&trade;</span>} Report | Due Dilly`}
+          body={`Checkout this Card Snapscore ${<span>&trade;</span>} Report from Due Dilly ${window.location.href}`}
         >
           <Email />
         </EmailShareButton>
@@ -378,9 +382,9 @@ const FacBanner = ({ card, gradeData, loading, currentPageRef, cardId }) => {
           <div className="d-flex w-100 justify-content-between">
             <div className="">
               <p className="h2 m-0 text-white font-weight-bolder pti-font">
-                DUE DILLY CARD FAC
+                DUE DILLY CARD SNAPSCORE&trade;
               </p>
-              <p className="text-white m-0">FACTUAL ASSESSMENT OF CARD</p>
+              <p className="text-white m-0">SNAPSCORE&trade; ASSESSMENT OF CARD</p>
             </div>
             <div className="d-none d-lg-flex">
               <ShareContainer getPDF={getPDF} getImage={getImage} />

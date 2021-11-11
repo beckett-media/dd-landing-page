@@ -47,7 +47,7 @@ const CardFAC = () => (
             src="../../images/card-fac.png"
             quality={100}
             formats={["AUTO", "WEBP", "AVIF"]}
-            alt="Card FAC"
+            alt="Card Snapscore(TM)"
             imgStyle={{
               height: "100%",
               objectFit: "contain",
@@ -57,12 +57,12 @@ const CardFAC = () => (
         <div className="col-12 col-md-6 fac-text-container position-relative">
           <div className="position-relative d-inline-block">
             <RibbonTitle className="ribbon-title" />
-            <h2 className="text-dark pti-font">FACTUAL ASSESSMENT REPORT</h2>
+            <h2 className="text-dark pti-font">SNAPSCORE &trade; ASSESSMENT REPORT</h2>
           </div>
           <p className="font-shapiro">
             Get a full assessment report for every assessed card in our
             marketplace and share the report when listing in other marketplaces.
-            The FAC report provides real-time pricing data, market value, full
+            The Snapscore &trade; report provides real-time pricing data, market value, full
             quality assessment and seller info details.
           </p>
           <StarDotted className="star-dotted" />

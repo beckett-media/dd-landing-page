@@ -13,7 +13,7 @@ const headerLinks = [
   { key: "marketplace", label: "MARKETPLACE", path: "/#market-place" },
   { key: "mobile", label: "MOBILE", path: "/#mobile" },
   { key: "extension", label: "EXTENSION", path: "/#extension" },
-  { key: "card-fac", label: "CARD FAC", path: "/#card-fac" },
+  { key: "card-fac", label: "SNAPSCORE", path: "/#card-fac" },
 ]
 
 const Header = ({ setModal, authKey }) => {
@@ -89,7 +89,8 @@ const Header = ({ setModal, authKey }) => {
                     }`}
                     aria-current="page"
                   >
-                    {item.label}
+                    {item.label}{" "}
+                    {item.key === "card-fac" ? <span>&trade;</span> : ""}
                   </Link>
                 </li>
               ))}
