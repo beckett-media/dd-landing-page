@@ -58,7 +58,7 @@ const ProductHorizontal = ({ product, grade, packaging, authKey }) => {
                     style={{ fontSize: 12, lineHeight: 1, display: "block" }}
                     href={`/fac-report/${product.card._id}`}
                   >
-                    View Snapscore&trade; Report
+                    Snapscore&trade; Report
                   </a>
                 </div>
               )}
