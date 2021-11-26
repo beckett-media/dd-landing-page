@@ -22,6 +22,11 @@ class Payment extends Component {
 
   handleCheckout = async (token, cardId, values) => {
     this.setState({ checkoutCompleteProgress: true })
+    const customHeaders = {
+      Accept: "application/json",
+      "content-type": "application/json",
+      "x-app-token": CONFIG["x-app-token"],
+    }
     try {
       const request = await axios.post(
         `${CONFIG.base_url}/order/guest-checkout`,
@@ -33,6 +38,9 @@ class Payment extends Component {
           token,
           listingId: cardId,
           isCardSave: true,
+        },
+        {
+          headers: customHeaders,
         }
       )
       this.setState({ checkoutCompleteProgress: false })
