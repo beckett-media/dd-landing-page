@@ -138,6 +138,8 @@ const FacReport = ({ id }) => {
         gradeData={reportData?.gradeData}
         loading={loadingGradingData || loading || loadingJobStatus}
         cardId={id}
+        price={reportData?.fac?.price}
+        quantity={reportData?.fac?.quantity}
       />
       <GradientLine />
       <QualityAssessment card={reportData?.fac?.card} />

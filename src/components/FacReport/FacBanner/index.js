@@ -1,4 +1,4 @@
-import * as React from "react"
+import React, { useState } from "react"
 import {
   EmailShareButton,
   FacebookShareButton,
@@ -6,6 +6,7 @@ import {
 } from "react-share"
 import ReactModal from "react-modal"
 
+import { notification, Button } from "antd"
 import Share from "../../../images/svgs/Share.svg"
 import Download from "../../../images/svgs/Download.svg"
 import Copy from "../../../images/svgs/Copy.svg"
@@ -20,6 +21,9 @@ import { jsPDF } from "jspdf"
 import "./styles.css"
 import { CONFIG } from "../../../constants/Config"
 import Loader from "../../Loader"
+import Payment from "../../Account/Payment"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faTimesCircle } from "@fortawesome/free-solid-svg-icons"
 
 ReactModal.setAppElement("#___gatsby")
 
@@ -31,6 +35,19 @@ const customStyles = {
     bottom: "auto",
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
+  },
+  overlay: { zIndex: 999999 },
+}
+
+const customStylesPayment = {
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+    backgroundColor: "#121634",
   },
   overlay: { zIndex: 999999 },
 }
@@ -119,6 +136,7 @@ const ShareContainer = ({ getImage, getPDF }) => {
         </div>
         <Copy style={{ cursor: "pointer" }} onClick={() => copyToClipboard()} />
       </div>
+
       <div className="mx-2">
         <TwitterShareButton
           url={window.location.href}
@@ -145,8 +163,12 @@ const ShareContainer = ({ getImage, getPDF }) => {
         <EmailShareButton
           onClick={() => {}}
           url={window.location.href}
-          subject={`Card Snapscore ${<span>&trade;</span>} Report | Due Dilly`}
-          body={`Checkout this Card Snapscore ${<span>&trade;</span>} Report from Due Dilly ${window.location.href}`}
+          subject={`Card Snapscore ${(
+            <span>&trade;</span>
+          )} Report | Due Dilly`}
+          body={`Checkout this Card Snapscore ${(
+            <span>&trade;</span>
+          )} Report from Due Dilly ${window.location.href}`}
         >
           <Email />
         </EmailShareButton>
@@ -248,7 +270,15 @@ const ImageGallery = ({ gallery, initialImg, setOrientation }) => {
   )
 }
 
-const FacBanner = ({ card, gradeData, loading, currentPageRef, cardId }) => {
+const FacBanner = ({
+  card,
+  gradeData,
+  loading,
+  currentPageRef,
+  cardId,
+  price,
+  quantity,
+}) => {
   const [shareModal, setShareModal] = React.useState(false)
   const [gallery, setGallery] = React.useState([])
   const [orientation, setOrientation] = React.useState("portrait")
@@ -372,6 +402,31 @@ const FacBanner = ({ card, gradeData, loading, currentPageRef, cardId }) => {
     })
   }
 
+  const [isModalVisible, setIsModalVisible] = useState(false)
+
+  const handleOk = () => {
+    setIsModalVisible(false)
+  }
+
+  const handleCancel = () => {
+    setIsModalVisible(false)
+  }
+
+  const showModal = () => {
+    setIsModalVisible(true)
+  }
+
+  const openNotification = () => {
+    notification.open({
+      message: "Notification Title",
+      description:
+        "This is the content of the notification. This is the content of the notification. This is the content of the notification.",
+      onClick: () => {
+        console.log("Notification Clicked!")
+      },
+    })
+  }
+
   return (
     <>
       <div className="fac-container py-5">
@@ -384,7 +439,9 @@ const FacBanner = ({ card, gradeData, loading, currentPageRef, cardId }) => {
               <p className="h2 m-0 text-white font-weight-bolder pti-font">
                 DUE DILLY CARD SNAPSCORE&trade;
               </p>
-              <p className="text-white m-0">SNAPSCORE&trade; ASSESSMENT OF CARD</p>
+              <p className="text-white m-0">
+                SNAPSCORE&trade; ASSESSMENT OF CARD
+              </p>
             </div>
             <div className="d-none d-lg-flex">
               <ShareContainer getPDF={getPDF} getImage={getImage} />
@@ -434,12 +491,51 @@ const FacBanner = ({ card, gradeData, loading, currentPageRef, cardId }) => {
                 {card?.type} {card?.brand} {card?.modelNo} {card?.serialNo}
               </p>
               <p className="text-white h5">{card?.year}</p>
-              {/* <p className="text-white py-2 small">Autographed Card</p> */}
+              <ReactModal
+                isOpen={isModalVisible}
+                shouldCloseOnOverlayClick={false}
+                onRequestClose={() => {
+                  handleCancel()
+                }}
+                style={customStylesPayment}
+              >
+                <FontAwesomeIcon
+                  icon={faTimesCircle}
+                  color="#fff"
+                  style={{
+                    float: "right",
+                    cursor: "pointer",
+                  }}
+                  onClick={handleCancel}
+                />
+                <Payment
+                  cardId={cardId}
+                  price={price}
+                  handleClose={handleCancel}
+                />
+              </ReactModal>
+              {price && (
+                <Button
+                  type="primary"
+                  style={{
+                    marginTop: "10px",
+                  }}
+                  style={{ width: "50%", fontSize: "1.2rem", marginTop: "9px" }}
+                  className="submit-btn gradient-link px-3 py-3 nav-link text-center"
+                  onClick={quantity ? showModal : null}
+                >
+                  {quantity ? "Buy This Card" : "Sold"}
+                </Button>
+              )}
               <p className="text-white h3 fond-weight-bolder font-poppins mt-5">
                 <strong>MARKET</strong> VALUE 🔥
               </p>
               <div className="white-underline"></div>
-              <MarketValueBox gradeData={gradeData} loading={loading} />
+              <MarketValueBox
+                gradeData={gradeData}
+                loading={loading}
+                cardId={cardId}
+              />
             </div>
           </div>
         </div>

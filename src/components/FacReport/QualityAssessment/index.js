@@ -10,7 +10,9 @@ const QualityAssessmentCard = ({ title, child, grade }) => {
     <div className="max-val-box h-100 d-flex justify-content-between flex-column">
       <p className="text-white h5 font-weight-bold text-center">{title}</p>
       {child}
-      <p className="text-white h5 text-center m-0">Overall Grade: {grade}</p>
+      <p className="text-white h5 text-center m-0">
+        Overall Snapscore {<span>&trade;</span>} {grade}
+      </p>
     </div>
   )
 }
@@ -176,7 +178,7 @@ const QualityAssessment = ({ card }) => {
           </div>
         </div>
         <p className="text-white py-3 h2 font-weight-bold font-poppins">
-          Overall Grade: <span className="green font-weight-bold">A</span>
+          Overall SNAPSCORE <span className="green font-weight-bold">A</span>
         </p>
       </div>
       <HeroBg className="qa-bcg-left" />

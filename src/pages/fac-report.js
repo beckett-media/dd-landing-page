@@ -7,7 +7,7 @@ const App = () => {
   return (
     <>
       <Seo
-        title={`Due Dilly | Sports Card Snapscore ${(<span>&trade;</span>)}`}
+        title="Due Dilly | Sports Card Snapscore(TM)"
         description={`Snapscore ${(
           <span>&trade;</span>
         )} Assessment of Card for Quality and Market Trends`}

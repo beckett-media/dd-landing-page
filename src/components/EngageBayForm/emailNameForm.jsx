@@ -42,7 +42,7 @@ const EmailNameForm = () => {
       <div/>
       <div class="form-group">
         <div>
-          <button type="submit" style="width: 100%" class="submit-btn gradient-link px-3 py-3 nav-link text-center"">
+          <button type="submit" style="width: 100%" class="submit-btn gradient-link px-3 py-3 nav-link text-center">
           SIGNUP FOR EARLY ACCESS
           </button>
           <br />
