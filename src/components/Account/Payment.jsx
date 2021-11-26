@@ -229,10 +229,10 @@ const CheckoutForm = StripeHoc(
                 hidePostalCode: true,
                 style: {
                   base: {
-                    fontSize: "16px",
+                    fontSize: "20px",
                     border: "1px solid red",
                     iconColor: "#6EE4D6",
-                    color: "#424770",
+                    color: "#fff",
                     "::placeholder": {
                       color: "#fff",
                     },
