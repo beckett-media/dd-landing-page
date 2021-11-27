@@ -519,11 +519,8 @@ const capitalize=(word) =>{
               {price && (
                 <Button
                   type="primary"
-                  style={{
-                    marginTop: "10px",
-                  }}
-                  style={{ width: "50%", fontSize: "1.2rem", marginTop: "9px" }}
-                  className="submit-btn gradient-link px-3 py-3 nav-link text-center"
+                
+                  className="submit-btn gradient-link px-3 py-3 nav-link text-center buttonstyle"
                   onClick={quantity ? showModal : null}
                 >
                   {quantity ? "Buy This Card" : "Sold"}
