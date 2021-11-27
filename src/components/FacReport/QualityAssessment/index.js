@@ -95,9 +95,7 @@ const QualityAssessment = ({ card }) => {
                     <div
                       style={{
                         marginTop: 15,
-                        border:"1px solid",
-                        borderRadius: 30,
-                        paddingTop: 5,
+                     
                     
                       
                       }}
