@@ -19,6 +19,11 @@
     padding-right: 0px;
   }
 }
+@media only screen and (max-width: 372px) {
+  .setfont {
+  font-size: 24px;
+  }
+}
 
 .selected-image-mark {
   background: transparent linear-gradient(117deg, #37c4ce 0%, #57f0d8 100%) 0%
