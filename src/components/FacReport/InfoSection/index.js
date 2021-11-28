@@ -142,7 +142,7 @@ const InfoSection = ({ priceData, user, loading }) => {
                     ></div>
                   )}
                 </div>
-                <div className="px-2 m-3">
+                <div className="px-2 m-1">
                   <p className="text-white m-0 h4 font-weight-bold">
                     {user?.fullName}{" "}
                     <img align="middle" width="30px" src={VerifiedBadge}></img>

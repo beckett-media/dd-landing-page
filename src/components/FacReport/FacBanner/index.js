@@ -415,7 +415,9 @@ const FacBanner = ({
   const showModal = () => {
     setIsModalVisible(true)
   }
-
+const capitalize=(word) =>{
+  return word[0].toUpperCase() + word.slice(1).toLowerCase();
+}
   const openNotification = () => {
     notification.open({
       message: "Notification Title",
@@ -436,7 +438,7 @@ const FacBanner = ({
         <div className="container-md">
           <div className="d-flex w-100 justify-content-between">
             <div className="">
-              <p className="h2 m-0 text-white font-weight-bolder pti-font">
+              <p className="h2 m-0 text-white font-weight-bolder pti-font setfont">
                 DUE DILLY CARD SNAPSCORE&trade;
               </p>
               <p className="text-white m-0">
@@ -488,7 +490,7 @@ const FacBanner = ({
                 {card?.playerNames.join(" ")}
               </p>
               <p className="text-white h5 my-3">
-                {card?.type} {card?.brand} {card?.modelNo} {card?.serialNo}
+                {card?.type} {card?.brand[0].toUpperCase() + card?.brand.slice(1)} {card?.modelNo} {card?.serialNo}
               </p>
               <p className="text-white h5">{card?.year}</p>
               <ReactModal
@@ -517,11 +519,8 @@ const FacBanner = ({
               {price && (
                 <Button
                   type="primary"
-                  style={{
-                    marginTop: "10px",
-                  }}
-                  style={{ width: "50%", fontSize: "1.2rem", marginTop: "9px" }}
-                  className="submit-btn gradient-link px-3 py-3 nav-link text-center"
+                
+                  className="submit-btn gradient-link px-3 py-3 nav-link text-center buttonstyle"
                   onClick={quantity ? showModal : null}
                 >
                   {quantity ? "Buy This Card" : "Sold"}

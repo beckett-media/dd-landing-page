@@ -49,18 +49,21 @@ const QualityAssessment = ({ card }) => {
               title="Corners"
               grade={<span className="green font-weight-bold">A+</span>}
               child={
-                <div className="row">
+                <div className="row ">
                   {Object.keys(card?.grading?.corners || {})
                     .reverse()
                     .map(key => (
                       <div className="col-6 py-2">
-                        <p className="text-white text-nowrap extra-small m-1 font-poppins">
+                        <p className="text-white  font-poppins">
                           {cornerText[key]}
+                     
                         </p>
-                        <p className="text-cyan text-nowrap small m-1 font-poppins">
+                        <p className="text-cyan  m-1 font-poppins">
                           {card?.grading?.corners[key]}
                         </p>
+                        <br/>
                       </div>
+         
                     ))}
                 </div>
               }
@@ -92,10 +95,9 @@ const QualityAssessment = ({ card }) => {
                     <div
                       style={{
                         marginTop: 15,
-                        background: "rgba(255,255,255,0.5)",
-                        borderRadius: 30,
-                        padding: 30,
-                        lineHeight: 30,
+                     
+                    
+                      
                       }}
                     >
                       <h6>
@@ -141,34 +143,34 @@ const QualityAssessment = ({ card }) => {
               child={
                 <div className="row">
                   <div className="col-6 py-2">
-                    <p className="text-white text-nowrap extra-small m-1 font-poppins">
+                    <p className="text-white  m-1 font-poppins">
                       Top Edge
                     </p>
-                    <p className="text-cyan text-nowrap small m-1 font-poppins">
+                    <p className="text-cyan m-1 font-poppins">
                       Sharp
                     </p>
                   </div>
                   <div className="col-6 py-2">
-                    <p className="text-white text-nowrap extra-small m-1 font-poppins">
+                    <p className="text-white  m-1 font-poppins">
                       Bottom Edge
                     </p>
-                    <p className="text-cyan text-nowrap small m-1 font-poppins">
+                    <p className="text-cyan  m-1 font-poppins">
                       Sharp
                     </p>
                   </div>
                   <div className="col-6 py-2">
-                    <p className="text-white text-nowrap extra-small m-1 font-poppins">
+                    <p className="text-white  m-1 font-poppins">
                       Left Edge
                     </p>
-                    <p className="text-cyan text-nowrap small m-1 font-poppins">
+                    <p className="text-cyan  m-1 font-poppins">
                       Sharp
                     </p>
                   </div>
                   <div className="col-6 py-2">
-                    <p className="text-white text-nowrap extra-small m-1 font-poppins">
+                    <p className="text-white  m-1 font-poppins">
                       Right Edge
                     </p>
-                    <p className="text-cyan text-nowrap small m-1 font-poppins">
+                    <p className="text-cyan  m-1 font-poppins">
                       Sharp
                     </p>
                   </div>
