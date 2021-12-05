@@ -6,6 +6,15 @@ header .nav-link {
   cursor: pointer;
 }
 
+header .navbar {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+header .navbar div .navbar-brand img {
+  width: 200px;
+}
+
 .gradient-link {
   background: transparent linear-gradient(117deg, #37c4ce 0%, #57f0d8 100%) 0%
     0% no-repeat padding-box;

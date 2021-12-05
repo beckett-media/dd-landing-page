@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Link } from "gatsby"
 
-import DueDillyLogo from "../../images/svgs/DueDillyLogo.svg"
+import DueDillyLogo from "../../images/due_dilly_logo.png"
 
 import "./styles.css"
 import { CONFIG } from "../../constants/Config"
@@ -55,7 +55,7 @@ const Header = ({ setModal, authKey }) => {
       <nav className="navbar navbar-expand-lg navbar-dark">
         <div className="container-md py-2">
           <a className="navbar-brand" href="/">
-            <DueDillyLogo />
+            <img src={DueDillyLogo} alt="Due Dilly Logo" />
           </a>
           <button
             className="navbar-toggler"

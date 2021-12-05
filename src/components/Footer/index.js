@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Link } from "gatsby"
 
-import DueDillyLogo from "../../images/svgs/DueDillyLogo.svg"
+import DueDillyLogo from "../../images/due_dilly_logo.png"
 
 import "./styles.css"
 
@@ -67,7 +67,7 @@ const Footer = () => (
       <div className="row g-0 d-flex align-items-center justify-content-between">
         <div className="col-12 col-sm-4 col-md-2 text-center text-sm-start">
           <Link to="/">
-            <DueDillyLogo />
+            <img src={DueDillyLogo} alt="Due Dilly Logo" />
           </Link>
         </div>
         <div className="col-12 col-sm-8 col-md-10">
