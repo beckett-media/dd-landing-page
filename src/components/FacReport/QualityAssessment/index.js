@@ -27,10 +27,96 @@ const QualityAssessment = ({ card }) => {
 
   const [isVisibleSurfaceMap, showSurfaceMap] = React.useState(false)
 
+  const fetchBackgroundColor = overallGrade => {
+    switch (overallGrade) {
+      case "A":
+        return "#008FE8"
+      case "A+":
+        return "#00D9E8"
+      case "B":
+        return "#31E0CB"
+      case "B+":
+        return "#56CB64"
+      case "C":
+        return "#400AA8"
+      case "C+":
+        return "#8252DD"
+      case "D":
+        return "#F46700"
+      case "D+":
+        return "#F48D00"
+      case "F":
+        return "#BA002A"
+      case "F+":
+        return "#B73B57"
+      default:
+        return "#0E1024"
+    }
+  }
+
+  const fetchtextClass = grade => {
+    switch (grade) {
+      case "A":
+        return "green"
+      case "A+":
+        return "text-dark-cyan"
+      case "B":
+        return "text-dark-cyan"
+      case "B+":
+        return "text-dark-cyan"
+      case "C":
+        return "text-cyan"
+      case "C+":
+        return "text-cyan"
+      case "D":
+        return "text-cyan"
+      case "D+":
+        return "text-cyan"
+      case "F":
+        return "text-cyan"
+      case "F+":
+        return "text-cyan"
+      default:
+        return "text-cyan"
+    }
+  }
+
+  const fetchtextClassGreen = grade => {
+    switch (grade) {
+      case "A":
+        return "green"
+      case "A+":
+        return "text-dark-cyan"
+      case "B":
+        return "text-dark-cyan"
+      case "B+":
+        return "text-dark-cyan"
+      case "C":
+        return "green"
+      case "C+":
+        return "green"
+      case "D":
+        return "green"
+      case "D+":
+        return "green"
+      case "F":
+        return "green"
+      case "F+":
+        return "green"
+      default:
+        return "green"
+    }
+  }
+
+  console.log(card?.grading)
+
+  let overall = card?.grading?.overallGrade
+
   return (
     <div
       style={{
-        background: "#0E1024",
+        // background: fetchBackgroundColor(overall),
+        background: fetchBackgroundColor(overall),
         position: "relative",
         overflow: "hidden",
       }}
@@ -47,23 +133,34 @@ const QualityAssessment = ({ card }) => {
           <div className="col-12 col-md-6 col-xl-3 my-2">
             <QualityAssessmentCard
               title="Corners"
-              grade={<span className="green font-weight-bold">A+</span>}
+              grade={
+                <span
+                  className={`${fetchtextClassGreen(
+                    overall
+                  )} font-weight-bold`}
+                >
+                  {card?.grading?.corners["corner_grade"] || "NA"}
+                </span>
+              }
               child={
                 <div className="row ">
                   {Object.keys(card?.grading?.corners || {})
+                    .filter(grade => grade != "corner_grade")
                     .reverse()
                     .map(key => (
                       <div className="col-6 py-2">
                         <p className="text-white  font-poppins">
                           {cornerText[key]}
-                     
                         </p>
-                        <p className="text-cyan  m-1 font-poppins">
+                        <p
+                          className={`${fetchtextClass(
+                            overall
+                          )} m-1 font-poppins`}
+                        >
                           {card?.grading?.corners[key]}
                         </p>
-                        <br/>
+                        <br />
                       </div>
-         
                     ))}
                 </div>
               }
@@ -73,8 +170,14 @@ const QualityAssessment = ({ card }) => {
             <QualityAssessmentCard
               title="Centering"
               grade={
-                <span className="text-cyan font-weight-bold font-poppins">
-                  B
+                <span
+                  className={`${fetchtextClassGreen(
+                    overall
+                  )}  font-weight-bold font-poppins`}
+                >
+                  {card?.grading?.centering["letter_grade"].length < 4
+                    ? card?.grading?.centering["letter_grade"]
+                    : "NA"}
                 </span>
               }
               child={
@@ -95,9 +198,8 @@ const QualityAssessment = ({ card }) => {
                     <div
                       style={{
                         marginTop: 15,
-                     
-                    
-                      
+                        borderRadius: 30,
+                        paddingTop: 5,
                       }}
                     >
                       <h6>
@@ -115,12 +217,22 @@ const QualityAssessment = ({ card }) => {
             <QualityAssessmentCard
               title="Surface"
               grade={
-                <span className="green font-weight-bold font-poppins">A+</span>
+                <span
+                  className={`${fetchtextClassGreen(
+                    overall
+                  )} font-weight-bold font-poppins`}
+                >
+                  {card?.grading?.surface["surface_grade"] || "NA"}
+                </span>
               }
               child={
                 <div className="text-center text-white px-2 py-5 font-poppins">
                   Click{" "}
-                  <a href="#" onClick={() => showSurfaceMap(true)}>
+                  <a
+                    href="#"
+                    className={`${fetchtextClass(overall)}`}
+                    onClick={() => showSurfaceMap(true)}
+                  >
                     here
                   </a>{" "}
                   to see a surface defect map of the card.
@@ -138,39 +250,53 @@ const QualityAssessment = ({ card }) => {
             <QualityAssessmentCard
               title="Edges"
               grade={
-                <span className="green font-weight-bold font-poppins">A+</span>
+                <span
+                  className={`${fetchtextClassGreen(
+                    overall
+                  )} font-weight-bold font-poppins`}
+                >
+                  {card?.grading?.surface["edge_grade"] || "NA"}
+                </span>
               }
               child={
                 <div className="row">
                   <div className="col-6 py-2">
-                    <p className="text-white  m-1 font-poppins">
-                      Top Edge
-                    </p>
-                    <p className="text-cyan m-1 font-poppins">
+                    <p className="text-white  m-1 font-poppins">Top Edge</p>
+                    <p
+                      className={`${fetchtextClass(
+                        overall
+                      )}  m-1 font-poppins`}
+                    >
                       Sharp
                     </p>
                   </div>
                   <div className="col-6 py-2">
-                    <p className="text-white  m-1 font-poppins">
-                      Bottom Edge
-                    </p>
-                    <p className="text-cyan  m-1 font-poppins">
+                    <p className="text-white  m-1 font-poppins">Bottom Edge</p>
+                    <p
+                      className={`${fetchtextClass(
+                        overall
+                      )}   m-1 font-poppins`}
+                    >
                       Sharp
                     </p>
                   </div>
                   <div className="col-6 py-2">
-                    <p className="text-white  m-1 font-poppins">
-                      Left Edge
-                    </p>
-                    <p className="text-cyan  m-1 font-poppins">
+                    <p className="text-white  m-1 font-poppins">Left Edge</p>
+                    <p
+                      className={`${fetchtextClass(
+                        overall
+                      )}   m-1 font-poppins`}
+                    >
                       Sharp
                     </p>
                   </div>
                   <div className="col-6 py-2">
-                    <p className="text-white  m-1 font-poppins">
-                      Right Edge
-                    </p>
-                    <p className="text-cyan  m-1 font-poppins">
+                    <p className="text-white  m-1 font-poppins">Right Edge</p>
+                    <p
+                      className={`${fetchtextClass(
+                        overall
+                      )}   m-1 font-poppins`}
+                    >
                       Sharp
                     </p>
                   </div>
@@ -180,7 +306,14 @@ const QualityAssessment = ({ card }) => {
           </div>
         </div>
         <p className="text-white py-3 h2 font-weight-bold font-poppins">
-          Overall SNAPSCORE <span className="green font-weight-bold">A</span>
+          OVERALL SNAPSCORE{" "}
+          <span
+            className={`${fetchtextClassGreen(
+              overall
+            )} font-weight-bold`}
+          >
+            {overall || "NA"}
+          </span>
         </p>
       </div>
       <HeroBg className="qa-bcg-left" />
