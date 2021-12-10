@@ -3,7 +3,7 @@ import Seo from "../components/seo"
 
 const Home = () => {
   React.useEffect(() => {
-    window.location.replace("https://duedilly.eb-sites.com/getpaid")
+    window.location.replace("https://artisanal-maker-2866.ck.page/e71829ee03")
   })
   return (
     <>
