@@ -6,7 +6,7 @@ import moment from "moment"
 
 const PostGrid = ({ post, pageName }) => {
   let imageThumbnailView, categoriesView
-  let baseUrlPressOrBlog = pageName === "blogs" ? "/blogs" : "/press"
+  let baseUrlPressOrBlog = pageName === "blog" ? "/blog" : "/press"
   if (post) {
     if (post.thumbnail !== null) {
       imageThumbnailView = (
@@ -31,7 +31,7 @@ const PostGrid = ({ post, pageName }) => {
         ))
       } else {
         categoriesView = (
-          <a href={pageName === "blogs" ? "/blogs" : "/press"}>
+          <a href={pageName === "blog" ? "/blog" : "/press"}>
             <a>Others</a>
           </a>
         )
@@ -58,7 +58,7 @@ const PostGrid = ({ post, pageName }) => {
         </Link>
         <p>
           {moment(post.created_at).format("ll")} by
-          <a href={pageName === "blogs" ? "/blogs" : "/press"}>
+          <a href={pageName === "blog" ? "/blog" : "/press"}>
             <a href="#"> duedilly</a>
           </a>
         </p>

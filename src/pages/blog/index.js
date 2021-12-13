@@ -12,18 +12,18 @@ const BlogGridPage = () => {
       url: "/",
     },
     {
-      text: "Blogs",
-      url: "/blogs",
+      text: "Blog",
+      url: "/blog",
     },
   ]
   return (
     <>
       <Layout>
         <div className="container">
-          <h1 className="ourPress">Our Blogs</h1>
+          <h1 className="ourPress">Our Blog</h1>
           <BreadCrumb2 breacrumb={breadCrumb} />
 
-          <BlogItemsGridView columns={4} pageName="blogs" />
+          <BlogItemsGridView columns={4} pageName="blog" />
         </div>
       </Layout>
     </>
