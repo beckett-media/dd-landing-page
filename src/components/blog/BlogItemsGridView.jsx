@@ -5,7 +5,7 @@ import PostGrid from "./PostGrid"
 import CustomPagination from "./CustomPagination"
 import "./index.css"
 
-const BlogItemsGridView = ({ collectionSlug, columns }) => {
+const BlogItemsGridView = ({ collectionSlug, columns, pageName }) => {
   const [loading, setLoading] = useState(true)
   const [posts, setPosts] = useState(null)
 
@@ -46,19 +46,19 @@ const BlogItemsGridView = ({ collectionSlug, columns }) => {
       if (columns === 4) {
         return (
           <div className=" col-md-4 col-sm-6" key={item.id}>
-            <PostGrid post={item} />
+            <PostGrid post={item} pageName={pageName} />
           </div>
         )
       } else if (columns === 4) {
         return (
           <div className="col-lg-3 col-md-4 col-sm-6" key={item.id}>
-            <PostGrid post={item} />
+            <PostGrid post={item} pageName={pageName} />
           </div>
         )
       } else {
         return (
           <div className="col-md-6" key={item.id}>
-            <PostGrid post={item} />
+            <PostGrid post={item} pageName={pageName} />
           </div>
         )
       }
