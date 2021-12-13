@@ -1,0 +1,102 @@
+
+ .ourPress {
+    color: #333 !important;
+    margin-top:120px;
+    font-size:48px;
+   justify-content: center;
+   display: flex;
+  }
+
+  
+  .ps-breadcrumb--2 {
+    text-align: center;
+    margin-top:30px;
+    margin-bottom:50px;
+ }
+  .ps-breadcrumb--2 .breadcrumb {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+ }
+  .ps-breadcrumb--2 .breadcrumb li {
+    display: inline-block;
+    font-size: 14px;
+    line-height: 20px;
+    color: gray;
+ }
+  .ps-breadcrumb--2 .breadcrumb li:before {
+    content: '/';
+    margin: 0 5px;
+ }
+  .ps-breadcrumb--2 .breadcrumb li:first-child {
+    padding-left: 0;
+ }
+  .ps-breadcrumb--2 .breadcrumb li:first-child:before {
+    display: none;
+ }
+  .ps-breadcrumb--2 .breadcrumb a {
+    line-height: 20px;
+    color: gray;
+ }
+  .ps-breadcrumb--2 .breadcrumb a:hover {
+    color: #37c4ce
+ }
+  .ps-breadcrumb--2 .breadcrumb a i {
+    margin-right: 5px;
+ }
+  
+ .pagination {
+  margin: 0;
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+  font-size: 0;
+}
+.pagination li {
+  display: inline-block;
+  margin-right: 10px;
+  vertical-align: top;
+}
+.pagination li > a {
+  padding: 0 14px;
+  position: relative;
+  display: inline-block;
+  z-index: 30;
+  color: #999;
+  line-height: 32px;
+  border: none;
+  background-color: #f5f5f5;
+  color: black;
+  vertical-align: middle;
+  font-size: 14px;
+}
+.pagination li > a i {
+  font-size: 10px;
+  font-weight: 600;
+  margin-left: 4px;
+}
+.pagination li > a:hover {
+  color: black;
+  background-color: #37c4ce;
+}
+.pagination li.active {
+  border: none;
+}
+.pagination li.active a {
+  background-color: #37c4ce;
+  color: white;
+}
+.pagination li:last-child {
+  margin-right: 0;
+}
+.ps-pagination {
+  padding-top: 70px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+.ps-pagination .ant-pagination .ant-pagination-prev .ant-pagination-item-link, .ps-pagination .ant-pagination .ant-pagination-next .ant-pagination-item-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

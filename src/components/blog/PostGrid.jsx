@@ -1,9 +1,8 @@
 import React from "react"
-// import a from 'next/a';
+import { Link } from "gatsby"
 import { basePostUrl } from "./Repository"
 import LazyLoad from "react-lazyload"
 import moment from "moment"
-
 
 const PostGrid = ({ post }) => {
   let imageThumbnailView, categoriesView
@@ -11,7 +10,9 @@ const PostGrid = ({ post }) => {
     if (post.thumbnail !== null) {
       imageThumbnailView = (
         <LazyLoad>
-          <img src={`${basePostUrl}${post.thumbnail.url}`} alt="img" />
+          <Link to={`/blogs/${post.id}`}>
+            <img src={`${basePostUrl}${post.thumbnail.url}`} alt="img" />
+          </Link>
         </LazyLoad>
       )
     }
@@ -29,7 +30,7 @@ const PostGrid = ({ post }) => {
         ))
       } else {
         categoriesView = (
-          <a href="/blog">
+          <a href="/blogs">
             <a>Others</a>
           </a>
         )
@@ -40,20 +41,24 @@ const PostGrid = ({ post }) => {
     <article className="">
       {" "}
       <div className="">
-        <a href="/post/[pid]" as={`/post/${post.id}`}>
-          <a className=""></a>
-        </a>
+        <Link to={`/blogs/${post.id}`}>
+          <p className=""></p>
+        </Link>
         {imageThumbnailView}
       </div>
       <div className="">
-        <div className="">{categoriesView}</div>
-        <a href="/post/[pid]" as={`/post/${post.id}`}>
-          <a className="">{post.name}</a>
-        </a>
+        {/* <div className="">{categoriesView}</div> */}
+        <Link to={`/blogs/${post.id}`}>
+          <p className="mt-2">
+            {post.name.length > 50
+              ? post.name.slice(0, 50) + "........"
+              : post.name}
+          </p>
+        </Link>
         <p>
           {moment(post.created_at).format("ll")} by
           <a href="/blog">
-            <a href="#"> drfurion</a>
+            <a href="#"> andrew</a>
           </a>
         </p>
       </div>

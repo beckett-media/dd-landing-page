@@ -1,19 +1,19 @@
 import React from 'react';
-// import a from 'next/a';
+import { Link } from "gatsby"
 
 const BreadCrumb = ({ breacrumb }) => {
     return (
-        <div className="">
-            <ul className="">
+        <div className="ps-breadcrumb--2">
+            <ul className="breadcrumb">
                 {breacrumb.map(item => {
                     if (!item.url) {
                         return <li key={item.text}>{item.text}</li>;
                     } else {
                         return (
                             <li key={item.text}>
-                                <a href={item.url}>
+                                <Link href={item.url}>
                                     <a>{item.text}</a>
-                                </a>
+                                </Link>
                             </li>
                         );
                     }

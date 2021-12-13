@@ -1,23 +1,24 @@
 import React from 'react';
+import {Link}  from "gatsby"
 
 const CustomPagination = () => {
     return (
-        <div className="">
-            <ul className="">
-                <li className="">
-                    <a href="#">1</a>
+        <div className="ps-pagination">
+            <ul className="pagination">
+                <li className="active">
+                    <Link href="#">1</Link>
                 </li>
                 <li>
-                    <a href="#">2</a>
+                    <Link href="#">2</Link>
                 </li>
                 <li>
-                    <a href="#">3</a>
+                    <Link href="#">3</Link>
                 </li>
                 <li>
-                    <a href="#">
+                    <Link href="#">
                         Next Page
                         <i className="icon-chevron-right"></i>
-                    </a>
+                    </Link>
                 </li>
             </ul>
         </div>

@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react"
 import PostRepository from "./PostRepository"
 import PostGrid from "./PostGrid"
 import CustomPagination from "./CustomPagination"
+import "./index.css"
 
 const BlogItemsGridView = ({ collectionSlug, columns }) => {
   const [loading, setLoading] = useState(true)
@@ -67,7 +68,7 @@ const BlogItemsGridView = ({ collectionSlug, columns }) => {
   return (
     <div className="ps-blog">
       <div className="ps-blog__header">
-        <ul className="ps-list--blog-as">
+        {/* <ul className="ps-list--blog-as">
           <li className="active">
             <a href="/blog">
               <a>All</a>
@@ -103,7 +104,7 @@ const BlogItemsGridView = ({ collectionSlug, columns }) => {
               <a>Fashion</a>
             </a>
           </li>
-        </ul>
+        </ul> */}
       </div>
       <div className="ps-blog__content">
         <div className="row">
