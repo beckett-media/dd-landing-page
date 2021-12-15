@@ -404,29 +404,12 @@ const FacBanner = ({
 
   const [isModalVisible, setIsModalVisible] = useState(false)
 
-  const handleOk = () => {
-    setIsModalVisible(false)
-  }
-
   const handleCancel = () => {
     setIsModalVisible(false)
   }
 
   const showModal = () => {
     setIsModalVisible(true)
-  }
-const capitalize=(word) =>{
-  return word[0].toUpperCase() + word.slice(1).toLowerCase();
-}
-  const openNotification = () => {
-    notification.open({
-      message: "Notification Title",
-      description:
-        "This is the content of the notification. This is the content of the notification. This is the content of the notification.",
-      onClick: () => {
-        console.log("Notification Clicked!")
-      },
-    })
   }
 
   return (
@@ -490,7 +473,9 @@ const capitalize=(word) =>{
                 {card?.playerNames.join(" ")}
               </p>
               <p className="text-white h5 my-3">
-                {card?.type} {card?.brand[0].toUpperCase() + card?.brand.slice(1)} {card?.modelNo} {card?.serialNo}
+                {card?.type}{" "}
+                {card?.brand[0].toUpperCase() + card?.brand.slice(1)}{" "}
+                {card?.modelNo} {card?.serialNo}
               </p>
               <p className="text-white h5">{card?.year}</p>
               <ReactModal
@@ -516,10 +501,10 @@ const capitalize=(word) =>{
                   handleClose={handleCancel}
                 />
               </ReactModal>
+              {console.log("price" + price)}
               {price && (
                 <Button
                   type="primary"
-                
                   className="submit-btn gradient-link px-3 py-3 nav-link text-center buttonstyle"
                   onClick={quantity ? showModal : null}
                 >

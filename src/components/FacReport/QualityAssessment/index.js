@@ -108,8 +108,6 @@ const QualityAssessment = ({ card }) => {
     }
   }
 
-  console.log(card?.grading)
-
   let overall = card?.grading?.overallGrade
 
   return (
