@@ -9,7 +9,7 @@ const ProductHorizontal = ({ product, grade, packaging, authKey }) => {
         CONFIG.marketplace_url +
         "/product/" +
         product._id +
-        `?auth=${encodeURIComponent(authKey)}`
+        `${authKey ? `?auth=${encodeURIComponent(authKey)}` : ""}`
       }
     >
       <div className="ps-product--horizontal">

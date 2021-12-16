@@ -66,25 +66,7 @@ const MarketCard = ({ images, avatar, seller, title, price, _id }) => {
   )
 }
 
-const MarketPlace = ({ authKey }) => {
-  const [marketCards, setMarketCards] = React.useState([])
-  const [metaData, setMetaData] = React.useState({})
-  const { get: getListings, loading } = useFetch(
-    CONFIG.base_url + "/marketplace",
-    {
-      cachePolicy: "no-cache",
-      headers: { "x-app-token": CONFIG["x-app-token"] },
-    }
-  )
-  const _getListings = async () => {
-    let { data } = await getListings()
-    let { newArrival, products, grades } = data
-    setMetaData({ products, grades })
-    setMarketCards(newArrival)
-  }
-  React.useEffect(() => {
-    _getListings()
-  }, [])
+const MarketPlace = ({ authKey, marketCards, metaData }) => {
   return (
     <div
       id="market-place"

@@ -11,6 +11,7 @@ import { login, updateUser } from "../../actions/auth"
 
 const headerLinks = [
   { key: "marketplace", label: "MARKETPLACE", path: "/#market-place" },
+  { key: "stores", label: "STORES", path: "/#market-place" },
   { key: "mobile", label: "MOBILE", path: "/#mobile" },
   { key: "extension", label: "EXTENSION", path: "/#extension" },
   { key: "card-fac", label: "SNAPSCORE", path: "/#card-fac" },

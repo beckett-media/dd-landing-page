@@ -2,6 +2,7 @@ import * as React from "react"
 import { useSelector } from "react-redux"
 import { withPrefix } from "gatsby"
 import { Helmet } from "react-helmet"
+import useFetch from "use-http"
 
 import Layout from "../components/Layout"
 import Seo from "../components/seo"
@@ -14,6 +15,9 @@ import InstantAssessment from "../components/InstantAssessment"
 import LandingPageBannerLink from "../components/LandingPageBannerLink"
 import MarketPlace from "../components/MarketPlace"
 import SimpleCrypto from "simple-crypto-js"
+import { CONFIG } from "../constants/Config"
+import MarketPlaceStores from "../components/MarketPlaceStores"
+
 var simpleCrypto = new SimpleCrypto("myTotalySecretKey")
 
 const Home = () => {
@@ -30,13 +34,40 @@ const Home = () => {
     }
   }, [user])
 
+  const [marketCards, setMarketCards] = React.useState([])
+  const [marketStores, setMarketStores] = React.useState([])
+  const [metaData, setMetaData] = React.useState({})
+  const { get: getListings, loading } = useFetch(
+    CONFIG.base_url + "/marketplace",
+    {
+      cachePolicy: "no-cache",
+      headers: { "x-app-token": CONFIG["x-app-token"] },
+    }
+  )
+  const _getListings = async () => {
+    let { data } = await getListings()
+    let { newArrival, products, grades, newStores } = data
+    setMetaData({ products, grades })
+    setMarketCards(newArrival)
+    setMarketStores(newStores)
+  }
+
+  React.useEffect(() => {
+    _getListings()
+  }, [])
+
   return (
     <Layout authKey={authKey}>
       <Seo title="Due Dilly" />
       <HeroBanner />
       <GradientLine />
       <LandingPageBannerLink />
-      <MarketPlace authKey={authKey} />
+      <MarketPlace
+        authKey={authKey}
+        marketCards={marketCards}
+        metaData={metaData}
+      />
+      <MarketPlaceStores authKey={authKey} marketStores={marketStores} />
       <InstantAssessment />
       <RealTimeEval />
       <GradientLine />
