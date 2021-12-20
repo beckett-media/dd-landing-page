@@ -8,9 +8,7 @@ const App = () => {
     <>
       <Seo
         title="Due Dilly | Sports Card Snapscore(TM)"
-        description={`Snapscore ${(
-          <span>&trade;</span>
-        )} Assessment of Card for Quality and Market Trends`}
+        description={`Snapscore(TM) Assessment of Card for Quality and Market Trends`}
       />
       <Router>
         <FacReport path="/fac-report/:id" />
