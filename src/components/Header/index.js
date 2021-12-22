@@ -180,12 +180,6 @@ const Header = ({ setModal, authKey }) => {
           </div>
         </div>
       </nav>
-      <iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-N5S4G39"
-        height="0"
-        width="0"
-        style="display:none;visibility:hidden"
-      ></iframe>
     </header>
   )
 }
