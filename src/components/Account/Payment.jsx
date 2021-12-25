@@ -156,7 +156,6 @@ const CheckoutForm = StripeHoc(
       const cardElement = elements.getElement(CardElement)
 
       // Use your card Element with other Stripe.js APIs
-      //   console.log(stripe)
       const { error, token } = await stripe.createToken(cardElement)
       if (error) {
         notification.error({

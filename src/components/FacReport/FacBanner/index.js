@@ -501,7 +501,6 @@ const FacBanner = ({
                   handleClose={handleCancel}
                 />
               </ReactModal>
-              {console.log("price" + price)}
               {price && (
                 <Button
                   type="primary"
