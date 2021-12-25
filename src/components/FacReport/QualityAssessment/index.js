@@ -11,18 +11,29 @@ const QualityAssessmentCard = ({ title, child, grade }) => {
       <p className="text-white h5 font-weight-bold text-center">{title}</p>
       {child}
       <p className="text-white h5 text-center m-0">
-        Overall Snapscore {<span>&trade;</span>} {grade}
+        {title} Snapscore {<span>&trade;</span>} {grade}
       </p>
     </div>
   )
 }
 
 const QualityAssessment = ({ card }) => {
+  const cornersDeatils = card?.grading?.corners
+  let newCornerGrades
+  if (card?.grading?.corners) {
+    newCornerGrades = {
+      top_left: cornersDeatils?.top_left,
+      top_right: cornersDeatils?.top_right,
+      bottom_left: cornersDeatils?.bottom_left,
+      bottom_right: cornersDeatils?.bottom_right,
+    }
+  }
+
   const cornerText = {
-    top_right: "Top Right Corner #1",
-    top_left: "Top Left Corner #2",
-    bottom_right: "Bottom Right Corner #3",
-    bottom_left: "Bottom Left Corner #4",
+    top_left: "Top Left Corner #1",
+    top_right: "Top Right Corner #2",
+    bottom_left: "Bottom Left Corner #3",
+    bottom_right: "Bottom Right Corner #4",
   }
 
   const [isVisibleSurfaceMap, showSurfaceMap] = React.useState(false)
@@ -140,24 +151,21 @@ const QualityAssessment = ({ card }) => {
               }
               child={
                 <div className="row ">
-                  {Object.keys(card?.grading?.corners || {})
-                    .filter(grade => grade != "corner_grade")
-                    .reverse()
-                    .map(key => (
-                      <div className="col-6 py-2">
-                        <p className="text-white  font-poppins">
-                          {cornerText[key]}
-                        </p>
-                        <p
-                          className={`${fetchtextClass(
-                            overall
-                          )} m-1 font-poppins`}
-                        >
-                          {card?.grading?.corners[key]}
-                        </p>
-                        <br />
-                      </div>
-                    ))}
+                  {Object.keys(newCornerGrades || {}).map(key => (
+                    <div className="col-6 py-2">
+                      <p className="text-white  font-poppins">
+                        {cornerText[key]}
+                      </p>
+                      <p
+                        className={`${fetchtextClass(
+                          overall
+                        )} m-1 font-poppins`}
+                      >
+                        {newCornerGrades[key]}
+                      </p>
+                      <br />
+                    </div>
+                  ))}
                 </div>
               }
             />
@@ -257,24 +265,6 @@ const QualityAssessment = ({ card }) => {
               child={
                 <div className="row">
                   <div className="col-6 py-2">
-                    <p className="text-white  m-1 font-poppins">Top Edge</p>
-                    <p
-                      className={`${fetchtextClass(overall)}  m-1 font-poppins`}
-                    >
-                      {card?.grading?.edges.top || "NA"}
-                    </p>
-                  </div>
-                  <div className="col-6 py-2">
-                    <p className="text-white  m-1 font-poppins">Bottom Edge</p>
-                    <p
-                      className={`${fetchtextClass(
-                        overall
-                      )}   m-1 font-poppins`}
-                    >
-                      {card?.grading?.edges.bottom || "NA"}
-                    </p>
-                  </div>
-                  <div className="col-6 py-2">
                     <p className="text-white  m-1 font-poppins">Left Edge</p>
                     <p
                       className={`${fetchtextClass(
@@ -292,6 +282,24 @@ const QualityAssessment = ({ card }) => {
                       )}   m-1 font-poppins`}
                     >
                       {card?.grading?.edges.right || "NA"}
+                    </p>
+                  </div>
+                  <div className="col-6 py-2">
+                    <p className="text-white  m-1 font-poppins">Top Edge</p>
+                    <p
+                      className={`${fetchtextClass(overall)}  m-1 font-poppins`}
+                    >
+                      {card?.grading?.edges.top || "NA"}
+                    </p>
+                  </div>
+                  <div className="col-6 py-2">
+                    <p className="text-white  m-1 font-poppins">Bottom Edge</p>
+                    <p
+                      className={`${fetchtextClass(
+                        overall
+                      )}   m-1 font-poppins`}
+                    >
+                      {card?.grading?.edges.bottom || "NA"}
                     </p>
                   </div>
                 </div>
