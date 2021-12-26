@@ -146,7 +146,7 @@ const QualityAssessment = ({ card }) => {
                 <span
                   className={`${fetchtextClassGreen(overall)} font-weight-bold`}
                 >
-                  {card?.grading?.corners["corner_grade"] || "NA"}
+                  {card?.grading?.corners?.["corner_grade"] || "NA"}
                 </span>
               }
               child={
@@ -179,26 +179,26 @@ const QualityAssessment = ({ card }) => {
                     overall
                   )}  font-weight-bold font-poppins`}
                 >
-                  {card?.grading?.centering["letter_grade"].length < 4
-                    ? card?.grading?.centering["letter_grade"]
+                  {card?.grading?.centering?.["letter_grade"].length < 4
+                    ? card?.grading?.centering?.["letter_grade"]
                     : "NA"}
                 </span>
               }
               child={
                 <div className="text-center text-white px-2 py-5 font-poppins">
-                  {card?.grading?.centering["left/right"] && (
+                  {card?.grading?.centering?.["left/right"] && (
                     <p className="text-white">
                       <strong>Left / Right</strong>{" "}
-                      {card?.grading?.centering["left/right"]}
+                      {card?.grading?.centering?.["left/right"]}
                     </p>
                   )}
-                  {card?.grading?.centering["top/bottom"] && (
+                  {card?.grading?.centering?.["top/bottom"] && (
                     <p className="text-white">
                       <strong>Top / Bottom</strong>{" "}
-                      {card?.grading?.centering["top/bottom"]}
+                      {card?.grading?.centering?.["top/bottom"]}
                     </p>
                   )}
-                  {card?.grading?.centering["letter_grade"] && (
+                  {card?.grading?.centering?.["letter_grade"] && (
                     <div
                       style={{
                         marginTop: 15,
@@ -208,7 +208,7 @@ const QualityAssessment = ({ card }) => {
                     >
                       <h6>
                         <strong>
-                          {card?.grading?.centering["letter_grade"]}
+                          {card?.grading?.centering?.["letter_grade"]}
                         </strong>
                       </h6>
                     </div>
@@ -226,7 +226,7 @@ const QualityAssessment = ({ card }) => {
                     overall
                   )} font-weight-bold font-poppins`}
                 >
-                  {card?.grading?.surface["surface_grade"] || "NA"}
+                  {card?.grading?.surface?.["surface_grade"] || "NA"}
                 </span>
               }
               child={
@@ -259,7 +259,7 @@ const QualityAssessment = ({ card }) => {
                     overall
                   )} font-weight-bold font-poppins`}
                 >
-                  {card?.grading?.edges["edge_grade"] || "NA"}
+                  {card?.grading?.edges?.["edge_grade"] || "NA"}
                 </span>
               }
               child={
@@ -271,7 +271,7 @@ const QualityAssessment = ({ card }) => {
                         overall
                       )}   m-1 font-poppins`}
                     >
-                      {card?.grading?.edges.left || "NA"}
+                      {card?.grading?.edges?.left || "NA"}
                     </p>
                   </div>
                   <div className="col-6 py-2">
@@ -281,7 +281,7 @@ const QualityAssessment = ({ card }) => {
                         overall
                       )}   m-1 font-poppins`}
                     >
-                      {card?.grading?.edges.right || "NA"}
+                      {card?.grading?.edges?.right || "NA"}
                     </p>
                   </div>
                   <div className="col-6 py-2">
@@ -289,7 +289,7 @@ const QualityAssessment = ({ card }) => {
                     <p
                       className={`${fetchtextClass(overall)}  m-1 font-poppins`}
                     >
-                      {card?.grading?.edges.top || "NA"}
+                      {card?.grading?.edges?.top || "NA"}
                     </p>
                   </div>
                   <div className="col-6 py-2">
@@ -299,7 +299,7 @@ const QualityAssessment = ({ card }) => {
                         overall
                       )}   m-1 font-poppins`}
                     >
-                      {card?.grading?.edges.bottom || "NA"}
+                      {card?.grading?.edges?.bottom || "NA"}
                     </p>
                   </div>
                 </div>
