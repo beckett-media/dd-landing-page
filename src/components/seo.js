@@ -72,6 +72,10 @@ function Seo({ description, lang, meta, title }) {
           name: `google-site-verification`,
           content: `IZvljW7wzoF7htT_uw2GwCM0JKhRmnHkrqLxpYF1nXQ`,
         },
+        {
+          name: `facebook-domain-verification`,
+          content: `4o1xazs0x2oxudhrou2c4iidqs32tx`,
+        },
       ].concat(meta)}
     />
   )
