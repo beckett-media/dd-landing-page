@@ -15,6 +15,8 @@ const headerLinks = [
   { key: "mobile", label: "MOBILE", path: "/#mobile" },
   { key: "extension", label: "EXTENSION", path: "/#extension" },
   { key: "card-fac", label: "SNAPSCORE", path: "/#card-fac" },
+  { key: "blog-post", label: "BLOG", path: "/blog" },
+  { key: "press-post", label: "PRESS", path: "/press" },
 ]
 
 const Header = ({ setModal, authKey }) => {
