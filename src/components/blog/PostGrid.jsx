@@ -3,6 +3,13 @@ import { Link } from "gatsby"
 import { basePostUrl } from "./Repository"
 import LazyLoad from "react-lazyload"
 import moment from "moment"
+import { Buffer } from "buffer"
+import DefaultBannerPhoto from "../../images/blog-press.png"
+
+const getImg = imageBlob => {
+  if (!imageBlob) return
+  return Buffer.from(imageBlob.data, "base64")
+}
 
 const PostGrid = ({ post, pageName }) => {
   let imageThumbnailView, categoriesView
@@ -12,7 +19,18 @@ const PostGrid = ({ post, pageName }) => {
       imageThumbnailView = (
         <LazyLoad>
           <Link to={`${baseUrlPressOrBlog}/${post.id}`}>
-            <img src={`${basePostUrl}${post.thumbnail.url}`} alt="img" />
+            <div className="ps-product--horizontal">
+              <div className="ps-product__thumbnail">
+                <img
+                  src={
+                    post.bannerImage
+                      ? getImg(post.bannerImage)
+                      : DefaultBannerPhoto
+                  }
+                  alt="img"
+                />
+              </div>
+            </div>
           </Link>
         </LazyLoad>
       )
@@ -26,7 +44,7 @@ const PostGrid = ({ post, pageName }) => {
             as={`/categories/${item.slug}`}
             key={item.id}
           >
-            <a>{item.name}</a>
+            <a>{item.title}</a>
           </a>
         ))
       } else {
@@ -51,15 +69,15 @@ const PostGrid = ({ post, pageName }) => {
         {/* <div className="">{categoriesView}</div> */}
         <Link to={`${baseUrlPressOrBlog}/${post.id}`}>
           <p className="mt-2">
-            {post.name.length > 50
-              ? post.name.slice(0, 50) + "........"
-              : post.name}
+            {post.title.length > 50
+              ? post.title.slice(0, 50) + "........"
+              : post.title}
           </p>
         </Link>
         <p>
           {moment(post.created_at).format("ll")} by
           <a href={pageName === "blog" ? "/blog" : "/press"}>
-            <a href="#"> duedilly</a>
+            <a href="https://duedilly.co"> duedilly</a>
           </a>
         </p>
       </div>

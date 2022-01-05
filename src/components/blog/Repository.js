@@ -1,6 +1,7 @@
 import axios from 'axios';
 const baseDomain = 'https://beta.apinouthemes.com'; // API for products
-export const basePostUrl = 'https://beta.apinouthemes.com'; // API for post
+export const basePostUrl = 'https://api.duedilly.co'; // API for post
+// export const basePostUrl = 'http://localhost:3000'; // API for post
 export const baseStoreURL = 'https://beta.apinouthemes.com'; // API for vendor(store)
 
 export const customHeaders = {

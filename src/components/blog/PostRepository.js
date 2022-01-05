@@ -5,12 +5,26 @@ class PostRepository {
         this.callback = callback;
     }
 
-    async getPosts(payload) {
-        const endPoint = `posts?${serializeQuery(payload)}`;
-        const reponse = await Repository.get(`${basePostUrl}/${endPoint}`)
+    async getPosts(pageName) {
+        const endPoint = `/blog-press/collection/${pageName}`;
+        const reponse = await Repository.get(`${basePostUrl}${endPoint}`)
             .then((response) => {
-                if (response.data.length > 0) {
-                    return response.data;
+                if (response.data?.data?.blogs?.length > 0) {
+                    return response.data.data.blogs;
+                } else {
+                    return null;
+                }
+            })
+            .catch((error) => ({ error: JSON.stringify(error) }));
+        return reponse;
+    }
+
+    async getPostDetail(postId) {
+        const endPoint = `/blog-press/${postId}`;
+        const reponse = await Repository.get(`${basePostUrl}${endPoint}`)
+            .then((response) => {
+                if (response.data?.data?.blogPress) {
+                    return response.data.data.blogPress;
                 } else {
                     return null;
                 }
