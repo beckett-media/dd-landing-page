@@ -17,13 +17,16 @@
   text-align: right;
 }
 
-.error-success-container {
+.error-success-container,
+.formkit-alert-error {
   text-align: center;
   padding-top: 25px;
   position: inherit !important;
 }
 
-.error-success-container p span {
+.error-success-container p span,
+.formkit-alert-success,
+.formkit-alert-error {
   color: #fff !important;
   font-size: 1.2rem !important;
   font-weight: 900 !important;

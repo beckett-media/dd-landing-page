@@ -1,72 +1,66 @@
 import React from "react"
 
 const EmailNameForm = () => {
-  const myHtml = `<div class="engage-bay-source-form engagebay-forms" data-id="5225691745353728">
+  const myHtml = `<div>
   <form
-    class="form-group form-style-form2"
-    onsubmit="window.EhForm.submit_form(event,this)"
-    data-id="5225691745353728"
-  >
-  <div class="error-success-container"></div>
-    <fieldset>
-      <!-- Form Name -->
-      <div class="form-group">
-        <div className="row">
-          <div className="col-12 col-sm-6 col-md-4 col-lg-4">
-            <input
-              data-ebay_field="name"
-              data-ebay_add_as=""
-              id="name"
-              title=""
-              name="name"
-              type="text"
-              placeholder="Your Name"
-              class="form-control light"
-              required="true"
-            />
-          </div>
-          <div className="col-12 col-sm-6 col-md-4 col-lg-4">
-            <input
-              data-ebay_field="email"
-              data-ebay_add_as=""
-              id="email"
-              title=""
-              name="email"
-              type="email"
-              placeholder="Your email address"
-              class="form-control light"
-              required="true"
-            />
-          </div>
-        </div>
-      <div/>
-      <div class="form-group">
-        <div>
-          <button type="submit" style="width: 100%" class="submit-btn gradient-link px-3 py-3 nav-link text-center">
-          SIGNUP FOR EARLY ACCESS
-          </button>
-          <br />
-          <span id="error-msg"></span>
-        </div>
+  action="https://app.convertkit.com/forms/2897460/subscriptions"
+  class="seva-form formkit-form"
+  method="post"
+  data-sv-form="2897460"
+  data-uid="065e4d729a"
+  data-format="inline"
+  data-version="5"
+  data-options='{"settings":{"after_subscribe":{"action":"message","success_message":"You're all set. We'll hit you up soon.","redirect_url":""},"analytics":{"google":null,"facebook":null,"segment":null,"pinterest":null,"sparkloop":null,"googletagmanager":null},"modal":{"trigger":"timer","scroll_percentage":null,"timer":5,"devices":"all","show_once_every":15},"powered_by":{"show":true,"url":"https://convertkit.com/features/forms?utm_campaign=poweredby&amp;utm_content=form&amp;utm_medium=referral&amp;utm_source=dynamic"},"recaptcha":{"enabled":false},"return_visitor":{"action":"show","custom_content":""},"slide_in":{"display_in":"bottom_right","trigger":"timer","scroll_percentage":null,"timer":5,"devices":"all","show_once_every":15},"sticky_bar":{"display_in":"top","trigger":"timer","scroll_percentage":null,"timer":5,"devices":"all","show_once_every":15}},"version":"5"}'
+  min-width="400 500 600 700 800"
+>
+  <div data-style="clean">
+    <ul
+      class="formkit-alert formkit-alert-error"
+      data-element="errors"
+      data-group="alert"
+    ></ul>
+    <div
+      data-element="fields"
+      data-stacked="false"
+      class="seva-fields formkit-fields"
+    >
+      <div class="formkit-field">
+        <input
+          class="form-control light"
+          aria-label="Your Name"
+          name="fields[first_name]"
+          placeholder="Your Name"
+          type="text"
+          required="true"
+        />
       </div>
-    </fieldset>
-  </form>
+      <div class="formkit-field">
+        <input
+          class="form-control light"
+          name="email_address"
+          aria-label="Your email address"
+          placeholder="Your email address"
+          required="true"
+          type="email"
+        />
+      </div>
+      <button
+        data-element="submit"
+        style="width: 100%"
+        class="submit-btn gradient-link px-3 py-3 nav-link text-center"
+      >
+        <div class="formkit-spinner">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <span class="">SIGNUP FOR EARLY ACCESS</span>
+      </button>
+    </div>
+  </div>
+</form>
   
-  <script>
-    var EhAPI = EhAPI || {}
-    EhAPI.after_load = function () {
-      EhAPI.set_account("s2q2h14jacgkkhmvvuip3s9hk2", "duedilly")
-      EhAPI.execute("rules")
-    }
-    ;(function (d, s, f) {
-      var sc = document.createElement(s)
-      sc.type = "text/javascript"
-      sc.async = true
-      sc.src = f
-      var m = document.getElementsByTagName(s)[0]
-      m.parentNode.insertBefore(sc, m)
-    })(document, "script", "//d2p078bqz5urf7.cloudfront.net/jsapi/ehform.js")
-  </script>
+  <script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
 </div>
   `
   return <div dangerouslySetInnerHTML={{ __html: myHtml }} />
