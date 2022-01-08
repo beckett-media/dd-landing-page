@@ -129,3 +129,14 @@ fbq("track", "PageView")
   ttq.load("C75L80TP2K6V4FLP5H20")
   ttq.page()
 })(window, document, "ttq")
+
+// crisp script given by andrew
+window.$crisp = []
+window.CRISP_WEBSITE_ID = "90a8e458-3524-4397-893f-6cf2e0df5ef0"
+;(function () {
+  d = document
+  s = d.createElement("script")
+  s.src = "https://client.crisp.chat/l.js"
+  s.async = 1
+  d.getElementsByTagName("head")[0].appendChild(s)
+})()
