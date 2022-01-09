@@ -1,25 +1,23 @@
 import React, { useState, useEffect } from "react"
+import ReactPaginate from "react-paginate"
 // import a from 'next/a';
 import PostRepository from "./PostRepository"
 import PostGrid from "./PostGrid"
-import CustomPagination from "./CustomPagination"
 import "./index.css"
 
 const BlogItemsGridView = ({ columns, pageName }) => {
-  const [loading, setLoading] = useState(true)
-  const [posts, setPosts] = useState(null)
+  const [posts, setPosts] = useState([])
+  const [totalPosts, setTotalPosts] = useState(0)
 
-  async function getPosts() {
-    let APIPosts = await PostRepository.getPosts(pageName)
+  async function getPosts(page = 1, perPage = 9) {
+    let { APIPosts, totalDocs } = await PostRepository.getPosts({
+      pageName,
+      page,
+      perPage,
+    })
     if (APIPosts) {
-      setTimeout(function () {
-        setLoading(false)
-      }, 200)
       setPosts(APIPosts)
-      return APIPosts
-    } else {
-      setPosts(null)
-      return null
+      setTotalPosts(totalDocs)
     }
   }
 
@@ -27,10 +25,8 @@ const BlogItemsGridView = ({ columns, pageName }) => {
     getPosts()
   }, [])
 
-  console.log(posts)
-  let postItemsView
-  if (!loading && posts) {
-    postItemsView = posts.map(item => {
+  function returnItems(currentItems) {
+    return currentItems.map(item => {
       if (columns === 4) {
         return (
           <div className=" col-md-4 col-sm-6" key={item._id}>
@@ -53,13 +49,27 @@ const BlogItemsGridView = ({ columns, pageName }) => {
     })
   }
 
+  const handlePageClick = res => {
+    getPosts(res.selected + 1)
+  }
+
   return (
     <div className="ps-blog">
       <div className="ps-blog__content">
-        <div className="row">
-          {postItemsView}
-        </div>
-        <CustomPagination />
+        <div className="row">{returnItems(posts)}</div>
+        <ReactPaginate
+          breakLabel="..."
+          nextLabel="next >"
+          onPageChange={handlePageClick}
+          pageRangeDisplayed={5}
+          pageCount={totalPosts / 9}
+          previousLabel="< previous"
+          renderOnZeroPageCount={null}
+          containerClassName={"pagination"}
+          subContainerClassName={"pages pagination"}
+          activeClassName={"active"}
+          breakClassName={"break-me"}
+        />
       </div>
     </div>
   )

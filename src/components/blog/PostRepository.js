@@ -1,90 +1,91 @@
-import Repository, { basePostUrl, serializeQuery } from './Repository';
+import Repository, { basePostUrl, serializeQuery } from "./Repository"
 
 class PostRepository {
-    constructor(callback) {
-        this.callback = callback;
-    }
+  constructor(callback) {
+    this.callback = callback
+  }
 
-    async getPosts(pageName) {
-        const endPoint = `/blog-press/collection/${pageName}`;
-        const reponse = await Repository.get(`${basePostUrl}${endPoint}`)
-            .then((response) => {
-                if (response.data?.data?.blogs?.length > 0) {
-                    return response.data.data.blogs;
-                } else {
-                    return null;
-                }
-            })
-            .catch((error) => ({ error: JSON.stringify(error) }));
-        return reponse;
-    }
+  async getPosts({ pageName, perPage, page }) {
+    const endPoint = `/blog-press/${perPage}/${page}/${pageName}`
+    const reponse = await Repository.get(`${basePostUrl}${endPoint}`)
+      .then(response => {
+        if (response.data?.data?.blogsPress?.length > 0) {
+          return {
+            APIPosts: response.data.data.blogsPress,
+            totalDocs: response.data.data.totalDocs,
+          }
+        } else {
+          return []
+        }
+      })
+      .catch(error => ({ error: JSON.stringify(error) }))
+    return reponse
+  }
 
-    async getPostDetail(postId) {
-        const endPoint = `/blog-press/${postId}`;
-        const reponse = await Repository.get(`${basePostUrl}${endPoint}`)
-            .then((response) => {
-                if (response.data?.data?.blogPress) {
-                    return response.data.data.blogPress;
-                } else {
-                    return null;
-                }
-            })
-            .catch((error) => ({ error: JSON.stringify(error) }));
-        return reponse;
-    }
+  async getPostDetail(postId) {
+    const endPoint = `/blog-press/${postId}`
+    const reponse = await Repository.get(`${basePostUrl}${endPoint}`)
+      .then(response => {
+        if (response.data?.data?.blogPress) {
+          return response.data.data.blogPress
+        } else {
+          return null
+        }
+      })
+      .catch(error => ({ error: JSON.stringify(error) }))
+    return reponse
+  }
 
-    async getPostBySlug(payload) {
-        const reponse = await Repository.get(
-            `${basePostUrl}/posts?slug=${payload}`
-        )
-            .then((response) => {
-                if (response.data.length > 0) {
-                    return response.data[0];
-                } else {
-                    return null;
-                }
-            })
-            .catch((error) => ({ error: JSON.stringify(error) }));
-        return reponse;
-    }
+  async getPostBySlug(payload) {
+    const reponse = await Repository.get(`${basePostUrl}/posts?slug=${payload}`)
+      .then(response => {
+        if (response.data.length > 0) {
+          return response.data[0]
+        } else {
+          return null
+        }
+      })
+      .catch(error => ({ error: JSON.stringify(error) }))
+    return reponse
+  }
 
-    async getPostsByCollectionSlug(payload) {
-        const endPoint = `collections?${serializeQuery(payload)}`;
-        const reponse = await Repository.get(`${basePostUrl}/${endPoint}`)
-            .then((response) => {
-                if (response.data && response.data[0].posts.length > 0) {
-                    return response.data[0].posts;
-                } else {
-                    return null;
-                }
-            })
-            .catch((error) => {
-                return null;
-            });
-        return reponse;
-    }
+  async getPostsByCollectionSlug(payload) {
+    const endPoint = `collections?${serializeQuery(payload)}`
+    const reponse = await Repository.get(`${basePostUrl}/${endPoint}`)
+      .then(response => {
+        if (response.data && response.data[0].posts.length > 0) {
+          return response.data[0].posts
+        } else {
+          return null
+        }
+      })
+      .catch(error => {
+        return null
+      })
+    return reponse
+  }
 
-    async getPostItemsByKeyword(payload) {
-        const reponse = await Repository.get(
-            `${basePostUrl}/posts?title_contains=${payload}`
-        )
-            .then((response) => {
-                return response.data;
-            })
-            .catch((error) => ({ error: JSON.stringify(error) }));
-        return reponse;
-    }
+  async getPostItemsByKeyword(payload) {
+    const reponse = await Repository.get(
+      `${basePostUrl}/posts?title_contains=${payload}`
+    )
+      .then(response => {
+        return response.data
+      })
+      .catch(error => ({ error: JSON.stringify(error) }))
+    return reponse
+  }
 
-    async getPostItemsByCategory(payload) {
-        const reponse = await Repository.get(
-            `${basePostUrl}/posts?title_contains=${payload}`
-        )
-            .then((response) => {
-                return response.data;
-            })
-            .catch((error) => ({ error: JSON.stringify(error) }));
-        return reponse;
-    }
+  async getPostItemsByCategory(payload) {
+    const reponse = await Repository.get(
+      `${basePostUrl}/posts?title_contains=${payload}`
+    )
+      .then(response => {
+        return response.data
+      })
+      .catch(error => ({ error: JSON.stringify(error) }))
+    return reponse
+  }
 }
 
-export default new PostRepository();
+export default new PostRepository()
