@@ -69,8 +69,8 @@ const PostGrid = ({ post, pageName }) => {
         {/* <div className="">{categoriesView}</div> */}
         <Link to={`${baseUrlPressOrBlog}/${post.id}`}>
           <p className="mt-2">
-            {post.title.length > 50
-              ? post.title.slice(0, 50) + "........"
+            {post.title.length > 60
+              ? post.title.slice(0, 60) + "..."
               : post.title}
           </p>
         </Link>

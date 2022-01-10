@@ -44,7 +44,7 @@ const PostDetailBackground = ({ post, isLoading }) => {
               backgroundColor: "#70E7D7",
             }}
           >
-            Harman Kadon Onyx Studio Mini, <br /> Reviews & Experiences
+            {post.title}
           </h1>
           <p>
             <span
