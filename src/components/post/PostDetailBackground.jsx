@@ -1,5 +1,5 @@
 import React from "react"
-import { Spin } from "antd"
+import { Spin, Skeleton } from "antd"
 import { Buffer } from "buffer"
 import moment from "moment"
 import "./index.css"
@@ -14,13 +14,7 @@ const PostDetailBackground = ({ post, isLoading }) => {
   if (isLoading)
     return (
       <>
-        <Spin
-          size="large"
-          style={{
-            marginTop: "200px",
-          }}
-        />
-        Loading
+        {/* <Skeleton /> */}
       </>
     )
   return (
