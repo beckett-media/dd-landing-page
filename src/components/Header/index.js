@@ -1,8 +1,10 @@
 import * as React from "react"
 import { Link } from "gatsby"
-
+import { Menu, Dropdown } from "antd"
+import { DownOutlined } from "@ant-design/icons"
 import DueDillyLogo from "../../images/due_dilly_logo.png"
 
+import "antd/dist/antd.css" // or 'antd/dist/antd.less'
 import "./styles.css"
 import { CONFIG } from "../../constants/Config"
 import useFetch from "use-http"
@@ -10,14 +12,36 @@ import { useDispatch, useSelector } from "react-redux"
 import { login, updateUser } from "../../actions/auth"
 
 const headerLinks = [
-  { key: "marketplace", label: "MARKETPLACE", path: "/#market-place" },
-  { key: "stores", label: "STORES", path: "/#market-place" },
+  // { key: "marketplace", label: "MARKETPLACE", path: "/#market-place" },
+  // { key: "stores", label: "STORES", path: "/#market-place" },
   { key: "mobile", label: "MOBILE", path: "/#mobile" },
   { key: "extension", label: "EXTENSION", path: "/#extension" },
   { key: "card-fac", label: "SNAPSCORE", path: "/#card-fac" },
-  { key: "blog-post", label: "BLOG", path: "/blog" },
-  { key: "press-post", label: "PRESS", path: "/press" },
+  // { key: "blog-post", label: "BLOG", path: "/blog" },
+  // { key: "press-post", label: "PRESS", path: "/press" },
 ]
+
+const menuBlog = (
+  <Menu>
+    <Menu.Item>
+      <Link to="/blog">BLOG</Link>
+    </Menu.Item>
+    <Menu.Item>
+      <Link to="/press">PRESS</Link>
+    </Menu.Item>
+  </Menu>
+)
+
+const menuStore = (
+  <Menu>
+    <Menu.Item>
+      <Link to="/#market-place">MARKETPLACE</Link>
+    </Menu.Item>
+    <Menu.Item>
+      <Link to="/#market-store">STORES</Link>
+    </Menu.Item>
+  </Menu>
+)
 
 const Header = ({ setModal, authKey }) => {
   const user = useSelector(({ auth }) => auth)
@@ -76,6 +100,24 @@ const Header = ({ setModal, authKey }) => {
             id="navbarSupportedContent"
           >
             <ul className="navbar-nav mb-2 mb-lg-0">
+              <li>
+                <Dropdown overlay={menuStore}>
+                  <a
+                    className={`ant-dropdown-link nav-item mx-1 px-1 nav-link px-3${
+                      activeLint === "marketplace" ||
+                      activeLint === "press-post"
+                        ? " active"
+                        : ""
+                    }`}
+                    onClick={e => {
+                      e.preventDefault()
+                      setActiveLink("marketplace")
+                    }}
+                  >
+                    MARKETPLACE <DownOutlined />
+                  </a>
+                </Dropdown>
+              </li>
               {headerLinks.map(item => (
                 <li
                   key={item.key}
@@ -97,6 +139,24 @@ const Header = ({ setModal, authKey }) => {
                   </Link>
                 </li>
               ))}
+
+              <li>
+                <Dropdown overlay={menuBlog}>
+                  <a
+                    className={`ant-dropdown-link nav-item mx-1 px-1 nav-link px-3${
+                      activeLint === "blog-post" || activeLint === "press-post"
+                        ? " active"
+                        : ""
+                    }`}
+                    onClick={e => {
+                      e.preventDefault()
+                      setActiveLink("blog-post")
+                    }}
+                  >
+                    BLOG <DownOutlined />
+                  </a>
+                </Dropdown>
+              </li>
               {(!user.id && (
                 <>
                   <li

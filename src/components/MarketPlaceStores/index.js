@@ -50,7 +50,7 @@ const MarketPlaceStores = ({ authKey, marketStores }) => {
         }}
       />
 
-      <div className="market-place-gray-container py-5">
+      <div className="market-place-gray-container py-5" id="market-store">
         <div className="container-lg ">
           <div className="row g-0 d-flex align-items-center">
             <div className="col-12 position-relative py-5">

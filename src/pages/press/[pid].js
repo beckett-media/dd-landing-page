@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react"
 import Layout from "../../components/Layout"
-import PostComments from "../../components/post/PostComments"
 import PostDetailBackground from "../../components/post/PostDetailBackground"
 import PostRepository from "../../components/blog/PostRepository"
 
