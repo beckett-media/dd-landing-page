@@ -16,7 +16,12 @@ const HeroBanner = () => (
     </div>
     <div className="container-md">
       <div className="row g-0 py-5 d-flex align-items-center">
-        <div className="col-12 col-md-5">
+        <div
+          className="col-12 col-md-5"
+          style={{
+            zIndex: "999",
+          }}
+        >
           <div className="position-relative d-inline-block">
             <h2 className="pti-font text-white">TECH FOR THE HOBBY</h2>
           </div>
@@ -40,7 +45,7 @@ const HeroBanner = () => (
           /> */}
           <div style={{ padding: "65% 0 0 0", position: "relative" }}>
             <iframe
-              src="https://player.vimeo.com/video/660405176?h=5cb120e354&autoplay=1&loop=1&autopause=0&muted=1"
+              // src="https://player.vimeo.com/video/660405176?h=5cb120e354&autoplay=1&loop=1&autopause=0&muted=1"
               frameborder="0"
               allow="autoplay; fullscreen; picture-in-picture"
               allowfullscreen
