@@ -39,6 +39,7 @@ const QualityAssessment = ({ card }) => {
   const [isVisibleSurfaceMap, showSurfaceMap] = React.useState(false)
 
   const fetchBackgroundColor = overallGrade => {
+    return "#0E1024"
     switch (overallGrade) {
       case "A":
         return "#008FE8"
@@ -66,6 +67,8 @@ const QualityAssessment = ({ card }) => {
   }
 
   const fetchtextClass = grade => {
+    return "text-cyan"
+
     switch (grade) {
       case "A":
         return "green"
@@ -93,6 +96,8 @@ const QualityAssessment = ({ card }) => {
   }
 
   const fetchtextClassGreen = grade => {
+    return "green"
+
     switch (grade) {
       case "A":
         return "green"

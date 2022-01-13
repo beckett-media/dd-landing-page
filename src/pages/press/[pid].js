@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import Layout from "../../components/Layout"
 import PostDetailBackground from "../../components/post/PostDetailBackground"
-import PostRepository from "../../components/blog/PostRepository"
+import PostRepository from "../../repositories/PostRepository"
 
 const Post = props => {
   const [post, setPost] = useState(null)

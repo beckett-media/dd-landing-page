@@ -1,6 +1,6 @@
 import Repository, { basePostUrl } from "./Repository"
 
-class PostRepository {
+class MarketingSubRepo {
   constructor(callback) {
     this.callback = callback
   }
@@ -48,4 +48,4 @@ class PostRepository {
   }
 }
 
-export default new PostRepository()
+export default new MarketingSubRepo()

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import ReactPaginate from "react-paginate"
 // import a from 'next/a';
-import PostRepository from "./PostRepository"
+import PostRepository from "../../repositories/PostRepository"
 import PostGrid from "./PostGrid"
 import "./index.css"
 

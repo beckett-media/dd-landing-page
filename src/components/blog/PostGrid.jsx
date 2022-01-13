@@ -1,6 +1,5 @@
 import React from "react"
 import { Link } from "gatsby"
-import { basePostUrl } from "./Repository"
 import LazyLoad from "react-lazyload"
 import moment from "moment"
 import { Buffer } from "buffer"

@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import MarkeetingSubRepo from "../blog/MarkeetingSubRepo"
+import MarketingSubRepo from "../../repositories/MarketingSubRepo"
 
 const EmailForm = () => {
   const [data, setData] = useState({
@@ -13,7 +13,7 @@ const EmailForm = () => {
     e.preventDefault()
     setMessageMain(null)
     try {
-      const mainMessage = await MarkeetingSubRepo.submitMainFooterContact(data)
+      const mainMessage = await MarketingSubRepo.submitMainFooterContact(data)
       console.log(mainMessage)
       setMessageMain(mainMessage)
     } catch (error) {

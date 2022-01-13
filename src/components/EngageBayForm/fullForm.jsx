@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import MarkeetingSubRepo from "../blog/MarkeetingSubRepo"
+import MarketingSubRepo from "../../repositories/MarketingSubRepo"
 
 const FullForm = () => {
   const [data, setData] = useState({
@@ -15,7 +15,7 @@ const FullForm = () => {
     e.preventDefault()
     setMessage(null)
     try {
-      const message = await MarkeetingSubRepo.submitGameOverContact(data)
+      const message = await MarketingSubRepo.submitGameOverContact(data)
       setMessage(message)
     } catch (error) {
       setMessage("Some error")

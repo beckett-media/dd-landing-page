@@ -7,9 +7,8 @@ import DueDillyLogo from "../../images/due_dilly_logo.png"
 import "antd/dist/antd.css" // or 'antd/dist/antd.less'
 import "./styles.css"
 import { CONFIG } from "../../constants/Config"
-import useFetch from "use-http"
 import { useDispatch, useSelector } from "react-redux"
-import { login, updateUser } from "../../actions/auth"
+import { updateUser, logout } from "../../actions/auth"
 
 const headerLinks = [
   // { key: "marketplace", label: "MARKETPLACE", path: "/#market-place" },
@@ -42,6 +41,33 @@ const menuStore = (
     </Menu.Item>
   </Menu>
 )
+
+const userMenu = authKey => {
+  return (
+    <Menu>
+      <Menu.Item>
+        <Link
+          to={`${
+            CONFIG.marketplace_url
+          }/account/user-information?auth=${encodeURIComponent(authKey)}`}
+        >
+          PROFILE
+        </Link>
+      </Menu.Item>
+      <Menu.Item>
+        <a
+          onClick={() => {
+            localStorage.removeItem("x-refresh-token")
+            localStorage.removeItem("x-auth-token")
+            window.location.reload()
+          }}
+        >
+          LOGOUT
+        </a>
+      </Menu.Item>
+    </Menu>
+  )
+}
 
 const Header = ({ setModal, authKey }) => {
   const user = useSelector(({ auth }) => auth)
@@ -196,14 +222,8 @@ const Header = ({ setModal, authKey }) => {
                   </li>
                 </>
               )) || (
-                <Link
-                  to={`${
-                    CONFIG.marketplace_url
-                  }/account/user-information?auth=${encodeURIComponent(
-                    authKey
-                  )}`}
-                >
-                  <li className="nav-item mx-1 px-1 text-light">
+                <Dropdown overlay={userMenu(authKey)}>
+                  <a>
                     {(user.profilePicture && (
                       <img
                         style={{ width: 30, height: 30 }}
@@ -232,11 +252,10 @@ const Header = ({ setModal, authKey }) => {
                       className="text-light"
                       style={{ fontSize: "0.75rem", marginLeft: 5 }}
                     >
-                      {"  "}
                       {user.fullName}
                     </span>
-                  </li>
-                </Link>
+                  </a>
+                </Dropdown>
               )}
             </ul>
           </div>
