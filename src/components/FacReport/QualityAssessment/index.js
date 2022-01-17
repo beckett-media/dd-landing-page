@@ -38,90 +38,16 @@ const QualityAssessment = ({ card }) => {
 
   const [isVisibleSurfaceMap, showSurfaceMap] = React.useState(false)
 
-  const fetchBackgroundColor = overallGrade => {
+  const fetchBackgroundColor = _overallGrade => {
     return "#0E1024"
-    switch (overallGrade) {
-      case "A":
-        return "#008FE8"
-      case "A+":
-        return "#00D9E8"
-      case "B":
-        return "#31E0CB"
-      case "B+":
-        return "#56CB64"
-      case "C":
-        return "#400AA8"
-      case "C+":
-        return "#8252DD"
-      case "D":
-        return "#F46700"
-      case "D+":
-        return "#F48D00"
-      case "F":
-        return "#BA002A"
-      case "F+":
-        return "#B73B57"
-      default:
-        return "#0E1024"
-    }
   }
 
-  const fetchtextClass = grade => {
+  const fetchtextClass = _grade => {
     return "text-cyan"
-
-    switch (grade) {
-      case "A":
-        return "green"
-      case "A+":
-        return "text-dark-cyan"
-      case "B":
-        return "text-dark-cyan"
-      case "B+":
-        return "text-dark-cyan"
-      case "C":
-        return "text-cyan"
-      case "C+":
-        return "text-cyan"
-      case "D":
-        return "text-cyan"
-      case "D+":
-        return "text-cyan"
-      case "F":
-        return "text-cyan"
-      case "F+":
-        return "text-cyan"
-      default:
-        return "text-cyan"
-    }
   }
 
-  const fetchtextClassGreen = grade => {
+  const fetchtextClassGreen = _grade => {
     return "green"
-
-    switch (grade) {
-      case "A":
-        return "green"
-      case "A+":
-        return "text-dark-cyan"
-      case "B":
-        return "text-dark-cyan"
-      case "B+":
-        return "text-dark-cyan"
-      case "C":
-        return "green"
-      case "C+":
-        return "green"
-      case "D":
-        return "green"
-      case "D+":
-        return "green"
-      case "F":
-        return "green"
-      case "F+":
-        return "green"
-      default:
-        return "green"
-    }
   }
 
   let overall = card?.grading?.overallGrade
@@ -129,7 +55,6 @@ const QualityAssessment = ({ card }) => {
   return (
     <div
       style={{
-        // background: fetchBackgroundColor(overall),
         background: fetchBackgroundColor(overall),
         position: "relative",
         overflow: "hidden",
