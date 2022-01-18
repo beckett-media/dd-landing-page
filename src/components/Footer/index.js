@@ -7,29 +7,14 @@ import "./styles.css"
 
 const linkSection1 = [
   {
-    key: "linkSection1_1",
-    label: "Status",
-    path: "/",
-  },
-  {
-    key: "linkSection1_2",
-    label: "Help",
-    path: "/",
-  },
-  {
     key: "linkSection1_3",
     label: "Press",
-    path: "/",
+    path: "/press",
   },
   {
     key: "linkSection1_4",
     label: "Blog",
-    path: "/",
-  },
-  {
-    key: "linkSection1_5",
-    label: "Newsletter",
-    path: "/",
+    path: "/blog",
   },
 ]
 
@@ -42,12 +27,12 @@ const linkSection2 = [
   {
     key: "linkSection2_2",
     label: "Instagram",
-    path: "https://instagram.com/getduedilly",
+    path: "https://www.instagram.com/GETDUEDILLY",
   },
   {
     key: "linkSection2_3",
     label: "Facebook",
-    path: "https://www.facebook.com/Due-Dilly-107235348358371",
+    path: "https://www.facebook.com/DueDilly.co/",
   },
   {
     key: "linkSection2_4",

@@ -74,7 +74,7 @@ const PostGrid = ({ post, pageName }) => {
           </p>
         </Link>
         <p>
-          {moment(post.created_at).format("ll")} by
+          {moment(post.createdAt).format("ll")} by
           <a href={pageName === "blog" ? "/blog" : "/press"}>
             <a href="https://duedilly.co"> duedilly</a>
           </a>
