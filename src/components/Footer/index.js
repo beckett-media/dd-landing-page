@@ -27,12 +27,12 @@ const linkSection2 = [
   {
     key: "linkSection2_2",
     label: "Instagram",
-    path: "https://www.instagram.com/GETDUEDILLY",
+    path: "https://www.instagram.com/getduedilly",
   },
   {
     key: "linkSection2_3",
     label: "Facebook",
-    path: "https://www.facebook.com/DueDilly.co/",
+    path: "https://www.facebook.com/duedilly.co/",
   },
   {
     key: "linkSection2_4",
@@ -85,7 +85,10 @@ const Footer = () => (
                       to={link.path}
                       className="nav-link px-2 py-2"
                       aria-current="page"
-                      href="/"
+                      href={link.path}
+                      target={
+                        link.path.startsWith("http") ? "_blank" : "_parent"
+                      }
                     >
                       {link.label}
                     </Link>
