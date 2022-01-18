@@ -37,10 +37,16 @@ const InstantAssessment = () => (
             what your raw card could be graded for if sent to PSA, BGS or SGC.
           </p>
           <div className="d-flex pb-5 pb-sm-0">
-            <Link target="_blank" to="#">
+            <Link
+              target="_blank"
+              to="https://apps.apple.com/us/app/due-dilly/id1568882229"
+            >
               <AppStoreLogo className="app-store" />
             </Link>
-            <Link target="_blank" to="#">
+            <Link
+              target="_blank"
+              to="https://play.google.com/store/apps/details?id=com.duedilly.cardassessor&hl=en_US&gl=US"
+            >
               <GooglePlayLogo className="play-store" />
             </Link>
           </div>
