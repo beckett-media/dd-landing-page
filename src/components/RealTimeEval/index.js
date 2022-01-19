@@ -23,12 +23,13 @@ const RealTimeEval = () => (
             real-time pricing and quality assessments when buying on 3rd party
             marketplaces like eBay, StockX and FB marketplac
           </p>
-          <Link target="_blank" to="#">
+          {/* just make div to Link when extension is back and add target="_blank" to="#" */}
+          <div>
             <div className="chrome-button">
-              download chrome extension
+              coming soon
               <Chrome height="30" />
             </div>
-          </Link>
+          </div>
 
           <LowerArrow className="lower-arrow" />
         </div>
