@@ -59,7 +59,9 @@ const Home = () => {
   return (
     <Layout authKey={authKey}>
       <Seo title="Due Dilly" />
-      <HeroBanner />
+      {/* <HeroBanner /> */}
+      <InstantAssessment />
+
       <GradientLine />
       <LandingPageBannerLink />
       <MarketPlace
@@ -68,7 +70,6 @@ const Home = () => {
         metaData={metaData}
       />
       <MarketPlaceStores authKey={authKey} marketStores={marketStores} />
-      <InstantAssessment />
       <RealTimeEval />
       <GradientLine />
       <CardFAC />
