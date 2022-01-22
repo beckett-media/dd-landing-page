@@ -8,6 +8,11 @@ import "./styles.css"
 const linkSection1 = [
   {
     key: "linkSection1_3",
+    label: "Contact",
+    path: "/contact-us",
+  },
+  {
+    key: "linkSection1_3",
     label: "Press",
     path: "/press",
   },
