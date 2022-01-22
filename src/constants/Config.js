@@ -5,6 +5,8 @@ export const CONFIG = {
   // base_url: "https://staging105.botkraft.com",
   base_url: "https://api.duedilly.co" || "http://localhost:4000",
   // marketplace_url: "https://epic-villani-e0510b.netlify.app",
+  s3BaseUrl:
+    "https://duedillymobile4ddd12da3ecd4a37ab585dd4904acd7e125824-prod.s3.amazonaws.com/public",
   marketplace_url: "https://marketplace.duedilly.co",
   "x-app-token":
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBOYW1lIjoiRENHUyIsImlhdCI6MTYwNzg2NDcwMX0.F_3ZTAs_7MbboyzrNCkg0oOyV3yIacP81wee8LPTHJw",

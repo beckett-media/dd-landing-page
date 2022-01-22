@@ -286,8 +286,24 @@ const FacBanner = ({
   React.useEffect(() => {
     if (card)
       setGallery([
-        { url: CONFIG.base_url + "/" + card.front, key: "front" },
-        { url: CONFIG.base_url + "/" + card.back, key: "back" },
+        {
+          url:
+            (card.front.startsWith("cardFront")
+              ? CONFIG.s3BaseUrl
+              : CONFIG.base_url) +
+            "/" +
+            card.front,
+          key: "front",
+        },
+        {
+          url:
+            (card.front.startsWith("cardFront")
+              ? CONFIG.s3BaseUrl
+              : CONFIG.base_url) +
+            "/" +
+            card.back,
+          key: "back",
+        },
       ])
   }, [card])
 

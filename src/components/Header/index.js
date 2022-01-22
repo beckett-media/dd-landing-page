@@ -228,7 +228,11 @@ const Header = ({ setModal, authKey }) => {
                       <img
                         style={{ width: 30, height: 30 }}
                         className="rounded-circle"
-                        src={`${CONFIG.base_url}/${user.profilePicture}`}
+                        src={`${
+                          user.profilePicture.startsWith("profilePic")
+                            ? CONFIG.s3BaseUrl
+                            : CONFIG.base_url
+                        }/${user.profilePicture}`}
                       />
                     )) || (
                       <div

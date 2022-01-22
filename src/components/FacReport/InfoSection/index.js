@@ -132,7 +132,11 @@ const InfoSection = ({ priceData, user, loading }) => {
                 <div className="d-md-flex">
                   {(user?.profilePicture && (
                     <img
-                      src={`${CONFIG.base_url}/${user?.profilePicture}`}
+                      src={`${
+                        user.profilePicture.startsWith("profilePic")
+                          ? CONFIG.s3BaseUrl
+                          : CONFIG.base_url
+                      }/${user?.profilePicture}`}
                       className="info-avatar-image"
                     ></img>
                   )) || (
