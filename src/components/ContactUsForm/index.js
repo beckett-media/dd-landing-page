@@ -5,7 +5,7 @@ import HeroBg from "../../images/svgs/HeroBg.svg"
 import LowerArrow from "../../images/svgs/LowerArrow.svg"
 import { Link } from "gatsby"
 import "./styles.css"
-import Form from "../EngageBayForm/fullForm"
+import ContactUsInputForm from "./form"
 
 const linkSection2 = [
   {
@@ -31,35 +31,24 @@ const LandingPageBanner = () => {
         <div className="row g-0 pt-5 d-flex align-items-center justify-content-center">
           <div className="col-12 col-md-7 pt-3 pt-md-0 hero-banner-img-container position-relative">
             <LowerArrow className="hero-banner-arrow" />
-            <div style={{ padding: "65% 0 0 0", position: "relative" }}>
-              <iframe
-                src="https://player.vimeo.com/video/591753392?h=a6b9f2d511&autoplay=1&loop=1&autopause=0&muted=1"
-                frameborder="0"
-                allow="autoplay; fullscreen; picture-in-picture"
-                allowfullscreen
-                style={{
-                  position: "absolute",
-                  top: "0",
-                  left: "0",
-                  width: "100%",
-                  height: "100%",
-                }}
-                title="DUE DILLY NFTs"
-              />
-            </div>
           </div>
         </div>
 
         <div className="row g-0 py-5 d-flex align-items-center justify-content-center">
           <div className="col-12 col-md-7">
-            <div className="position-relative d-inline-block">
+            <div
+              className="position-relative d-inline-block justify-content-center"
+              style={{
+                width: "100%",
+              }}
+            >
               <h2
                 className="pti-font text-white"
                 style={{
                   textAlign: "center",
                 }}
               >
-                TURN YOUR SPORTS CARDS INTO NFTs
+                GET IN TOUCH WITH US
               </h2>
             </div>
             <p
@@ -68,10 +57,25 @@ const LandingPageBanner = () => {
                 textAlign: "center",
               }}
             >
-              The first 333 drop announcement date coming soon...be first to
-              mint.
+              Got any question or feedback in mind?
+              <br />
+              Write to us in below form and we will get back to you!
             </p>
-            <Form />
+
+            <p
+              className="text-white shapiro-font"
+              style={{
+                textAlign: "center",
+              }}
+            >
+              Email:{" "}
+              <a href="mailto:support@duedilly.co">
+                Send us email at support@duedilly.co
+              </a>
+              <br />
+              Visit us at: Houston, Texas 77070
+            </p>
+            <ContactUsInputForm />
             <ul className="nav justify-content-between justify-content-sm-center">
               {linkSection2.map(link => {
                 return (

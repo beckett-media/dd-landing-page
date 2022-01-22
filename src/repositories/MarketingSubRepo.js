@@ -46,6 +46,24 @@ class MarketingSubRepo {
       .catch(error => ({ error: JSON.stringify(error) }))
     return reponse
   }
+
+  async submitContactUs(data) {
+    const endPoint = `/contact-us/duedilly`
+    const reponse = await Repository.post(`${basePostUrl}${endPoint}`, {
+      email: data.email,
+      name: data.fullName,
+      message: data.fullMessage,
+    })
+      .then(response => {
+        if (response.data?.success) {
+          return response.data?.data?.message
+        } else {
+          return false
+        }
+      })
+      .catch(error => ({ error: JSON.stringify(error) }))
+    return reponse
+  }
 }
 
 export default new MarketingSubRepo()

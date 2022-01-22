@@ -1,0 +1,73 @@
+.hero-container {
+  background: #121634;
+  /* padding-left: 20px; */
+  position: relative;
+  overflow: hidden;
+}
+.hero-banner-arrow {
+  position: absolute;
+  right: 0px;
+  width: 220px;
+  top: 0px;
+}
+
+.hero-bcg {
+  position: absolute;
+  top: 2rem;
+  right: -12.5rem;
+  max-height: 115%;
+}
+
+.hero-bcg-top {
+  position: absolute;
+  max-height: 100%;
+  width: 100%;
+  top: -80%;
+  left: -55%;
+  transform: rotate(-225deg);
+}
+
+.hero-banner-img-container {
+  padding-top: 5rem;
+  padding: 0;
+  background-color: #121634;
+}
+@media only screen and (min-width: 768px) {
+  .hero-banner-img-container {
+    padding: 1.5rem;
+  }
+}
+
+.hero-gradient-line {
+  margin-top: 5rem;
+  width: 220px;
+  height: 40px;
+}
+
+.due-dilly-clockwise {
+  color: transparent;
+  transform: rotate(90deg);
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
+  display: block;
+  font-size: 50px;
+  font-family: "Pti-Improv";
+}
+
+.due-dilly-clockwise-wrapper {
+  position: absolute;
+  bottom: 8rem;
+  left: -8rem;
+  opacity: 0.2;
+  z-index: 1;
+}
+
+.player-wrapper {
+  position: relative;
+  padding-top: 56.25%; /* 720 / 1280 = 0.5625 */
+}
+
+.react-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
