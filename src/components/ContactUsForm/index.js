@@ -68,6 +68,8 @@ const LandingPageBanner = () => {
                 textAlign: "center",
               }}
             >
+              Phone: <a href="tel:9494366571">(949) 436-6571</a>
+              <br />
               Email:{" "}
               <a href="mailto:support@duedilly.co">
                 Send us email at support@duedilly.co
