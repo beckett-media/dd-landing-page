@@ -71,9 +71,7 @@ const LandingPageBanner = () => {
               Phone: <a href="tel:9494366571">(949) 436-6571</a>
               <br />
               Email:{" "}
-              <a href="mailto:support@duedilly.co">
-                Send us email at support@duedilly.co
-              </a>
+              <a href="mailto:support@duedilly.co">support@duedilly.co</a>
               <br />
               Visit us at: Houston, Texas 77070
             </p>
