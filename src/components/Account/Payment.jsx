@@ -173,7 +173,7 @@ const CheckoutForm = StripeHoc(
           <div className="form-group">
             <Form.Item
               name="name"
-              style={{ color: "red" }}
+              style={{ color: "red", backgroundColor: "#1890ff !important" }}
               rules={[
                 {
                   required: true,
@@ -185,6 +185,9 @@ const CheckoutForm = StripeHoc(
               <Input
                 className="form-control light"
                 placeholder="Enter your name!"
+                style={{
+                  backgroundColor: "#121634",
+                }}
               />
             </Form.Item>
 
@@ -200,8 +203,11 @@ const CheckoutForm = StripeHoc(
               ]}
             >
               <Input
-                className="form-control light"
+                className="form-control light input-bacgroud-remain-primary"
                 placeholder="Enter your email!"
+                style={{
+                  backgroundColor: "#121634",
+                }}
               />
             </Form.Item>
 
@@ -220,6 +226,9 @@ const CheckoutForm = StripeHoc(
                 className="form-control light"
                 placeholder="Enter your complete address!"
                 autoSize={{ minRows: 3, maxRows: 5 }}
+                style={{
+                  backgroundColor: "#121634",
+                }}
               />
             </Form.Item>
 

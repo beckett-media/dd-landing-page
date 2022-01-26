@@ -1,12 +1,13 @@
-import React, { useState } from "react"
+import React, { useState, useCallback } from "react"
 import {
   EmailShareButton,
   FacebookShareButton,
   TwitterShareButton,
 } from "react-share"
 import ReactModal from "react-modal"
+import { toPng } from "html-to-image"
 
-import { notification, Button } from "antd"
+import { message, Button } from "antd"
 import Share from "../../../images/svgs/Share.svg"
 import Download from "../../../images/svgs/Download.svg"
 import Copy from "../../../images/svgs/Copy.svg"
@@ -39,20 +40,7 @@ const customStyles = {
   overlay: { zIndex: 999999 },
 }
 
-const customStylesPayment = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-    backgroundColor: "#121634",
-  },
-  overlay: { zIndex: 999999 },
-}
-
-const ShareContainer = ({ getImage, getPDF }) => {
+const ShareContainer = ({ getImage, getPDF, onCloseCall }) => {
   const [modal, setModal] = React.useState(false)
   const [copied, setCopied] = React.useState(false)
 
@@ -114,7 +102,10 @@ const ShareContainer = ({ getImage, getPDF }) => {
           height="30px"
           style={{ cursor: "pointer" }}
           // onClick={() => setModal(true)}
-          onClick={() => getImage()}
+          onClick={() => {
+            getImage()
+            onCloseCall && onCloseCall()
+          }}
           fill="#fff"
         />
       </div>
@@ -134,7 +125,13 @@ const ShareContainer = ({ getImage, getPDF }) => {
         >
           <small className="text-center">URL copied to clipboard!</small>
         </div>
-        <Copy style={{ cursor: "pointer" }} onClick={() => copyToClipboard()} />
+        <Copy
+          style={{ cursor: "pointer" }}
+          onClick={() => {
+            copyToClipboard()
+            onCloseCall && onCloseCall()
+          }}
+        />
       </div>
 
       <div className="mx-2">
@@ -282,7 +279,9 @@ const FacBanner = ({
   const [shareModal, setShareModal] = React.useState(false)
   const [gallery, setGallery] = React.useState([])
   const [orientation, setOrientation] = React.useState("portrait")
-
+  const handleHideModal = () => {
+    setShareModal(false)
+  }
   React.useEffect(() => {
     if (card)
       setGallery([
@@ -400,23 +399,46 @@ const FacBanner = ({
     })
   }
 
-  const getImage = () => {
-    html2canvas(currentPageRef.current, {
-      allowTaint: true,
-      useCORS: true,
-      scrollY: -window.scrollY,
-    }).then(canvas => {
-      var image = canvas.toDataURL()
-      // create temporary link
-      var tmpLink = document.createElement("a")
-      tmpLink.download = `${cardId}-report.png` // set the name of the download file
-      tmpLink.href = image
-      // temporarily add link to body and initiate the download
-      document.body.appendChild(tmpLink)
-      tmpLink.click()
-      document.body.removeChild(tmpLink)
-    })
-  }
+  const getImage = useCallback(() => {
+    message
+      .loading("Compiling everything for you...", 7)
+      .then(() => message.success("Compiled Successfully", 3))
+      .then(() => message.loading("File is Downloading", 18))
+    if (currentPageRef.current === null) {
+      return
+    }
+
+    toPng(currentPageRef.current, { cacheBust: true })
+      .then(dataUrl => {
+        const link = document.createElement("a")
+        link.download = `${cardId}-report.png` // set the name of the download file
+        link.href = dataUrl
+        link.click()
+        message.success("Download completed", 3)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }, [currentPageRef])
+
+  //old code by rashin and dev7
+  // const getImagex = () => {
+  //   html2canvas(currentPageRef.current, {
+  //     allowTaint: true,
+  //     useCORS: true,
+  //     scrollY: -window.scrollY,
+  //   }).then(canvas => {
+  //     var image = canvas.toDataURL()
+  //     // create temporary link
+  //     var tmpLink = document.createElement("a")
+  //     tmpLink.download = `${cardId}-report.png` // set the name of the download file
+  //     tmpLink.href = image
+  //     // temporarily add link to body and initiate the download
+  //     document.body.appendChild(tmpLink)
+  //     tmpLink.click()
+  //     document.body.removeChild(tmpLink)
+  //   })
+  // }
 
   const [isModalVisible, setIsModalVisible] = useState(false)
 
@@ -461,7 +483,11 @@ const FacBanner = ({
               style={customStyles}
             >
               <div className="d-flex">
-                <ShareContainer getPDF={getPDF} getImage={getImage} />
+                <ShareContainer
+                  getPDF={getPDF}
+                  getImage={getImage}
+                  onCloseCall={handleHideModal}
+                />
               </div>
             </ReactModal>
           </div>
@@ -500,7 +526,8 @@ const FacBanner = ({
                 onRequestClose={() => {
                   handleCancel()
                 }}
-                style={customStylesPayment}
+                className="payment-modal-card"
+                overlayClassName="payment-modal-card-overlay"
               >
                 <FontAwesomeIcon
                   icon={faTimesCircle}
@@ -520,7 +547,7 @@ const FacBanner = ({
               {price && (
                 <Button
                   type="primary"
-                  className="submit-btn gradient-link px-3 py-3 nav-link text-center buttonstyle"
+                  className="gradient-link text-center buttonstyle"
                   onClick={quantity ? showModal : null}
                 >
                   {quantity ? "Buy This Card" : "Sold"}

@@ -33,6 +33,7 @@
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-filesystem": "^3.10.0",
     "gatsby-transformer-sharp": "^3.10.0",
+    "html-to-image": "^1.9.0",
     "html2canvas": "^1.1.4",
     "input-masked-react": "^0.4.8",
     "jquery": "^3.6.0",

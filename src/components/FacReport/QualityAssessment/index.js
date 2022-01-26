@@ -105,9 +105,9 @@ const QualityAssessment = ({ card }) => {
               title="Centering"
               grade={
                 <span
-                  className={`${fetchtextClassGreen(
+                  className={`${fetchtextClass(
                     overall
-                  )}  font-weight-bold font-poppins`}
+                  )} font-weight-bold font-poppins`}
                 >
                   {card?.grading?.centering?.["letter_grade"].length < 4
                     ? card?.grading?.centering?.["letter_grade"]
@@ -136,7 +136,7 @@ const QualityAssessment = ({ card }) => {
                         paddingTop: 5,
                       }}
                     >
-                      <h6>
+                      <h6 className="text-cyan">
                         <strong>
                           {card?.grading?.centering?.["letter_grade"]}
                         </strong>

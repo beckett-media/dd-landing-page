@@ -24,19 +24,51 @@
     font-size: 24px;
   }
 }
+
+.buttonstyle {
+  padding: 10px 10px 30px 10px !important;
+  font-size: 1.2rem;
+}
+
 @media only screen and (max-width: 460px) {
   .buttonstyle {
-    margin-top: 10px;
     width: 100%;
-    font-size: 1.2rem;
+  }
+  .payment-modal-card {
+    width: 90%;
   }
 }
 @media only screen and (min-width: 460px) {
   .buttonstyle {
-    margin-top: 10px;
     width: 50%;
-    font-size: 1.2rem;
   }
+
+  .payment-modal-card {
+    width: 50%;
+  }
+}
+
+.payment-modal-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  background-color: #121634;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.payment-modal-card-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(22, 20, 24, 0.596);
+  z-index: 50;
 }
 
 .selected-image-mark {
