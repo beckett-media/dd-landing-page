@@ -2,6 +2,7 @@ import * as React from "react"
 import { Link } from "gatsby"
 import { CONFIG } from "../../constants/Config"
 const ProductHorizontal = ({ product, grade, packaging, authKey }) => {
+  let firstImage = product?.images[0]
   return (
     <Link
       target="_blank"
@@ -14,11 +15,15 @@ const ProductHorizontal = ({ product, grade, packaging, authKey }) => {
     >
       <div className="ps-product--horizontal">
         <div className="ps-product__thumbnail">
-          {(product?.images.length && product?.images[0] && (
+          {(product?.images.length && firstImage && (
             <img
               width="100%"
               alt={product.title}
-              src={CONFIG.base_url + "/" + product?.images[0]}
+              src={
+                (firstImage.startsWith("card")
+                  ? CONFIG.s3BaseUrl + "/"
+                  : CONFIG.base_url + "/") + firstImage
+              }
             />
           )) || <></>}
         </div>
