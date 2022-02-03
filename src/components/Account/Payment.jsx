@@ -264,7 +264,7 @@ const CheckoutForm = StripeHoc(
                 style={{ width: "100%", fontSize: "1.2rem", marginTop: "9px" }}
                 className="submit-btn gradient-link px-3 py-3 nav-link text-center"
               >
-                {`Pay ${amount}`}
+                {`Pay $${amount}`}
               </button>
             ) : (
               <LoadingOutlined style={{ color: "#fff" }} />
