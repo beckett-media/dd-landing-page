@@ -22,8 +22,9 @@ class PostRepository {
     return reponse
   }
 
-  async getPostDetail(postId) {
-    const endPoint = `/blog-press/${postId}`
+  async getPostDetail(postTitle) {
+    postTitle = postTitle.replace(" ", "-")
+    const endPoint = `/blog-press/title/${postTitle}`
     const reponse = await Repository.get(`${basePostUrl}${endPoint}`)
       .then(response => {
         if (response.data?.data?.blogPress) {

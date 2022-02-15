@@ -10,7 +10,11 @@ const Post = props => {
   useEffect(() => {
     async function fetchPost() {
       try {
-        const post = await PostRepository.getPostDetail(props.pid)
+        const post = await PostRepository.getPostDetail(
+          props.location.href.substring(
+            props.location.href.indexOf("/press/") + "/press/".length
+          )
+        )
         setPost(post)
       } catch (error) {
         console.log(error)

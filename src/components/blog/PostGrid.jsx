@@ -17,7 +17,7 @@ const PostGrid = ({ post, pageName }) => {
     if (post.thumbnail !== null) {
       imageThumbnailView = (
         <LazyLoad>
-          <Link to={`${baseUrlPressOrBlog}/${post.id}`}>
+          <Link to={`${baseUrlPressOrBlog}/${post.title.replace(/ /g, "-")}`}>
             <div className="ps-product--horizontal">
               <div className="ps-product__thumbnail">
                 <img
