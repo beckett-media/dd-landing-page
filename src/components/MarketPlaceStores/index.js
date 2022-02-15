@@ -6,7 +6,6 @@ import ProtectionIcon from "../../images/svgs/ProtectionIcon.svg"
 
 import "./styles.css"
 import { CONFIG } from "../../constants/Config"
-import ProductHorizontal from "../ProductHorizontal"
 import StoreHorizontal from "../StoreHorizontol"
 
 const MarketPlaceStores = ({ authKey, marketStores }) => {
