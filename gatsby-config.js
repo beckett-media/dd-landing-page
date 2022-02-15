@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Revolutionizing how the world buys and sells sports cards`,
-    description: `Revolutionizing how the world buys and sells sports cards`,
+    title: ``,
+    description: `We have created a disruptive tool to help you sell your raw cards faster. Using Vision Ai, we are able to pre grade your cards in seconds! Click HERE for more Info!`,
     author: `Due Dilly`,
     siteUrl: `https://www.duedilly.co`,
   },

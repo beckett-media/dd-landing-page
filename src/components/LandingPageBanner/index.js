@@ -53,14 +53,14 @@ const LandingPageBanner = () => {
         <div className="row g-0 py-5 d-flex align-items-center justify-content-center">
           <div className="col-12 col-md-7">
             <div className="position-relative d-inline-block">
-              <h2
+              <h1
                 className="pti-font text-white"
                 style={{
                   textAlign: "center",
                 }}
               >
                 TURN YOUR SPORTS CARDS INTO NFTs
-              </h2>
+              </h1>
             </div>
             <p
               className="text-white shapiro-font"
