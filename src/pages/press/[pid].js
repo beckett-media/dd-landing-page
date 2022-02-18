@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import Layout from "../../components/Layout"
 import PostDetailBackground from "../../components/post/PostDetailBackground"
 import PostRepository from "../../repositories/PostRepository"
+import Seo from "../../components/seo"
 
 const Post = props => {
   const [post, setPost] = useState(null)
@@ -27,10 +28,14 @@ const Post = props => {
     }
   }, [props.pid])
   return (
-    <Layout>
-      <PostDetailBackground post={post} isLoading={isLoading} />
-      {/* <PostComments/> */}
-    </Layout>
+    <>
+      <Seo title={`${props.pid?.replaceAll("-", " ")} | Due Dilly&trade;`} />
+
+      <Layout>
+        <PostDetailBackground post={post} isLoading={isLoading} />
+        {/* <PostComments/> */}
+      </Layout>
+    </>
   )
 }
 export default Post

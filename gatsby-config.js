@@ -45,5 +45,34 @@ module.exports = {
         src: "/form.js", // Change to the script filename
       },
     },
+    {
+      resolve: `gatsby-plugin-advanced-sitemap`,
+      options: {
+        // The filepath and name to Index Sitemap. Defaults to '/sitemap.xml'.
+        output: "/sitemap.xml",
+        mapping: {
+          allGhostTag: {
+            sitemap: `tags`,
+          },
+          allGhostAuthor: {
+            sitemap: `authors`,
+          },
+          allGhostPage: {
+            sitemap: `pages`,
+          },
+        },
+        exclude: [
+          `/dev-404-page`,
+          `/404`,
+          `/404.html`,
+          `/offline-plugin-app-shell-fallback`,
+          `/my-excluded-page`,
+          /(\/)?hash-\S*/, // you can also pass valid RegExp to exclude internal tags for example
+        ],
+        createLinkInHead: true, // optional: create a link in the `<head>` of your site
+        addUncaughtPages: true, // optional: will fill up pages that are not caught by queries and mapping and list them under `sitemap-pages.xml`
+        additionalSitemaps: [],
+      },
+    },
   ],
 }
