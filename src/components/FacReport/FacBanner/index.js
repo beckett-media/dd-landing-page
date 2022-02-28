@@ -194,8 +194,10 @@ const MarketValueBox = ({ gradeData = [], loading }) => {
         statement that this estimate will be valued for 3 days of date it was
         generated.
       </p>
-
-      {loading ? (
+      <p className="text-white mt-3 text-center font-weight-bold py-3">
+        Coming soon...
+      </p>
+      {/* {loading ? (
         <div className="d-flex justify-content-center p-5 align-items-center h-100">
           <Loader />
         </div>
@@ -223,7 +225,7 @@ const MarketValueBox = ({ gradeData = [], loading }) => {
               ))}
           </div>
         </>
-      )}
+      )} */}
     </div>
   )
 }
