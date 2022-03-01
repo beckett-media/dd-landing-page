@@ -2,7 +2,18 @@ import * as React from "react"
 import { Link } from "gatsby"
 import { CONFIG } from "../../constants/Config"
 const ProductHorizontal = ({ product, grade, packaging, authKey }) => {
-  let firstImage = product?.images[0]
+  let firstImage
+
+  if (product.images.length == 1) {
+    firstImage = product?.images[0]
+  } else if (product.images.length > 1) {
+    if (product?.images[0].startsWith("cardFront"))
+      firstImage = product?.images[0]
+    else {
+      firstImage = product?.images[1]
+    }
+  }
+
   return (
     <Link
       target="_blank"
