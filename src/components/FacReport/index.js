@@ -56,9 +56,9 @@ const FacReport = ({ id }) => {
   const initGradeAndPricingFetch = async jobId => {
     const { priceFetchComplete, gradingFetchComplete } = reportDataRef.current
 
-    const {
-      data: { statusPriceDataFetch, statusGradingDataFetch },
-    } = await getJobStatus({ jobId })
+    // const {
+    //   data: { statusPriceDataFetch, statusGradingDataFetch },
+    // } = await getJobStatus({ jobId })
 
     if (!gradingFetchComplete) {
       let { data: gradeData = [] } = await fetchGrading("", {
@@ -78,19 +78,19 @@ const FacReport = ({ id }) => {
 
     reportDataRef.current = {
       ...reportDataRef.current,
-      statusGradingDataFetch,
-      statusPriceDataFetch,
+      // statusGradingDataFetch,
+      // statusPriceDataFetch,
     }
 
     setData({
       ...reportDataRef.current,
     })
 
-    if (!statusGradingDataFetch || !statusGradingDataFetch) {
-      setTimeout(() => {
-        initGradeAndPricingFetch(jobId)
-      }, 10 * 1000)
-    }
+    // if (!statusGradingDataFetch || !statusGradingDataFetch) {
+    //   setTimeout(() => {
+    //     initGradeAndPricingFetch(jobId)
+    //   }, 10 * 1000)
+    // }
   }
 
   const initFetch = async () => {
@@ -111,19 +111,19 @@ const FacReport = ({ id }) => {
       },
     } = fac
 
-    let {
-      data: { _id },
-    } = await createJob({
-      year,
-      brand,
-      cardNumber,
-      playerNames,
-      modelNo,
-      serialNo,
-      cardType,
-    })
+    // let {
+    //   data: { _id },
+    // } = await createJob({
+    //   year,
+    //   brand,
+    //   cardNumber,
+    //   playerNames,
+    //   modelNo,
+    //   serialNo,
+    //   cardType,
+    // })
 
-    initGradeAndPricingFetch(_id)
+    // initGradeAndPricingFetch(_id)
   }
 
   React.useEffect(() => {
