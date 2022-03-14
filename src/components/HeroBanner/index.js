@@ -24,17 +24,15 @@ const HeroBanner = () => (
         >
           <div className="position-relative d-inline-block">
             {/* <h2 className="pti-font text-white">TECH FOR THE HOBBY</h2> */}
-            <h2 className="pti-font text-white">
-              GET YOUR SPORTS CARD GRADED IN SECONDS
-            </h2>
+            <h2 className="pti-font text-white">TEST OUR ACCURACY!</h2>
           </div>
           {/* <p className="text-white shapiro-font">
             We’ve created disruptive tools to help you find and sell raw cards
             faster.
           </p> */}
           <p className="text-white shapiro-font">
-            We’ve created disruptive tools to help you grade, find and sell raw
-            cards faster.
+            Watch the video as we crack a PSA slab to show our computer vision
+            tech is just as accurate as a PSA human grader.
           </p>
           {/* <EmailNameForm /> */}
         </div>
