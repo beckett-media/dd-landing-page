@@ -62,7 +62,7 @@ const Home = () => {
         title="Due Dilly&trade; | Revolutionizing How The World Buys and Sells Sports Cards"
         description="We have created a disruptive tool to help you sell your raw cards faster. Using Vision Ai, we are able to pre grade your cards in seconds! Click HERE for more Info!"
       />
-      {/* <HeroBanner /> */}
+      <HeroBanner />
       <InstantAssessment />
 
       <GradientLine />

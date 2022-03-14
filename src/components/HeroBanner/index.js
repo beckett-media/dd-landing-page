@@ -23,13 +23,20 @@ const HeroBanner = () => (
           }}
         >
           <div className="position-relative d-inline-block">
-            <h2 className="pti-font text-white">TECH FOR THE HOBBY</h2>
+            {/* <h2 className="pti-font text-white">TECH FOR THE HOBBY</h2> */}
+            <h2 className="pti-font text-white">
+              GET YOUR SPORTS CARD GRADED IN SECONDS
+            </h2>
           </div>
-          <p className="text-white shapiro-font">
+          {/* <p className="text-white shapiro-font">
             We’ve created disruptive tools to help you find and sell raw cards
             faster.
+          </p> */}
+          <p className="text-white shapiro-font">
+            We’ve created disruptive tools to help you grade, find and sell raw
+            cards faster.
           </p>
-          <EmailNameForm />
+          {/* <EmailNameForm /> */}
         </div>
         <div className="col-12 col-md-7 pt-3 pt-md-0 hero-banner-img-container position-relative">
           <LowerArrow className="hero-banner-arrow" />
@@ -43,9 +50,16 @@ const HeroBanner = () => (
               objectFit: "contain",
             }}
           /> */}
-          <div style={{ padding: "65% 0 0 0", position: "relative" }}>
+          <div
+            style={{
+              padding: "65% 0 0 0",
+              position: "relative",
+              backgroundColor: "#000",
+            }}
+          >
             <iframe
-              src="https://player.vimeo.com/video/660405176?h=5cb120e354&autoplay=1&loop=1&autopause=0&muted=1"
+              // src="https://player.vimeo.com/video/660405176?h=5cb120e354&autoplay=1&loop=1&autopause=0&muted=1"
+              src="https://player.vimeo.com/video/688056264?&autoplay=1&loop=1&autopause=0&muted=1"
               frameborder="0"
               allow="autoplay; fullscreen; picture-in-picture"
               allowfullscreen
