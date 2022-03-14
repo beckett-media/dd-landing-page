@@ -29,7 +29,7 @@ const InstantAssessment = () => (
         <div className="col-12 col-md-6 inst-asst-text-container position-relative">
           <LowerArrow className="upper-arrow" />
           <div className="position-relative d-inline-block">
-            <h2 className="pti-font text-white">GET A QUALITY SCORE</h2>
+            <h2 className="pti-font text-white">GET A PRE-GRADE</h2>
           </div>
           <p className="text-white font-shapiro">
             Use our advanced tech to assess the quality of edges, corners,
