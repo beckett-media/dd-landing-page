@@ -4,7 +4,6 @@ import Link from "../Common/Link"
 import { useForm } from "react-hook-form"
 import { useDispatch } from "react-redux"
 import { login } from "../../actions/auth"
-import Input from "../Common/Input"
 import getOS from "../../utils/getOS"
 import Notify from "../Notify"
 import { CONFIG } from "../../constants/Config"
@@ -73,24 +72,32 @@ const Login = ({ switchMode, close }) => {
           Sign-in to your account
         </p>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <Input
-            error={errors["email"]}
+          <input
             disabled={loading}
             {...register("email", { required: "Email address is required." })}
             type="email"
             label="Email"
             placeholder="eg. john@doe.com"
           />
-          <Input
-            error={errors["password"]}
+          {(errors.email && (
+            <p className={"text-danger"}>{errors.email.message}</p>
+          )) ||
+            null}
+
+          <input
             disabled={loading}
             {...register("password", {
               required: "Please enter your secure password.",
             })}
             type="password"
             label="Password"
-            placeholder="Enter your secure password"
+            placeholder="Please enter your secure password."
           />
+          {(errors.password && (
+            <p className={"text-danger"}>{errors.password.message}</p>
+          )) ||
+            null}
+
           <div style={{ textAlign: "right", marginBottom: 10 }}>
             <Link onClick={() => switchMode(2)}>Forgot Password?</Link>
           </div>
