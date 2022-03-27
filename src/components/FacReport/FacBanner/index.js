@@ -403,9 +403,9 @@ const FacBanner = ({
 
   const getImage = useCallback(() => {
     message
-      .loading("Compiling everything for you...", 7)
+      .loading("Compiling everything for you...", 2)
       .then(() => message.success("Compiled Successfully", 3))
-      .then(() => message.loading("File is Downloading", 18))
+      .then(() => message.loading("File is Downloading", 118))
     if (currentPageRef.current === null) {
       return
     }
@@ -416,6 +416,7 @@ const FacBanner = ({
         link.download = `${cardId}-report.png` // set the name of the download file
         link.href = dataUrl
         link.click()
+        message.destroy()
         message.success("Download completed", 3)
       })
       .catch(err => {
