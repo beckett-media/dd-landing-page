@@ -4,7 +4,6 @@ import Link from "../Common/Link"
 import { useForm } from "react-hook-form"
 import { useDispatch } from "react-redux"
 import { login } from "../../actions/auth"
-import Input from "../Common/Input"
 import getOS from "../../utils/getOS"
 import Notify from "../Notify"
 import { CONFIG } from "../../constants/Config"
@@ -71,8 +70,7 @@ const Signup = ({ switchMode, close }) => {
           New user? Create an account
         </p>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <Input
-            error={errors["fullName"]}
+          <input
             disabled={loading}
             {...register("fullName", {
               required: "Your full name is required.",
@@ -80,15 +78,21 @@ const Signup = ({ switchMode, close }) => {
             label="Full Name"
             placeholder="Eg. John Doe"
           />
-          <Input
-            error={errors["email"]}
+          {(errors.fullName && (
+            <p className={"text-danger"}>{errors.fullName.message}</p>
+          )) ||
+            null}
+          <input
             disabled={loading}
             {...register("email", { required: "Email address is required." })}
             label="Email"
             placeholder="eg. john@doe.com"
           />
-          <Input
-            error={errors["password"]}
+          {(errors.email && (
+            <p className={"text-danger"}>{errors.email.message}</p>
+          )) ||
+            null}
+          <input
             disabled={loading}
             {...register("password", {
               required: "Please enter a secure password.",
@@ -97,6 +101,10 @@ const Signup = ({ switchMode, close }) => {
             label="Password"
             placeholder="Enter a secure password"
           />
+          {(errors.password && (
+            <p className={"text-danger"}>{errors.password.message}</p>
+          )) ||
+            null}
           <input {...register("osType")} type="hidden" value={os} />
           <input {...register("deviceToken")} type="hidden" value="12345" />
           <button disabled={loading} type="submit" className={"button"}>
