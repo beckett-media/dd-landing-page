@@ -75,7 +75,13 @@ const LandingPageBanner = () => {
             <ul className="nav justify-content-between justify-content-sm-center">
               {linkSection2.map(link => {
                 return (
-                  <li key={link.key} className="nav-item mb-0">
+                  <li
+                    key={link.key}
+                    className="nav-item mb-0"
+                    style={{
+                      zIndex: "999",
+                    }}
+                  >
                     <Link
                       to={link.path}
                       className="nav-link px-2 py-2"
