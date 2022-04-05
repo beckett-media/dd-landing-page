@@ -74,5 +74,17 @@ module.exports = {
         additionalSitemaps: [],
       },
     },
+    {
+      resolve: "gatsby-plugin-rollbar",
+      options: {
+        accessToken: "ae2a0d5c266d4b96a39e210a3e725de2",
+        // For all configuration options, see https://docs.rollbar.com/docs/rollbarjs-configuration-reference
+        captureUncaught: true,
+        captureUnhandledRejections: true,
+        payload: {
+          environment: process.env.NODE_ENV,
+        },
+      },
+    },
   ],
 }
